@@ -344,23 +344,24 @@ template {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    max-width: 750px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    max-width: 970px;
   }
 }
 
 @media (min-width: 1500px) {
   .container {
-    width: 1170px;
+    max-width: 1170px;
   }
 }
 
@@ -476,6 +477,10 @@ h6 {
 
 .h-col-8 {
   flex: 0 0 66.666667%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
