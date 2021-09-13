@@ -1,0 +1,30 @@
+.btn {
+  padding: 18px 24px;
+  display: inline-block;
+  font-family: "Manrope", sans-serif;
+  font-weight: $font-weight-normal;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: $brand-primary;
+  color: $white;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($brand-primary, 10%);
+  }
+}
+
+.btn-secondary {
+  background-color: $brand-secondary;
+  color: $white;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($brand-primary, 10%);
+  }
+}

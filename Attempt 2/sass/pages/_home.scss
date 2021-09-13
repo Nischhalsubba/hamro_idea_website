@@ -1,0 +1,340 @@
+// Main page title
+.title {
+  font-size: 48px;
+  line-height: 68px;
+  margin: 0;
+}
+
+// Our services
+.service {
+  background-color: $gray_02;
+  padding: 82px 0px;
+
+  .h-col-4 {
+    .content {
+      font-size: 18px;
+      line-height: 32px;
+      margin: 24px 0px 0px 0px;
+    }
+  }
+
+  .h-col-8 {
+    max-width: 700px;
+    width: 100%;
+
+    .service_item {
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid $black;
+
+      &:hover {
+        background-color: $white;
+
+        .right-arrow {
+          box-shadow: 2px 8px 8px rgba(27, 29, 33, 0.1);
+        }
+      }
+
+      .service_name {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+        margin-left: 32px;
+        margin-right: 80px;
+      }
+      .content {
+        font-weight: 18px;
+        line-height: 26px;
+        color: $gray_01;
+        font-weight: 400;
+      }
+
+      .right-arrow {
+        background-color: $white;
+        width: 30px;
+        height: 30px;
+        padding: 10px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Our work
+.work {
+  padding: 82px 0px;
+  .card {
+    margin-right: 32px;
+
+    .title {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+
+  .row {
+    margin-bottom: 32px;
+    .glider-prev {
+      rotate: 90deg;
+    }
+
+    .controls {
+      position: relative;
+      display: inline-flex;
+      gap: 24px;
+      height: fit-content;
+    }
+
+    .glider-next,
+    .glider-prev {
+      position: relative;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+
+      border: 1px solid $dark_primary;
+      background-color: $dark_primary;
+      color: $white;
+      border-radius: 50%;
+
+      svg {
+        fill: $white;
+      }
+    }
+
+    .glider-prev.disabled,
+    .glider-next.disabled {
+      border: 1px solid $dark_primary;
+      background-color: $white;
+      color: $brand-primary;
+      border-radius: 50%;
+      opacity: 1;
+
+      svg {
+        fill: $brand-primary;
+      }
+    }
+  }
+
+  .glider-dots {
+    .glider-dot {
+      width: 8px;
+      height: 8px;
+      margin: 0px;
+      margin-right: 4px;
+
+      &.active {
+        width: 24px;
+        background-color: $brand-primary;
+      }
+    }
+  }
+}
+
+// Our Approach
+.our-apporach {
+  background-color: $brand-accent;
+  padding: 82px 0px;
+
+  .title {
+    margin-bottom: 64px;
+  }
+
+  .approach-box {
+    gap: 52px;
+
+    .approach-item {
+      padding: 32px 24px 24px 24px;
+      border-top: 1px solid $black;
+
+      &:hover {
+        background-color: darken($brand-accent, 10%);
+      }
+
+      .indicator {
+        font-size: 20px;
+        color: $black;
+        font-weight: 500;
+      }
+
+      .title {
+        color: $white;
+        font-size: 32px;
+        line-height: 42px;
+        padding: 16px 0px 32px 0px;
+        margin: 0;
+      }
+
+      .content {
+        font-size: 18px;
+        line-height: 28px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// technology
+.technology {
+  padding: 82px 0px;
+
+  .border_line {
+    margin: 62px 0px;
+  }
+
+  .card {
+    margin-right: 32px;
+  }
+
+  .row {
+    margin-bottom: 32px;
+    .glider-prev {
+      rotate: 90deg;
+    }
+
+    .controls {
+      position: relative;
+      display: inline-flex;
+      gap: 24px;
+      height: fit-content;
+    }
+
+    .glider-next,
+    .glider-prev {
+      position: relative;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+
+      border: 1px solid $dark_primary;
+      background-color: $dark_primary;
+      color: $white;
+      border-radius: 50%;
+
+      svg {
+        fill: $white;
+      }
+    }
+
+    .glider-prev.disabled,
+    .glider-next.disabled {
+      border: 1px solid $dark_primary;
+      background-color: $white;
+      color: $brand-primary;
+      border-radius: 50%;
+      opacity: 1;
+
+      svg {
+        fill: $brand-primary;
+      }
+    }
+  }
+
+  .glider-dots {
+    .glider-dot {
+      width: 8px;
+      height: 8px;
+      margin: 0px;
+      margin-right: 4px;
+
+      &.active {
+        width: 24px;
+        background-color: $brand-primary;
+      }
+    }
+  }
+
+  //   experience
+  .experience {
+    &_item {
+      display: flex;
+      align-items: center;
+      .title {
+        font-size: 56px;
+        color: $black;
+        font-weight: 600;
+      }
+
+      .content {
+        font-size: 18px;
+        color: $black;
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+// testimonial
+.testimonial {
+  background-color: $light_secondary;
+  padding: 82px 0px;
+
+  .card-slider {
+    .card {
+      display: flex;
+      align-items: flex-start;
+      .quote {
+        margin-right: 32px;
+      }
+      .content {
+        font-size: 32px;
+        line-height: 50px;
+        font-weight: 400;
+        margin: 0px;
+      }
+
+      .user-info {
+        margin-top: 32px;
+        .name {
+          font-size: 20px;
+          line-height: 32px;
+          color: $brand-secondary;
+          font-weight: 600;
+          margin: 0px;
+        }
+
+        .designation {
+          font-size: 18px;
+          font-weight: 400;
+          margin: 0px;
+        }
+      }
+    }
+  }
+
+  .controls {
+    position: relative;
+    top: -100px;
+
+    .glider-next,
+    .glider-prev {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $brand-secondary;
+    }
+
+    .glider-prev {
+      left: -70px;
+    }
+
+    .glider-next {
+      right: -70px;
+    }
+  }
+}

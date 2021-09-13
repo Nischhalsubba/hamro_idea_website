@@ -1,0 +1,25 @@
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.badge-primary{
+    background-color: $brand-primary;
+    color: $white;
+}
+
+.badge-secondary{
+    background-color: $brand-secondary;
+    color: $white;
+}
+
+.badge-outline-primary{
+    background-color: $white;
+    color: $brand-primary;
+    border: 1px solid $brand-primary;
+}
