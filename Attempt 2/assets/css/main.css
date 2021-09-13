@@ -499,6 +499,37 @@ ol li {
   list-style: none;
 }
 
+.page_not_found {
+  background: #091071;
+  height: 100vh;
+  text-align: center;
+}
+
+.page_not_found .img-container .stars {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page_not_found .border-line--black {
+  border: 4px solid #04080d;
+  position: relative;
+  top: -15px;
+}
+
+.page_not_found .title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 52px;
+  color: #ffffff;
+  margin-top: 52px;
+}
+
+.page_not_found .btn {
+  margin-top: 32px;
+}
+
 .btn {
   padding: 18px 24px;
   display: inline-block;
