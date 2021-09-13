@@ -14,7 +14,8 @@
   &:hover,
   &:active,
   &:focus {
-    color: darken($brand-primary, 10%);
+    // color: darken($brand-primary, 10%);
+    background-color: darken($brand-primary, 20%);
   }
 }
 
@@ -25,6 +26,58 @@
   &:hover,
   &:active,
   &:focus {
-    color: darken($brand-primary, 10%);
+    background-color: darken($brand-secondary, 20%);
+  }
+}
+
+.button {
+  &__arrow {
+    padding-right: 2rem !important;
+
+    .arrow {
+      &__icon {
+        display: inline-block;
+        transform: translateX(10px);
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      .arrow {
+        &__icon {
+          animation: arrowHover 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes arrowHover {
+  0% {
+    transform: translateX(10px);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  80% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes arrowHoverCircle {
+  0% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }

@@ -1,0 +1,40 @@
+.blog-container {
+  // global styling for blog
+  .date {
+    font-size: 18px;
+    line-height: 28px;
+    color: $gray_01;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .content {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  // Specific styling
+  .full-width--blog {
+      margin-bottom: 32px;
+    .date {
+      margin-top: 32px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .content {
+      margin: 14px 0px;
+    }
+  }
+
+  .half-width--blog {
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px solid $gray_01;
+    padding: 32px;
+    max-width: 550px;
+  }
+}

@@ -149,6 +149,11 @@
       }
     }
   }
+
+  //   blog page
+  .half-width--blog {
+    max-width: 100% !important;
+  }
 }
 
 @media (max-width: 992px) {

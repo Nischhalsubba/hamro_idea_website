@@ -449,6 +449,10 @@ template {
   flex-direction: column;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
 h1,
 h2,
 h3,
@@ -510,7 +514,7 @@ ol li {
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  color: #050942;
+  background-color: #010313;
 }
 
 .btn-secondary {
@@ -519,7 +523,51 @@ ol li {
 }
 
 .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
-  color: #050942;
+  background-color: #cc007b;
+}
+
+.button__arrow {
+  padding-right: 2rem !important;
+}
+
+.button__arrow .arrow__icon {
+  display: inline-block;
+  transform: translateX(10px);
+  transition: 0.3s ease-in-out;
+}
+
+.button__arrow:hover .arrow__icon {
+  animation: arrowHover 1s;
+}
+
+@keyframes arrowHover {
+  0% {
+    transform: translateX(10px);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  80% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes arrowHoverCircle {
+  0% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 /** Search form */
@@ -1216,6 +1264,44 @@ ol li {
   width: 90%;
 }
 
+.blog-container .date {
+  font-size: 18px;
+  line-height: 28px;
+  color: #676C86;
+}
+
+.blog-container .title {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.blog-container .content {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.blog-container .full-width--blog {
+  margin-bottom: 32px;
+}
+
+.blog-container .full-width--blog .date {
+  margin-top: 32px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.blog-container .full-width--blog .content {
+  margin: 14px 0px;
+}
+
+.blog-container .half-width--blog {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid #676C86;
+  padding: 32px;
+  max-width: 550px;
+}
+
 footer {
   background-color: #091071;
   padding: 82px 0px;
@@ -1370,6 +1456,9 @@ footer .footer_bottom .links ul li a {
   .testimonial .controls .glider-prev {
     left: 0;
     position: relative;
+  }
+  .half-width--blog {
+    max-width: 100% !important;
   }
 }
 
