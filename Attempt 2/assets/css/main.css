@@ -650,7 +650,7 @@ ol li {
 
 .nav .nav-menu .nav-link {
   display: inline-block;
-  padding: 42px 10px 42px 10px;
+  padding: 42px 24px 42px 24px;
   position: relative;
 }
 
@@ -679,13 +679,13 @@ ol li {
   background-color: #03095D;
   padding: 0px;
   position: absolute;
-  top: 104px;
+  top: 100px;
   left: 0px;
   z-index: 9999;
 }
 
 .nav .nav-menu .nav__submenu-item {
-  padding: 14px 8px;
+  padding: 14px 24px;
 }
 
 .nav .nav-menu .nav__submenu-item:hover {
