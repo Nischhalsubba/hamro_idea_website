@@ -1,5 +1,14 @@
-/** Search form */
-// TODO: .search-form {}
-// TODO: .search-form label {}
-// TODO: .search-form .search-field {}
-// TODO: .search-form .search-submit {}
+.form-control {
+  border: 1px solid #dedede;
+  padding: 24px;
+}
+
+.form-group {
+  label {
+    display: block;
+  }
+
+  input {
+    display: block;
+  }
+}

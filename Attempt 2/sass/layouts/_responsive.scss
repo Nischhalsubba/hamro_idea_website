@@ -1,5 +1,4 @@
-// Small devices (landscape phones, 576px and up)
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .h-col-3,
   .h-col-4,
   .h-col-6,
@@ -90,8 +89,7 @@
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     margin-right: auto;
     margin-left: auto;
@@ -154,15 +152,22 @@
   .half-width--blog {
     max-width: 100% !important;
   }
+
+//   contact page
+  .contact-form {
+    &--image {
+        img{
+            height: 500px !important; 
+            object-fit: cover;
+        }
+    }
+    &--content {
+        padding-left: 0px !important;
+    }
+  }
 }
 
-@media (max-width: 992px) {
-}
-
-@media (max-width: 1500px) {
-}
-
-@media (max-width: 1400px) {
+@media screen and (max-width: 1400px) {
   // Hero
   .hero {
     .hero-image {
