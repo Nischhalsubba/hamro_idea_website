@@ -1,0 +1,65 @@
+.pagination {
+  padding-top: 32px;
+  padding-bottom: 82px;
+  ul,
+  li {
+    list-style: none;
+    display: inline;
+    padding-left: 0px;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    counter-increment: pagination;
+
+    &:hover {
+      a {
+        color: lighten($brand-primary, 5%);
+        background-color: rgba(255, 0, 154, 0.25);
+        border: solid 1px $brand-secondary;
+      border-right: none;
+      }
+    }
+    &.active {
+      a {
+        color: lighten($brand-primary, 5%);
+        background-color: rgba(255, 0, 154, 0.25);
+        border: solid 1px $brand-secondary;
+      border-right: none;
+      }
+    }
+    &:first-child {
+      a {
+        &:after {
+          content: "<";
+        }
+      }
+    }
+
+    &:last-child {
+      a {
+      border: 1px solid $gray_01;
+
+        &:after {
+          content: ">";
+        }
+      }
+    }
+    a {
+      border: 1px solid $gray_01;
+      border-right: none;
+      color: darken($brand-primary, 45%);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      padding: 0.5rem 0.9rem;
+    }
+    a:after {
+      content: " " counter(pagination) " ";
+    }
+  }
+}

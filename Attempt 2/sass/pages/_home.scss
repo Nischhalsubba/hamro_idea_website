@@ -67,8 +67,13 @@
 // Our work
 .work {
   padding: 82px 0px;
+  
   .card {
     margin-right: 32px;
+
+    img{
+        width: 100%;
+    }
 
     .title {
       font-size: 20px;

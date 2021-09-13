@@ -1,0 +1,16 @@
+.page_header {
+  background-color: $brand-primary;
+  padding: 52px 0px;
+
+  .title {
+    color: $white;
+    font-weight: 400;
+  }
+
+  .sub_title {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 46px;
+    color: $brand-accent;
+  }
+}
