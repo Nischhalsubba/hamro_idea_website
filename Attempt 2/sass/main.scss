@@ -16,13 +16,13 @@
 @import "components/wp-classes";
 @import "components/badge";
 
+// Importing Pages
+@import "pages/home";
+
 // Layouts
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
-// @import "layouts/tinymce";
-
-// Importing Pages
-@import "pages/home";
+@import "layouts/responsive";

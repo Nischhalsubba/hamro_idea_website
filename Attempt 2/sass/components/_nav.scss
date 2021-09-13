@@ -1,103 +1,145 @@
 .nav {
-	width: 100%;
-	background-color: $dark_primary;
-    padding: 32px 0px;
-	position: relative;
-	.nav-header {
-		display: inline;
-		.nav-title {
-			display: inline-block;
-			font-size: 22px;
-			color: $white;
-			padding: 10px 10px 10px 10px;
-		}
-	}
-	.nav-btn {
-		display: none;
-	}
-	.nav-links {
-		display: inline;
-		float: right;
-		font-size: 18px;
-		a {
-			display: inline-block;
-			padding: 13px 10px 13px 10px;
-			text-decoration: none;
-			color: $white;
-			&:hover {
-				background-color: rgba(0, 0, 0, 0.3);
-			}
-		}
-	}
-	#nav-check {
-		display: none;
-	}
+  width: 100%;
+  background-color: $dark_primary;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+
+  &.sticky {
+    position: fixed;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px;
+    width: 100%;
+    background: #111;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .flex_box {
+    align-items: center;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+  .nav-menu {
+    display: inline;
+    font-size: 18px;
+    margin: 0px;
+    .nav-link {
+      display: inline-block;
+      padding: 42px 10px 42px 10px;
+      position: relative;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+
+        .nav__submenu {
+          display: block;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+
+    .nav__submenu {
+      font-weight: 300;
+      text-transform: none;
+      display: none;
+      position: absolute;
+      width: 220px;
+      background-color: $dark_primary;
+      padding: 0px;
+      position: absolute;
+      top: 104px;
+      left: 0px;
+      z-index: 9999;
+
+      &-item {
+        padding: 14px 8px;
+        &:hover {
+          background: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+  #nav-check {
+    display: none;
+  }
 }
-@media (max-width:600px) {
-	.nav {
-		.nav-btn {
-			display: inline-block;
-			position: absolute;
-			right: 0px;
-			top: 32px;
-			label {
-				display: inline-block;
-				width: 50px;
-				height: 50px;
-				padding: 13px;
-				&:hover {
-					background-color: rgba(0, 0, 0, 0.3);
-				}
-				span {
-					display: block;
-					width: 25px;
-					height: 10px;
-					border-top: 2px solid #eee;
-				}
-			}
-		}
-		#nav-check {
-			&:checked {
-				~ {
-					.nav-btn {
-						label {
-							background-color: rgba(0, 0, 0, 0.3);
-						}
-					}
-				}
-			}
-		}
-		.nav-links {
-			position: absolute;
-			display: block;
-			width: 100%;
-			background-color: #333;
-			height: 0px;
-			transition: all 0.3s ease-in;
-			overflow-y: hidden;
-			top: 119px;
-			left: 0px;
-			a {
-				display: block;
-				width: 100%;
-			}
-		}
-		#nav-check {
-			&:not(:checked) {
-				~ {
-					.nav-links {
-						height: 0px;
-					}
-				}
-			}
-			&:checked {
-				~ {
-					.nav-links {
-						height: calc(100vh - 50px);
-						overflow-y: auto;
-					}
-				}
-			}
-		}
-	}
+@media (max-width: 600px) {
+  .nav {
+    .nav-btn {
+      display: inline-block;
+      position: relative;
+      right: 0px;
+      top: 0px;
+      label {
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        span {
+          display: block;
+          width: 25px;
+          height: 10px;
+          border-top: 2px solid #eee;
+        }
+      }
+    }
+    #nav-check {
+      &:checked {
+        ~ {
+          .nav-btn {
+            label {
+              background-color: rgba(0, 0, 0, 0.3);
+            }
+          }
+        }
+      }
+    }
+    .nav-menu {
+      position: absolute;
+      display: inline-flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 75px;
+      left: 0px;
+      padding: 0px 32px;
+      a {
+        display: block;
+        width: 100%;
+      }
+    }
+    #nav-check {
+      &:not(:checked) {
+        ~ {
+          .nav-menu {
+            height: 0px;
+          }
+        }
+      }
+      &:checked {
+        ~ {
+          .nav-menu {
+            height: calc(100vh - 50px);
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+  }
 }

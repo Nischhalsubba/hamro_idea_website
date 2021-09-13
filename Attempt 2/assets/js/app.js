@@ -29,3 +29,15 @@ new Glider(document.querySelector(".testimonial .card-slider"), {
     next: ".glider-next",
   },
 });
+
+// Hedear
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  window.scroll(function () {
+    if (this.scrollTop() > 1) {
+      document.getElementByClassName("nav").classList.add("sticky");
+    } else {
+      document.getElementByClassName("nav").classList.remove("sticky");
+    }
+  });
+});
