@@ -27,12 +27,19 @@
       display: flex;
       align-items: center;
       border-top: 1px solid $black;
+      text-decoration: none;
+      transition: all 0.5s 0s ease-in-out;
 
       &:hover {
         background-color: $white;
+        box-shadow: 0px 2.1px 3.6px rgba(0, 0, 0, 0.041),
+          0px 46px 80px rgba(0, 0, 0, 0.13);
 
         .right-arrow {
-          box-shadow: 2px 8px 8px rgba(27, 29, 33, 0.1);
+          box-shadow: 0px 2.1px 3.6px rgba(0, 0, 0, 0.041),
+            0px 5.8px 10px rgba(0, 0, 0, 0.058),
+            0px 13.9px 24.1px rgba(0, 0, 0, 0.075),
+            0px 46px 80px rgba(0, 0, 0, 0.13);
         }
       }
 
@@ -42,6 +49,7 @@
         font-weight: 600;
         margin-left: 32px;
         margin-right: 80px;
+        color: $black;
       }
       .content {
         font-weight: 18px;
@@ -67,12 +75,12 @@
 // Our work
 .work {
   padding: 82px 0px;
-  
+
   .card {
     margin-right: 32px;
 
-    img{
-        width: 100%;
+    img {
+      width: 100%;
     }
 
     .title {
@@ -132,8 +140,8 @@
   }
 
   .glider-dots {
-      margin-top: 32px;
-      
+    margin-top: 32px;
+
     .glider-dot {
       width: 8px;
       height: 8px;
@@ -158,14 +166,19 @@
   }
 
   .approach-box {
-    gap: 52px;
-
+    row-gap: 14px;
     .approach-item {
+      background-color: $white;
       padding: 32px 24px 24px 24px;
-      border-top: 1px solid $black;
+      margin-right: 14px;
+      transition: 0.5s linear all;
+      cursor: pointer;
 
       &:hover {
-        background-color: darken($brand-accent, 10%);
+        box-shadow: 0px 2.1px 3.6px rgba(0, 0, 0, 0.041),
+          0px 5.8px 10px rgba(0, 0, 0, 0.058),
+          0px 13.9px 24.1px rgba(0, 0, 0, 0.075),
+          0px 46px 80px rgba(0, 0, 0, 0.13);
       }
 
       .indicator {
@@ -175,7 +188,7 @@
       }
 
       .title {
-        color: $white;
+        color: $brand-primary;
         font-size: 32px;
         line-height: 42px;
         padding: 16px 0px 32px 0px;
@@ -186,6 +199,7 @@
         font-size: 18px;
         line-height: 28px;
         margin: 0;
+        color: $black;
       }
     }
   }
@@ -199,68 +213,20 @@
     margin: 62px 0px;
   }
 
-  .card {
-    margin-right: 32px;
-  }
-
   .row {
     margin-bottom: 32px;
-    .glider-prev {
-      rotate: 90deg;
-    }
-
-    .controls {
-      position: relative;
-      display: inline-flex;
-      gap: 24px;
-      height: fit-content;
-    }
-
-    .glider-next,
-    .glider-prev {
-      position: relative;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-
-      border: 1px solid $dark_primary;
-      background-color: $dark_primary;
-      color: $white;
-      border-radius: 50%;
-
-      svg {
-        fill: $white;
-      }
-    }
-
-    .glider-prev.disabled,
-    .glider-next.disabled {
-      border: 1px solid $dark_primary;
-      background-color: $white;
-      color: $brand-primary;
-      border-radius: 50%;
-      opacity: 1;
-
-      svg {
-        fill: $brand-primary;
-      }
-    }
   }
 
-  .glider-dots {
-    .glider-dot {
-      width: 8px;
-      height: 8px;
-      margin: 0px;
-      margin-right: 4px;
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 52px;
+    .card {
+      width: 20%;
 
-      &.active {
-        width: 24px;
-        background-color: $brand-primary;
+      img {
+        width: 80px;
+        height: 40px;
       }
     }
   }
