@@ -1,0 +1,48 @@
+//- Insights Section
+section.insights
+    .container
+        .insights__header
+            .insights__icon
+                svg(width="40", height="40", viewBox="0 0 40 40", fill="none", xmlns="http://www.w3.org/2000/svg")
+                    rect(width="40", height="40", rx="8", fill="#121984")
+                    path(d="M13 12h14v16H13z", stroke="white", stroke-width="2")
+                    path(d="M17 16h6", stroke="white", stroke-width="2")
+                    path(d="M17 20h8", stroke="white", stroke-width="2")
+            h2.insights__title Explore Our Latest Insights On Tech, AI, And Digital Innovation.
+            p.insights__subtitle Discover fresh perspectives on technology, AI, and digital innovation from the Hamro Idea team.
+            .insights__controls
+                button.insights__control(aria-label="Previous")
+                    svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M9.2 1.6L7.8 0.2L0.6 8L7.8 15.8L9.2 14.4L3.4 8L9.2 1.6Z", fill="currentColor")
+                button.insights__control.is-primary(aria-label="Next")
+                    svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M0.8 14.4L2.2 15.8L9.4 8L2.2 0.2L0.8 1.6L6.6 8L0.8 14.4Z", fill="currentColor")
+
+        .insights__grid
+            a.insights__card(href="/insights/blog.html")
+                img.insights__image(src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80", alt="AI circuit board")
+                .insights__meta
+                    span.insights__tag Artificial Intelligence
+                    span.insights__date 02 days ago
+                h3 AI Vocabulary -- Your Complete Guide To Terms.
+
+            a.insights__card(href="/insights/blog.html")
+                img.insights__image(src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80", alt="Team podcast recording")
+                .insights__meta
+                    span.insights__tag Podcast
+                    span.insights__date 03 days ago
+                h3 Frederik G. P. Derft On Future Mindset, Emotional Leadership.
+
+            a.insights__card(href="/insights/blog.html")
+                img.insights__image(src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80", alt="Robotics and AI collaboration")
+                .insights__meta
+                    span.insights__tag Artificial Intelligence
+                    span.insights__date 02 days ago
+                h3 LLMs, AI Agents, And Agentic AI: The Next AI Evolution.
+
+            a.insights__card(href="/insights/blog.html")
+                img.insights__image(src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80", alt="Business podcast host")
+                .insights__meta
+                    span.insights__tag Podcast
+                    span.insights__date 03 days ago
+                h3 On Point -- The Brand-New Business Podcast From Hamro Idea.

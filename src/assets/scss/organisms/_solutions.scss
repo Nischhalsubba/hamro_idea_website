@@ -18,7 +18,7 @@
         }
 
         .solutions__title {
-            font-family: 'Almarai', sans-serif;
+            font-family: $font-family-heading;
             font-weight: 700;
             font-size: 2.25rem;
             line-height: 1.25;
@@ -31,7 +31,7 @@
         }
 
         .solutions__description {
-            font-family: 'Almarai', sans-serif;
+            font-family: $font-family-heading;
             font-size: 1.1rem;
             color: rgba($color-black, 0.7);
             max-width: 600px;
@@ -84,7 +84,7 @@
         }
 
         .item-title {
-            font-family: 'Almarai', sans-serif;
+            font-family: $font-family-heading;
             font-weight: 700;
             font-size: 1.35rem;
             color: $color-black;
@@ -92,7 +92,7 @@
         }
 
         .item-desc {
-            font-family: 'Almarai', sans-serif;
+            font-family: $font-family-heading;
             font-size: 1rem;
             color: rgba($color-black, 0.7);
             line-height: 1.6;

@@ -1,75 +1,92 @@
 //- Testimonial
 section.testimonial
     .container
-        .card-slider
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Quote coming soon."
-                    .user-info
-                        h5.name Belen
-                        span.designation Client
+        .testimonial__header
+            .testimonial__icon
+                svg(width="40", height="40", viewBox="0 0 40 40", fill="none", xmlns="http://www.w3.org/2000/svg")
+                    rect(width="40", height="40", rx="8", fill="#121984")
+                    path(d="M20 10L22.85 16.15L29.6 16.9L24.6 21.35L26.1 28L20 24.6L13.9 28L15.4 21.35L10.4 16.9L17.15 16.15L20 10Z", fill="white")
+            h2.testimonial__title Our Users Say It Best.
+            p.testimonial__subtitle Don't just take our word for it -- here's what our clients share after partnering with Hamro Idea.
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Quote coming soon."
-                    .user-info
-                        h5.name James
-                        span.designation Client
+        .testimonial__slider-wrap
+            .card-slider
+                .card
+                    p.testimonial__quote "Quote coming soon."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar BL
+                            .testimonial__meta
+                                h5.testimonial__name Belen
+                                span.testimonial__role Client
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Quote coming soon."
-                    .user-info
-                        h5.name Adam
-                        span.designation Client
+                .card
+                    p.testimonial__quote "Quote coming soon."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar JA
+                            .testimonial__meta
+                                h5.testimonial__name James
+                                span.testimonial__role Client
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Quote coming soon."
-                    .user-info
-                        h5.name Andy
-                        span.designation Client
+                .card
+                    p.testimonial__quote "Quote coming soon."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar AD
+                            .testimonial__meta
+                                h5.testimonial__name Adam
+                                span.testimonial__role Client
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Hamro Idea was quick to support us with any post launch changes and kept providing solutions to the number of on-the-ground challenges we met during the project tenure."
-                    .user-info
-                        h5.name RISMFP, Nepalgunj
-                        span.designation Management Information System (MIS) Development
-            
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "We are very pleased with the level of expertise the firm had and their friendly staff. We gladly recommend Hamro Idea Pvt. Ltd. on web based software, mobile apps and website development."
-                    .user-info
-                        h5.name Raising Incomes of Small and Medium Farmers Project
-                        span.designation MIS Development
+                .card
+                    p.testimonial__quote "Quote coming soon."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar AN
+                            .testimonial__meta
+                                h5.testimonial__name Andy
+                                span.testimonial__role Client
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "Hamro Idea delivered with clarity and care throughout the engagement."
-                    .user-info
-                        h5.name Raja Dongol - CHDW
-                        span.designation Partner Organization
+                .card
+                    p.testimonial__quote "Hamro Idea was quick to support us with any post launch changes and kept providing solutions to the number of on-the-ground challenges we met during the project tenure."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar RN
+                            .testimonial__meta
+                                h5.testimonial__name RISMFP, Nepalgunj
+                                span.testimonial__role Management Information System (MIS) Development
 
-            .card
-                img.quote(src="assets/images/blue quote.svg", alt="", srcset="")
-                .flex_box.flex_box-column
-                    p.content "The team was professional, responsive, and invested in our success."
-                    .user-info
-                        h5.name Subesth Shrestha - CEO of BideshJane
-                        span.designation Client Partner
+                .card
+                    p.testimonial__quote "We are very pleased with the level of expertise the firm had and their friendly staff. We gladly recommend Hamro Idea Pvt. Ltd. on web based software, mobile apps and website development."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar RI
+                            .testimonial__meta
+                                h5.testimonial__name Raising Incomes of Small and Medium Farmers Project
+                                span.testimonial__role MIS Development
 
-        .controls
-            button.glider-prev(aria-label="Previous")
-                svg(width="8", height="12", viewBox="0 0 8 12", xmlns="http://www.w3.org/2000/svg")
-                    path(d="M5.99997 0L7.40997 1.41L2.82997 6L7.40997 10.59L5.99997 12L-2.67029e-05 6L5.99997 0Z")
-            button.glider-next(aria-label="Next")
-                svg(width="10", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
-                    path(fill-rule="evenodd", clip-rule="evenodd", d="M0.368774 2.63127L6.09377 8.36877L0.368774 14.1063L2.13127 15.8688L9.63127 8.36877L2.13127 0.868774L0.368774 2.63127Z")
+                .card
+                    p.testimonial__quote "Hamro Idea delivered with clarity and care throughout the engagement."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar RD
+                            .testimonial__meta
+                                h5.testimonial__name Raja Dongol - CHDW
+                                span.testimonial__role Partner Organization
+
+                .card
+                    p.testimonial__quote "The team was professional, responsive, and invested in our success."
+                    .testimonial__footer
+                        .testimonial__profile
+                            span.testimonial__avatar SS
+                            .testimonial__meta
+                                h5.testimonial__name Subesth Shrestha - CEO of BideshJane
+                                span.testimonial__role Client Partner
+
+            .controls
+                button.glider-prev(aria-label="Previous")
+                    svg(width="10", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M9.2 1.6L7.8 0.2L0.6 8L7.8 15.8L9.2 14.4L3.4 8L9.2 1.6Z", fill="currentColor")
+                button.glider-next(aria-label="Next")
+                    svg(width="10", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M0.8 14.4L2.2 15.8L9.4 8L2.2 0.2L0.8 1.6L6.6 8L0.8 14.4Z", fill="currentColor")

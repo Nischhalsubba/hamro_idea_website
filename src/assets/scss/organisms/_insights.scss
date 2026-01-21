@@ -1,0 +1,126 @@
+// Insights Section
+.insights {
+  padding: 140px 0;
+  background-color: $color-soft-lilac;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 24px rgba($color-blue, 0.18);
+  }
+
+  &__title {
+    font-size: clamp(2.1rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: $color-text-head;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    color: $color-text-muted;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  &__controls {
+    display: inline-flex;
+    gap: 0.75rem;
+    align-self: end;
+  }
+
+  &__control {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    border: 1px solid rgba($color-blue, 0.1);
+    background: rgba(255, 255, 255, 0.85);
+    color: $color-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: rgba($color-blue, 0.08);
+    }
+
+    &.is-primary {
+      background: $color-blue;
+      color: $color-white;
+      border-color: transparent;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  &__card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba($color-blue, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: $color-text-muted;
+    padding: 1rem 1.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__tag {
+    background: rgba($color-blue, 0.1);
+    color: $color-blue;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem 1.5rem;
+    margin: 0;
+    color: $color-text-head;
+    line-height: 1.4;
+  }
+}

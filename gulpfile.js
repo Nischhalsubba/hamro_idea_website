@@ -76,7 +76,7 @@ gulp.task('pug', () => {
     since: gulp.lastRun('pug')
   })
     .pipe(plumber())
-    .pipe(pug())
+    .pipe(pug({ pretty: true }))
     .pipe(gulp.dest(dist_folder))
     .pipe(browserSync.stream());
 });

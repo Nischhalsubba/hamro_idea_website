@@ -1,0 +1,96 @@
+// Why Choose Section
+.why-choose {
+  padding: 140px 0;
+  background-color: $color-soft-lilac;
+
+  &__header {
+    max-width: 720px;
+    margin-bottom: 3.5rem;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 24px rgba($color-blue, 0.18);
+  }
+
+  &__title {
+    font-size: clamp(2.1rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: $color-text-head;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: $color-text-muted;
+    margin: 0;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  &__list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  &__card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba($color-blue, 0.08);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 20px 40px rgba($color-blue, 0.08);
+  }
+
+  &__card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba($color-blue, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__card-body {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: $color-text-head;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-muted;
+      line-height: 1.6;
+    }
+  }
+
+  &__media {
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 35px 80px rgba(12, 16, 60, 0.2);
+      object-fit: cover;
+      min-height: 420px;
+    }
+  }
+}

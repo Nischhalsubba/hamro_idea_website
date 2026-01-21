@@ -1,34 +1,43 @@
 // new Glider(document.querySelector(".work"));
 
-new Glider(document.querySelector(".work .card-slider"), {
-  slidesToShow: 3,
-  draggable: true,
-  dots: ".dots",
-  arrows: {
-    prev: ".glider-prev",
-    next: ".glider-next",
-  },
-});
+const workSlider = document.querySelector(".work .card-slider");
+if (workSlider) {
+  new Glider(workSlider, {
+    slidesToShow: 3,
+    draggable: true,
+    dots: ".dots",
+    arrows: {
+      prev: ".glider-prev",
+      next: ".glider-next",
+    },
+  });
+}
 
-new Glider(document.querySelector(".technology .card-slider"), {
-  slidesToShow: 5,
-  draggable: true,
-  dots: ".dots",
-  arrows: {
-    prev: ".glider-prev",
-    next: ".glider-next",
-  },
-});
+const techSlider = document.querySelector(".technology .card-slider");
+if (techSlider) {
+  new Glider(techSlider, {
+    slidesToShow: 5,
+    draggable: true,
+    dots: ".dots",
+    arrows: {
+      prev: ".glider-prev",
+      next: ".glider-next",
+    },
+  });
+}
 
-new Glider(document.querySelector(".testimonial .card-slider"), {
-  slidesToShow: 1,
-  draggable: true,
-  dots: ".dots",
-  arrows: {
-    prev: ".glider-prev",
-    next: ".glider-next",
-  },
-});
+const testimonialSlider = document.querySelector(".testimonial .card-slider");
+if (testimonialSlider) {
+  new Glider(testimonialSlider, {
+    slidesToShow: 1,
+    draggable: true,
+    dots: ".dots",
+    arrows: {
+      prev: ".glider-prev",
+      next: ".glider-next",
+    },
+  });
+}
 
 // Hedear
 

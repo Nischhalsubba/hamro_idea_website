@@ -98,11 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".collaboration .collab-card");
     revealItems(".solutions__header");
     revealItems(".solutions__item");
-    revealItems(".work .card");
-    revealItems(".our-apporach .approach-item");
-    revealItems(".technology .card");
-    revealItems(".technology .experience_item");
+    revealItems(".why-choose__card");
     revealItems(".testimonial .card");
+    revealItems(".insights .insights__card");
+    revealItems(".cta .cta__content");
+    revealItems(".site-footer__card");
     revealItems("footer .cta");
     revealItems("footer .footer_bottom");
 });

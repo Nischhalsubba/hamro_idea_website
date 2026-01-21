@@ -1,0 +1,90 @@
+// CTA Section
+.cta {
+  position: relative;
+  padding: 140px 0 180px;
+  color: $color-white;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(109, 117, 255, 0.55) 0%, transparent 55%),
+      radial-gradient(circle at 80% 30%, rgba(34, 42, 152, 0.85) 0%, transparent 55%),
+      linear-gradient(135deg, #0a0e3a 0%, #151d6a 45%, #1a2a88 100%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__content {
+    max-width: 700px;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  &__title {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 520px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: $color-white;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $color-white;
+    color: $color-blue;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &-icon {
+      font-size: 1.1rem;
+    }
+  }
+}
