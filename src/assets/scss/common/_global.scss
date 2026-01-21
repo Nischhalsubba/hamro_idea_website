@@ -3,7 +3,7 @@
 }
 
 body {
-  background: $color-bg-light;
+  background: linear-gradient(180deg, $color-soft-lilac 0%, $color-bg-light 45%, #e4e6f5 100%);
   color: $color-text-body;
   margin: 0;
   font-family: $font-family-base;

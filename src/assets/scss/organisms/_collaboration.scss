@@ -48,7 +48,8 @@
 
     .collab-card {
         background-color: #F8F9FE; // Very light blue/grey
-        border-radius: 20px;
+        border-radius: 16px;
+        border: 1px solid rgba($color-white, 0.9);
         padding: 3rem;
         overflow: hidden;
         position: relative;
