@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $color-bg-light;
+  color: $color-text-body;
+  margin: 0;
+  font-family: $font-family-base;
+  overflow-x: hidden;
+}
+
+ul,
+ol {
+  li {
+    text-decoration: none;
+    list-style: none;
+  }
+}
+
+.page_not_found {
+  background: $color-primary; // Updated from $brand-primary
+  height: 100vh;
+  text-align: center;
+
+  .img-container {
+
+    .stars {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .border-line--black {
+    border: 4px solid $color-black;
+    position: relative;
+    top: -15px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 52px;
+    color: $color-white;
+    margin-top: 52px;
+  }
+
+  .btn {
+    margin-top: 32px;
+  }
+}

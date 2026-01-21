@@ -1,0 +1,515 @@
+.navbar {
+  background-color: transparent;
+  padding: 1.5rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; // Ensure it spans full width
+  z-index: 1000;
+  border-bottom: 1px solid rgba($color-white, 0.1);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; // Ensure inner wrapper takes full container width
+  }
+
+  &__brand {
+    text-decoration: none;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .navbar__logo-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar__logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  // Desktop Menu
+  &__menu-desktop {
+    // Changed from specific __menu-desktop to match Pug class
+    display: none; // Hidden on mobile
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+
+    @include breakpoint-up(lg) {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar__menu-item {
+      // Updated selector to match Pug
+      position: relative; // For dropdown positioning
+
+      .nav-link {
+        font-family: $font-family-base;
+        color: $color-text-head; // Dark text for light theme
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 1.5rem 0; // Increased padding for easier hover target
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px; // Space for arrow
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+
+      // Dropdown Arrow Logic - Only if parent has specific class
+      &.has-dropdown>.nav-link::after,
+      &.has-mega-menu>.nav-link::after {
+        content: '';
+        display: block;
+        width: 0.4em;
+        height: 0.4em;
+        border: 1.5px solid currentColor;
+        border-left: 0;
+        border-top: 0;
+        transform: rotate(45deg);
+        margin-top: -2px;
+        transition: transform 0.2s ease;
+      }
+
+      // CRITICAL FIX: Mega Menu parent must be static to allow menu to span full width
+      &.has-mega-menu {
+        position: static;
+      }
+
+      // Rotate arrow on hover
+      &:hover {
+        >.nav-link::after {
+          transform: rotate(-135deg);
+          margin-top: 2px;
+        }
+
+        // Show Menus on Hover (CSS Logic)
+        .mega-menu,
+        .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto; // Content becomes interactive
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  // Mega Menu Container (Reference Design)
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    // Dark Glassmorphism for VisionOS theme (Reference was white, we adapt to dark)
+    background: rgba(#050a1a, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba($color-white, 0.1);
+    padding: 0; // Padding handled by internal container
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+    &__container {
+      padding: 2.5rem 15px; // Add padding here
+    }
+
+    &__layout {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr; // Main Content | Sidebar
+      gap: 4rem;
+      align-items: start; // Prevent stretching
+    }
+
+    &__main {
+      .mega-section-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba($color-white, 0.5);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // 2 Columns of cards
+        gap: 2rem;
+      }
+
+      // Service Card (Icon + Title + Desc)
+      .service-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        text-decoration: none;
+        padding: 1rem;
+        border-radius: 12px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          background-color: rgba($color-white, 0.05);
+          transform: translateX(5px);
+        }
+
+        &__icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 10px; // Rounded square like 'App Icon'
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          // Colors based on reference categories
+          &.icon--orange {
+            background-color: rgba(#FF5722, 0.15);
+            color: #FF5722;
+          }
+
+          &.icon--blue {
+            background-color: rgba(#2196F3, 0.15);
+            color: #2196F3;
+          }
+
+          &.icon--green {
+            background-color: rgba(#4CAF50, 0.15);
+            color: #4CAF50;
+          }
+
+          &.icon--purple {
+            background-color: rgba(#9C27B0, 0.15);
+            color: #9C27B0;
+          }
+        }
+
+        &__content {
+          .service-card__title {
+            color: $color-white;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 0.4rem 0;
+          }
+
+          .service-card__desc {
+            color: rgba($color-white, 0.6);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    &__sidebar {
+      border-left: 1px solid rgba($color-white, 0.1);
+      padding-left: 2rem;
+
+      .mega-section-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba($color-white, 0.5);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .sidebar-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+      }
+
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+        margin-bottom: 1.25rem;
+
+        &:hover {
+          .sidebar-title {
+            color: $color-highlight-yellow;
+          }
+
+          .sidebar-icon {
+            transform: scale(1.1);
+          }
+        }
+
+        .sidebar-icon {
+          font-size: 1.25rem;
+          transition: transform 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background: rgba($color-white, 0.05);
+          border-radius: 6px;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .sidebar-title {
+          color: $color-white;
+          font-size: 0.95rem;
+          font-weight: 600;
+          transition: color 0.2s;
+          margin-bottom: 0.2rem;
+        }
+
+        .sidebar-desc {
+          color: rgba($color-white, 0.5);
+          font-size: 0.8rem;
+        }
+      }
+
+      .mega-menu__footer-link {
+        a {
+          color: $color-accent-pink;
+          font-weight: 600;
+          font-size: 0.9rem;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  // Standard Dropdown
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: $color-primary; // Default solid
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    list-style: none;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        color: rgba($color-white, 0.9);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+
+        &:hover {
+          color: $color-highlight-yellow;
+        }
+      }
+    }
+  }
+
+  &__actions-desktop {
+    display: none;
+
+    @include breakpoint-up(lg) {
+      display: block;
+    }
+
+    .btn--primary {
+      background-color: $color-accent-pink;
+      color: $color-white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px; // Pill shape
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+
+      &:hover {
+        background-color: lighten($color-accent-pink, 5%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &__toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @include breakpoint-up(lg) {
+      display: none;
+    }
+
+    &-icon {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $color-white;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        left: 0;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+  }
+}
+
+// Mobile Overlay
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $color-primary;
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+
+    .logo-text {
+      color: $color-white;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .mobile-nav-close {
+      background: none;
+      border: none;
+      color: $color-white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    padding: 2rem;
+    margin: 0;
+    overflow-y: auto;
+
+    li {
+      margin-bottom: 1.5rem;
+
+      a,
+      span {
+        color: $color-white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: block;
+      }
+
+      &.has-submenu {
+        cursor: pointer;
+
+        .submenu {
+          display: none; // Toggle via JS
+          list-style: none;
+          padding-left: 1rem;
+          margin-top: 1rem;
+          border-left: 2px solid rgba($color-white, 0.2);
+
+          li {
+            margin-bottom: 0.75rem;
+
+            a {
+              font-size: 1.1rem;
+              font-weight: 400;
+              color: rgba($color-white, 0.8);
+            }
+          }
+
+          &.open {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-nav-actions {
+    padding: 2rem;
+    margin-top: auto;
+
+    .btn--block {
+      display: block;
+      text-align: center;
+      background-color: $color-accent-pink;
+      color: $color-white;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .quick-actions {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        color: rgba($color-white, 0.7);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

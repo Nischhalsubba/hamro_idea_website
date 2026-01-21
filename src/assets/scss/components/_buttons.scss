@@ -1,0 +1,78 @@
+.btn {
+  padding: 18px 24px;
+  display: inline-block;
+  font-family: $font-family-base;
+  font-weight: 400; // Normal weight
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px; // Slight rounded corners for modern look
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+  border: 1px solid $color-primary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparentize($color-primary, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba($color-primary, 0.3);
+  }
+}
+
+.btn-secondary {
+  background-color: $color-soft-lilac;
+  color: $color-primary; // Dark text on light background
+  border: 1px solid $color-soft-lilac;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: lighten($color-soft-lilac, 5%);
+    transform: translateY(-2px);
+  }
+}
+
+.button {
+  &__arrow {
+    padding-right: 2rem !important;
+
+    .arrow {
+      &__icon {
+        display: inline-block;
+        transform: translateX(10px);
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      .arrow {
+        &__icon {
+          animation: arrowHover 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes arrowHover {
+  0% {
+    transform: translateX(10px);
+  }
+
+  30% {
+    transform: translateX(5px);
+  }
+
+  80% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(10px);
+  }
+}

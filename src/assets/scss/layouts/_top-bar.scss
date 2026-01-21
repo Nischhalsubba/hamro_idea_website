@@ -1,0 +1,30 @@
+.top-bar {
+    background-color: $color-black;
+    padding: 0.75rem 0;
+    color: $color-white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__text {
+        margin: 0;
+
+        &--highlight {
+            color: $color-accent;
+            font-weight: 700;
+        }
+    }
+
+    img {
+        height: 12px;
+        width: auto;
+    }
+}
