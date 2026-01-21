@@ -29,7 +29,12 @@
 // Organisms
 @import "organisms/hero";
 @import "organisms/services";
+@import "organisms/collaboration"; // New Section
 @import "organisms/solutions";
+@import "organisms/work";
+@import "organisms/approach";
+@import "organisms/technology";
+@import "organisms/testimonial";
 
 // Layouts
 @import "layouts/header";

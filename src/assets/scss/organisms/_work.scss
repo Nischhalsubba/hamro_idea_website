@@ -1,0 +1,63 @@
+// Work Section SCSS
+.work {
+    padding: 120px 0;
+
+    .title {
+        font-family: $font-family-heading;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        color: $color-black;
+    }
+
+    .card-slider {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .card {
+        @include glass-material(0.6);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 180px;
+
+        &:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: $color-blue;
+        }
+
+        .link {
+            text-decoration: none;
+            color: $color-text-body;
+            margin-bottom: 1.5rem;
+            display: block;
+            word-break: break-all;
+
+            &:hover {
+                color: $color-accent-pink;
+            }
+        }
+
+        .badge {
+            align-self: flex-start;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba($color-blue, 0.1);
+            color: $color-blue;
+        }
+    }
+}

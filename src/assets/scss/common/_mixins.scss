@@ -30,3 +30,31 @@ $breakpoints: (
         +"Available breakpoints are: #{map-keys($breakpoints)}.";
     }
 }
+
+// -----------------------------------------------------------------------------
+// VisionOS Aesthetics Mixins
+// -----------------------------------------------------------------------------
+
+// Glass Material
+// Creates a frosted glass effect with depth and border interaction.
+@mixin glass-material($opacity: 0.6) {
+    background: rgba(255, 255, 255, $opacity);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); // Safari support
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.05), // Soft ambient shadow
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2); // Inner rim light
+}
+
+// Fluid Hover Lift
+@mixin vision-lift {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.1), // Deeper shadow
+            0 0 0 1px rgba(255, 255, 255, 0.6); // Highlight border
+    }
+}

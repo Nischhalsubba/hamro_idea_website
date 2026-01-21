@@ -89,8 +89,9 @@
         position: static;
       }
 
-      // Rotate arrow on hover
-      &:hover {
+      // Rotate arrow on hover OR click
+      &:hover,
+      &.active-click {
         >.nav-link::after {
           transform: rotate(-135deg);
           margin-top: 2px;

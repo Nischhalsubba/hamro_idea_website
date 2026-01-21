@@ -1,0 +1,69 @@
+//- Collaboration Section
+section.collaboration
+    .container
+        .collaboration__header
+            .collaboration__icon
+                svg(width="48", height="48", viewBox="0 0 48 48", fill="none", xmlns="http://www.w3.org/2000/svg")
+                    rect(width="48", height="48", rx="8", fill="#121984")
+                    path(d="M16 24L22 30L32 18", stroke="white", stroke-width="3", stroke-linecap="round", stroke-linejoin="round")
+            
+            h2.collaboration__title Where Collaboration Meets #[br] Digital Excellence.
+            p.collaboration__subtitle We blend deep collaboration with digital expertise to create tailored solutions that drive real results and lasting impact.
+
+        .collaboration__grid
+            //- Card 1: Proven Expertise (Text Badge)
+            .collab-card.collab-card--expertise
+                .collab-card__content
+                    h3.collab-card__title Proven Expertise
+                    p.collab-card__desc Our team has a track record of delivering successful digital initiatives for top enterprises, backed by years of industry experience.
+                
+                .collab-card__visual
+                    .expertise-badge
+                        .badge-icon 
+                            //- Simple icon (grid)
+                            svg(width="16", height="16", viewBox="0 0 24 24", fill="none", stroke="currentColor")
+                                rect(x="3", y="3", width="7", height="7")
+                                rect(x="14", y="3", width="7", height="7")
+                                rect(x="14", y="14", width="7", height="7")
+                                rect(x="3", y="14", width="7", height="7")
+                        span.badge-text We Make Corporates Entrepreneurs Again
+
+            //- Card 2: Customized Strategies (Gauge Animation)
+            .collab-card.collab-card--strategies
+                .collab-card__content
+                    h3.collab-card__title Customized Strategies
+                    p.collab-card__desc We believe in tailor-made solutions, not one-size-fits-all approaches. Every project we take on is aligned with your unique business objectives.
+                
+                .collab-card__visual
+                    .gauge-container
+                        //- Gauge SVG
+                        svg.gauge-graphic(width="280", height="140", viewBox="0 0 280 140")
+                            //- Background Arc
+                            path.gauge-bg(d="M20,140 A120,120 0 0,1 260,140", fill="none", stroke="#F0F2F5", stroke-width="40")
+                            //- Active Arc (Progress)
+                            path.gauge-fill(d="M20,140 A120,120 0 0,1 260,140", fill="none", stroke="#E6E9EF", stroke-width="40")
+                            //- Segments overlay
+                            path.gauge-segment(d="M20,140 A120,120 0 0,1 80,36", fill="none", stroke="none")
+                            
+                            //- Emoji Indicators (positioned)
+                            g.gauge-icons
+                                //- Happy Face (Target)
+                                circle(cx="140", cy="50", r="18", fill="#FFC107")
+                                path(d="M134,54 Q140,60 146,54", stroke="#856404", stroke-width="2", fill="none")
+                                circle(cx="135", cy="46", r="2", fill="#856404")
+                                circle(cx="145", cy="46", r="2", fill="#856404")
+
+            //- Card 3: Empowerment (Layered Sheets)
+            .collab-card.collab-card--empowerment
+                .collab-card__content
+                    h3.collab-card__title Empowerment Through Knowledge
+                    p.collab-card__desc Our role goes far beyond simply delivering solutions—we work as true partners, equipping your team with the tools, frameworks, and knowledge they need to adapt, evolve, and sustain success.
+                    
+                    a.btn-text-icon(href="/process.html") Unlock Strategic Value
+                        span.icon-arrow →
+
+                .collab-card__visual
+                    .layers-container
+                        .layer.layer-1
+                        .layer.layer-2
+                        .layer.layer-3

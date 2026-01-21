@@ -1,0 +1,61 @@
+// Testimonial Section SCSS
+.testimonial {
+    padding: 120px 0;
+    background: linear-gradient(180deg, $color-soft-lilac 0%, $color-white 100%);
+
+    .card-slider {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .card {
+        @include glass-material(0.7);
+        padding: 3rem;
+        border-radius: 0; // Sharp
+        position: relative;
+        transition: transform 0.3s ease;
+
+        img.quote {
+            width: 40px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .content {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: $color-text-head;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .user-info {
+            border-top: 1px solid rgba($color-black, 0.1);
+            padding-top: 1.5rem;
+
+            .name {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: $color-blue;
+                margin-bottom: 0.25rem;
+            }
+
+            .designation {
+                font-size: 0.9rem;
+                color: $color-text-muted;
+            }
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    .controls {
+        display: none; // Hiding glider controls for now as we used a grid layout
+    }
+}

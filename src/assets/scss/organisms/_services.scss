@@ -14,7 +14,7 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 120px;
+            gap: 60px; // Reduced from 120px
         }
     }
 
@@ -32,10 +32,33 @@
 
         .icon-cube {
             margin-bottom: 2.5rem;
+            width: 48px;
+            height: 48px;
+            background-color: $color-blue;
+            border-radius: 0; // Sharp Corners
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-white;
+            position: relative;
+            box-shadow: 0 10px 20px rgba($color-blue, 0.25);
+
+            // Small Corner Accent (Design Detail)
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 14px;
+                height: 14px;
+                background-color: rgba($color-white, 0.2); // Light accent
+                border-radius: 0; // Sharp
+            }
 
             svg {
-                // Subtle blue glow for premium feel
-                filter: drop-shadow(0 0 15px rgba($color-blue, 0.15));
+                width: 24px;
+                height: 24px;
+                filter: none; // Remove previous drop-shadow
             }
         }
 
@@ -70,16 +93,15 @@
         }
     }
 
-    // Service Item Card (Premium Redesign)
+    // Service Item Card (Premium VisionOS Redesign)
     .service-item {
-        background: $color-white;
+        @include glass-material(0.65); // Use new Glass Mixin
         color: $color-black;
-        padding: 4rem; // Luxurious padding
-        border-radius: 12px;
+        padding: 2.5rem; // Reduced from 4rem for tighter feel
+        border-radius: 0; // Sharp Corners
         position: relative;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        border: 1px solid rgba($color-black, 0.03); // Subtle border
-        margin-bottom: 0;
+        margin-bottom: 0px; // Reset margin for cleaner layout
 
         // "Watermark" Number
         .item-number {
@@ -149,11 +171,13 @@
             }
         }
 
-        // Hover Effect: Lift & Subtle Blue Shadow
+        // Hover Effect: Lift & Subtle Blue Shadow (VisionOS Lift)
         &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(18, 25, 132, 0.15); // Blue-tinted shadow
-            border-color: transparent;
+            transform: translateY(-8px) scale(1.02); // More pronounced 3D lift
+            box-shadow:
+                0 30px 60px -12px rgba(18, 25, 132, 0.15), // Deep blue shadow
+                0 0 0 1px rgba(255, 255, 255, 0.8); // Highlight border on hover
+            background: rgba(255, 255, 255, 0.85); // Light up/become more opaque
         }
     }
 }

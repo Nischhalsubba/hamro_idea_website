@@ -11,29 +11,37 @@
 }
 
 .btn-primary {
-  background-color: $color-primary;
+  background: linear-gradient(135deg, rgba($color-primary, 0.9) 0%, rgba($color-primary, 1) 100%);
   color: $color-white;
-  border: 1px solid $color-primary;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 10px rgba($color-primary, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2); // Inner rim
 
   &:hover,
   &:active,
   &:focus {
-    background-color: transparentize($color-primary, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba($color-primary, 0.3);
+    background: linear-gradient(135deg, $color-primary 0%, lighten($color-primary, 5%) 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba($color-primary, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 }
 
 .btn-secondary {
-  background-color: $color-soft-lilac;
-  color: $color-primary; // Dark text on light background
-  border: 1px solid $color-soft-lilac;
+  // Glass Button
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: $color-white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   &:hover,
   &:active,
   &:focus {
-    background-color: lighten($color-soft-lilac, 5%);
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.6);
   }
 }
 
