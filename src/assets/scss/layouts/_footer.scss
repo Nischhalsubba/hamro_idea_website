@@ -50,19 +50,8 @@
   }
 
   &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: $color-blue;
-    color: $color-white;
-    padding: 0.7rem 1.4rem;
-    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-  }
-
-  &__cta-icon {
-    font-size: 1.1rem;
+    font-weight: 500;
   }
 
   &__column {

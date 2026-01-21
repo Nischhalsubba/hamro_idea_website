@@ -4,11 +4,7 @@ nav.navbar
         .navbar__wrapper
             a.navbar__brand(href="/") 
                 span.navbar__logo-icon
-                    //- Updated to Solid Filled Hexagon Logo
-                    svg(width="32", height="32", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
-                        path(d="M12 2L2 7V17L12 22L22 17V7L12 2Z", fill="white")
-                        path(d="M12 6L16 8.5V13.5L12 16L8 13.5V8.5L12 6Z", fill="#121984") 
-                span.navbar__logo-text Hamro Idea
+                    img.navbar__logo-img(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="32", height="32")
 
             //- Desktop Menu (Mega Menu)
             ul.navbar__menu-desktop
@@ -42,7 +38,11 @@ nav.navbar
 
             //- Desktop Actions
             .navbar__actions-desktop
-                a.btn.btn--primary(href="/contact/book-a-call.html") Book a Call
+                a.btn.btn--primary.btn--icon-block(href="/contact/book-a-call.html")
+                    span.text Book a Call
+                    span.btn-icon-box
+                        svg(width="12", height="12", viewBox="0 0 16 16", fill="none", xmlns="http://www.w3.org/2000/svg")
+                            path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
 
             //- Mobile Toggle
             button.navbar__toggle(aria-label="Toggle navigation")
@@ -236,7 +236,8 @@ nav.navbar
 .mobile-nav-overlay
     .mobile-nav-content
         .mobile-nav-header
-            span.logo-text Hamro Idea
+            span.logo-text
+                img.mobile-logo(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="28", height="28")
             button.mobile-nav-close ×
         
         ul.mobile-nav-list
@@ -255,7 +256,11 @@ nav.navbar
             li: a(href="/contact/") Contact
         
         .mobile-nav-actions
-            a.btn.btn--primary.btn--block(href="/contact/book-a-call/") Book a Call
+            a.btn.btn--primary.btn--icon-block.btn--block(href="/contact/book-a-call/")
+                span.text Book a Call
+                span.btn-icon-box
+                    svg(width="12", height="12", viewBox="0 0 16 16", fill="none", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
             .quick-actions
                 a(href="/contact/whatsapp/") WhatsApp
                 a(href="/contact/email/") Email

@@ -177,6 +177,24 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverLift(".mega-menu .service-card", { scale: 1.02, y: -3 });
     hoverLift(".services .service-item", { scale: 1.01, y: -3 });
 
+    const arrowButtons = document.querySelectorAll(".btn--icon-block");
+    arrowButtons.forEach((btn) => {
+        const icon = btn.querySelector(".btn-icon-box svg");
+        if (!icon) return;
+
+        let hoverTl;
+        btn.addEventListener("mouseenter", () => {
+            if (hoverTl) {
+                hoverTl.kill();
+            }
+            hoverTl = gsap.timeline({ defaults: { ease: "power2.out" } });
+            hoverTl
+                .to(icon, { x: 10, opacity: 0, duration: 0.2 })
+                .set(icon, { x: -10, opacity: 0 })
+                .to(icon, { x: 0, opacity: 1, duration: 0.25 });
+        });
+    });
+
     // Collaboration cards get enhanced hover motion
     gsap.utils.toArray(".collaboration .collab-card").forEach((card) => {
         const visual = card.querySelector(".collab-card__visual");

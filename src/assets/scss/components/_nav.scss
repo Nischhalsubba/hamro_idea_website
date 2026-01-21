@@ -41,6 +41,13 @@
       font-weight: 700;
       letter-spacing: -0.02em;
     }
+
+    .navbar__logo-img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      object-fit: contain;
+    }
   }
 
   // Desktop Menu
@@ -423,19 +430,11 @@
     }
 
     .btn--primary {
-      background-color: $color-accent-pink;
-      color: $color-white;
-      // padding: 0.5rem 1.5rem; // Removed to match global button padding (18px 24px)
-      border-radius: 50px; // Pill shape maintained
+      background: $color-white;
+      color: $color-black;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: transform 0.2s;
-
-      &:hover {
-        background-color: lighten($color-accent-pink, 5%);
-        transform: translateY(-2px);
-      }
+      font-weight: 500;
+      font-size: 0.95rem;
     }
   }
 
@@ -507,6 +506,16 @@
       color: $color-white;
       font-weight: 700;
       font-size: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .mobile-logo {
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
     }
 
     .mobile-nav-close {
@@ -571,11 +580,8 @@
     .btn--block {
       display: block;
       text-align: center;
-      background-color: $color-accent-pink;
-      color: $color-white;
-      padding: 1rem;
-      border-radius: 8px;
-      font-weight: 700;
+      width: 100%;
+      justify-content: space-between;
       text-decoration: none;
       margin-bottom: 1.5rem;
     }
