@@ -32,34 +32,6 @@
 
         .icon-cube {
             margin-bottom: 2.5rem;
-            width: 48px;
-            height: 48px;
-            background-color: $color-blue;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $color-white;
-            position: relative;
-            box-shadow: 0 10px 20px rgba($color-blue, 0.25);
-
-            // Small Corner Accent (Design Detail)
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 14px;
-                height: 14px;
-                background-color: rgba($color-white, 0.2); // Light accent
-                border-radius: 0; // Sharp
-            }
-
-            svg {
-                width: 24px;
-                height: 24px;
-                filter: none; // Remove previous drop-shadow
-            }
         }
 
         .services__title {

@@ -8,13 +8,7 @@
         margin-bottom: 5rem;
 
         .icon-cube {
-            width: 48px;
-            height: 48px;
             margin-bottom: 1.5rem;
-
-            svg {
-                stroke: $color-blue;
-            }
         }
 
         .solutions__title {
@@ -49,8 +43,12 @@
     &__item {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.5rem;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: $color-white;
+        border: 1px solid rgba($color-blue, 0.08);
+        padding: 2.75rem;
+        align-items: flex-start;
 
         &:hover {
             transform: translateY(-5px);
@@ -66,7 +64,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 
             .square-dot {

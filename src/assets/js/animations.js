@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealItems(".services .service-item");
     revealItems(".services__sticky .icon-cube");
+    revealItems(".section-icon");
     revealItems(".services__sticky .services__title");
     revealItems(".services__sticky .services__description");
     revealItems(".collaboration__header");
@@ -100,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".why-choose__card");
     revealItems(".testimonial .card");
     revealItems(".insights .insights__card");
+    revealItems(".section-controls");
     revealItems(".cta .cta__content");
     revealItems(".site-footer__card");
 
@@ -140,5 +142,52 @@ document.addEventListener("DOMContentLoaded", () => {
                 tlCard.from(layers, { y: 20, opacity: 0, stagger: 0.1, duration: 0.5 }, "-=0.4");
             }
         }
+    });
+
+    // Hover interactions with GSAP (buttons + cards)
+    const hoverLift = (selector, config = {}) => {
+        gsap.utils.toArray(selector).forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                gsap.to(el, {
+                    y: typeof config.y === "number" ? config.y : -4,
+                    scale: typeof config.scale === "number" ? config.scale : 1.02,
+                    duration: 0.2,
+                    ease: "power2.out",
+                    overwrite: "auto"
+                });
+            });
+            el.addEventListener("mouseleave", () => {
+                gsap.to(el, {
+                    y: 0,
+                    scale: 1,
+                    duration: 0.25,
+                    ease: "power2.out",
+                    overwrite: "auto"
+                });
+            });
+        });
+    };
+
+    hoverLift(".btn");
+    hoverLift(".section-control", { scale: 1.05, y: -3 });
+    hoverLift(".btn-text-icon", { scale: 1.03, y: -3 });
+    hoverLift(".item-link", { scale: 1.02, y: -2 });
+    hoverLift(".insights__link", { scale: 1.02, y: -2 });
+
+    // Collaboration cards get enhanced hover motion
+    gsap.utils.toArray(".collaboration .collab-card").forEach((card) => {
+        const visual = card.querySelector(".collab-card__visual");
+        card.addEventListener("mouseenter", () => {
+            gsap.to(card, { y: -8, duration: 0.25, ease: "power2.out", overwrite: "auto" });
+            if (visual) {
+                gsap.to(visual, { scale: 1.03, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+            }
+        });
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, { y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+            if (visual) {
+                gsap.to(visual, { scale: 1, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+            }
+        });
     });
 });

@@ -9,10 +9,6 @@
 
         .collaboration__icon {
             margin-bottom: 2rem;
-
-            svg {
-                filter: drop-shadow(0 10px 20px rgba($color-primary, 0.2));
-            }
         }
 
         .collaboration__title {
@@ -48,26 +44,48 @@
 
     .collab-card {
         background-color: #F8F9FE; // Very light blue/grey
-        border-radius: 16px;
-        border: 1px solid rgba($color-white, 0.9);
+        border: 1px solid rgba($color-blue, 0.08);
         padding: 3rem;
         overflow: hidden;
         position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 400px;
+        min-height: 420px;
+        gap: 1.5rem;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, rgba($color-blue, 0.2), rgba($color-blue, 0.45));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
         &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 24px 60px rgba($color-blue, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 28px 70px rgba($color-blue, 0.16);
+            border-color: rgba($color-blue, 0.2);
+
+            &::after {
+                opacity: 1;
+            }
+
+            .collab-card__visual {
+                transform: translateY(-6px);
+            }
         }
 
         &__content {
             z-index: 2;
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
 
             .collab-card__title {
                 font-family: $font-family-heading;
@@ -107,31 +125,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.4s ease;
         }
 
         // --- Specific Card Styles ---
 
         // 1. Proven Expertise
         &--expertise {
+            .collab-card__content {
+                padding-bottom: 1rem;
+            }
+
             .expertise-badge {
                 background: $color-white;
                 padding: 1rem 1.5rem;
-                border-radius: 12px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 position: absolute;
-                bottom: -20px; // Peek effect
-                width: 90%;
-                left: 5%;
+                bottom: 12px;
+                width: 88%;
+                left: 6%;
                 transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
                 .badge-icon {
                     width: 32px;
                     height: 32px;
                     background: $color-primary;
-                    border-radius: 6px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -187,6 +208,7 @@
             flex-direction: row;
             align-items: center;
             background: linear-gradient(135deg, #F8F9FE 0%, #EFF1FD 100%);
+            gap: 2rem;
 
             @media (max-width: 991px) {
                 flex-direction: column;
@@ -212,7 +234,6 @@
                 padding: 0.75rem 1.5rem;
                 background: rgba($color-primary, 0.1);
                 color: $color-primary;
-                border-radius: 4px;
                 text-decoration: none;
                 font-weight: 600;
                 transition: all 0.3s ease;

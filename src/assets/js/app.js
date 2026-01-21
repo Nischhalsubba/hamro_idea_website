@@ -1,55 +1,63 @@
+import { gsap } from "gsap";
+
 // new Glider(document.querySelector(".work"));
 
-const workSlider = document.querySelector(".work .card-slider");
-if (workSlider) {
-  new Glider(workSlider, {
-    slidesToShow: 3,
-    draggable: true,
-    dots: ".dots",
-    arrows: {
-      prev: ".glider-prev",
-      next: ".glider-next",
-    },
-  });
-}
+const initGlider = (sectionSelector, sliderSelector, options) => {
+  const section = document.querySelector(sectionSelector);
+  if (!section) return;
 
-const techSlider = document.querySelector(".technology .card-slider");
-if (techSlider) {
-  new Glider(techSlider, {
-    slidesToShow: 5,
-    draggable: true,
-    dots: ".dots",
-    arrows: {
-      prev: ".glider-prev",
-      next: ".glider-next",
-    },
-  });
-}
+  const slider = section.querySelector(sliderSelector);
+  if (!slider) return;
 
-const testimonialSlider = document.querySelector(".testimonial .card-slider");
-if (testimonialSlider) {
-  new Glider(testimonialSlider, {
-    slidesToShow: 1,
-    draggable: true,
-    dots: ".dots",
+  const prev = section.querySelector(".glider-prev");
+  const next = section.querySelector(".glider-next");
+  const dots = section.querySelector(".dots");
+
+  new Glider(slider, {
+    ...options,
     arrows: {
-      prev: ".glider-prev",
-      next: ".glider-next",
+      prev,
+      next,
     },
+    dots,
   });
-}
+};
+
+initGlider(".work", ".card-slider", {
+  slidesToShow: 3,
+  draggable: true,
+});
+
+initGlider(".technology", ".card-slider", {
+  slidesToShow: 5,
+  draggable: true,
+});
+
+initGlider(".testimonial", ".card-slider", {
+  slidesToShow: 1,
+  draggable: true,
+});
 
 // Hedear
 
 // Header Sticky Logic - Kept from original
 document.addEventListener("DOMContentLoaded", function (event) {
+  let isSticky = false;
   window.addEventListener("scroll", function () {
     const nav = document.querySelector(".navbar");
     if (nav) {
-      if (window.scrollY > 10) {
+      const shouldStick = window.scrollY > 10;
+      if (shouldStick && !isSticky) {
         nav.classList.add("sticky");
-      } else {
+        gsap.fromTo(
+          nav,
+          { y: -12 },
+          { y: 0, duration: 0.45, ease: "back.out(1.6)" }
+        );
+        isSticky = true;
+      } else if (!shouldStick && isSticky) {
         nav.classList.remove("sticky");
+        isSticky = false;
       }
     }
   });

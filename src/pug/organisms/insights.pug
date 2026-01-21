@@ -3,23 +3,15 @@ section.insights
     .container
         .insights__header
             .insights__header-content
-                .insights__icon
-                    svg(width="40", height="40", viewBox="0 0 40 40", fill="none", xmlns="http://www.w3.org/2000/svg")
-                        rect(width="40", height="40", rx="8", fill="#121984")
-                        path(d="M13 12h14v16H13z", stroke="white", stroke-width="2")
-                        path(d="M17 16h6", stroke="white", stroke-width="2")
-                        path(d="M17 20h8", stroke="white", stroke-width="2")
+                .insights__icon.section-icon
+                    svg(width="24", height="24", viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="2", stroke-linecap="round", stroke-linejoin="round", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M6 4h9l3 3v13H6z")
+                        path(d="M9 11h6")
+                        path(d="M9 15h6")
                 h2.insights__title Explore Our Latest Insights On Tech, AI, And Digital Innovation.
                 p.insights__subtitle Discover fresh perspectives, real case learnings, and practical AI strategy from the Hamro Idea team.
             .insights__header-actions
                 a.insights__link(href="/insights/blog.html") View all insights
-                .insights__controls
-                    button.insights__control(aria-label="Previous")
-                        svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
-                            path(d="M9.2 1.6L7.8 0.2L0.6 8L7.8 15.8L9.2 14.4L3.4 8L9.2 1.6Z", fill="currentColor")
-                    button.insights__control.is-primary(aria-label="Next")
-                        svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
-                            path(d="M0.8 14.4L2.2 15.8L9.4 8L2.2 0.2L0.8 1.6L6.6 8L0.8 14.4Z", fill="currentColor")
 
         .insights__grid
             a.insights__card(href="/insights/blog.html")
@@ -49,3 +41,11 @@ section.insights
                     span.insights__tag Podcast
                     span.insights__date 03 days ago
                 h3 On Point -- The Brand-New Business Podcast From Hamro Idea.
+
+        .section-controls
+            button.section-control(aria-label="Previous")
+                svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                    path(d="M9.2 1.6L7.8 0.2L0.6 8L7.8 15.8L9.2 14.4L3.4 8L9.2 1.6Z", fill="currentColor")
+            button.section-control.section-control--primary(aria-label="Next")
+                svg(width="12", height="16", viewBox="0 0 10 16", xmlns="http://www.w3.org/2000/svg")
+                    path(d="M0.8 14.4L2.2 15.8L9.4 8L2.2 0.2L0.8 1.6L6.6 8L0.8 14.4Z", fill="currentColor")
