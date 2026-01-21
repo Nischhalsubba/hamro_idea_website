@@ -78,12 +78,20 @@
 
     .hero-subtitle {
         font-family: 'Almarai', sans-serif;
-        font-weight: 300;
-        font-size: 1.125rem;
+        font-weight: 500;
+        font-size: 1.2rem;
         line-height: 1.6;
-        color: rgba($color-white, 0.7);
+        color: rgba($color-white, 0.85);
         max-width: 650px;
-        margin-bottom: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: rgba($color-white, 0.65);
+        max-width: 700px;
+        margin-bottom: 2.5rem;
     }
 
     .hero-actions {
