@@ -121,6 +121,15 @@
           transform: translateY(0);
         }
       }
+
+      &:focus-within {
+        .mega-menu {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+      }
     }
   }
 
@@ -143,11 +152,19 @@
     transform: translateY(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
 
     &__container {
-      padding: 2.5rem 15px;
-      min-height: 380px;
-      height: 380px;
+      padding: 2.75rem 15px;
+      min-height: 420px;
+      height: 420px;
       display: flex;
       align-items: stretch;
     }

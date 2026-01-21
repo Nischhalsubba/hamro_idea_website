@@ -173,6 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverLift(".btn-text-icon", { scale: 1.03, y: -3 });
     hoverLift(".item-link", { scale: 1.02, y: -2 });
     hoverLift(".insights__link", { scale: 1.02, y: -2 });
+    hoverLift(".navbar__menu-desktop .nav-link", { scale: 1.03, y: -2 });
+    hoverLift(".mega-menu .service-card", { scale: 1.02, y: -3 });
+    hoverLift(".services .service-item", { scale: 1.01, y: -3 });
 
     // Collaboration cards get enhanced hover motion
     gsap.utils.toArray(".collaboration .collab-card").forEach((card) => {
