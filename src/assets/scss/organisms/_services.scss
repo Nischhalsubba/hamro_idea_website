@@ -1,23 +1,20 @@
-// Services Section Styles (Split Sticky Layout)
+// Services Section Styles (Premium Card Redesign)
 .services {
-    padding: 100px 0;
+    padding: 120px 0;
     // Updated background from user feedback #F6F4FC (mapped to $color-soft-lilac)
     background-color: $color-soft-lilac;
-
-    // .container rules are handled globally by _container.scss
-    // We just leverage the class in markup.
 
     &__wrapper {
         display: flex;
         flex-direction: column;
-        gap: 60px;
-        position: relative; // Context for alignment
+        gap: 80px;
+        position: relative;
 
         @include breakpoint-up(lg) {
             flex-direction: row;
-            align-items: flex-start; // CRITICAL for sticky to work
+            align-items: flex-start;
             justify-content: space-between;
-            gap: 100px;
+            gap: 120px;
         }
     }
 
@@ -29,34 +26,35 @@
             width: 35%;
             position: -webkit-sticky;
             position: sticky;
-            top: 25vh; // Comfortable offset from top
+            top: 25vh;
             height: fit-content;
         }
 
         .icon-cube {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
 
             svg {
-                // Darken shadow or change stroke if needed for light theme
-                filter: drop-shadow(0 0 10px rgba($color-primary, 0.2));
+                // Subtle blue glow for premium feel
+                filter: drop-shadow(0 0 15px rgba($color-blue, 0.15));
             }
         }
 
         .services__title {
             font-family: 'Almarai', sans-serif;
-            font-size: 2.5rem;
-            line-height: 1.2;
+            font-size: 3rem; // Larger, more authoritative
+            line-height: 1.1;
             font-weight: 700;
-            // Updated to Dark for Contrast on #F6F4FC
             color: $color-text-head;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
 
         .services__description {
-            font-size: 1rem;
-            line-height: 1.6;
-            // Updated to Dark/Muted for Contrast
+            font-size: 1.125rem;
+            line-height: 1.7;
             color: $color-text-body;
+            font-weight: 400;
+            max-width: 90%;
         }
     }
 
@@ -65,85 +63,97 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem; // Increased gap for 'breathing room'
 
         @include breakpoint-up(lg) {
-            width: 60%;
+            width: 55%;
         }
     }
 
-    // Service Item Card
+    // Service Item Card (Premium Redesign)
     .service-item {
         background: $color-white;
         color: $color-black;
-        padding: 3rem;
-        border-radius: 4px;
+        padding: 4rem; // Luxurious padding
+        border-radius: 12px;
         position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-left: 4px solid transparent; // For hover effect
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba($color-black, 0.03); // Subtle border
+        margin-bottom: 0;
 
-        &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-left-color: $color-blue;
-        }
-
+        // "Watermark" Number
         .item-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: $color-blue;
-            background: rgba($color-blue, 0.1);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 1.5rem;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba($color-blue, 0.04); // Very subtle watermark
+            line-height: 1;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            pointer-events: none;
         }
 
         .item-dot {
-            width: 6px;
-            height: 6px;
-            background: $color-blue;
-            position: absolute;
-            top: 3.5rem;
-            left: 3.5rem;
-            display: none; // Hiding decorative dot for cleaner look
+            display: none;
         }
 
         .item-title {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
+            margin-bottom: 1.25rem;
+            color: $color-blue; // Brand color for titles
+            position: relative;
+            z-index: 2;
         }
 
         .item-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 2rem;
-            max-width: 90%;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: lighten($color-text-body, 10%); // Slightly softer for readability
+            margin-bottom: 2.5rem;
+            max-width: 95%;
+            position: relative;
+            z-index: 2;
         }
 
         .item-link {
             text-decoration: none;
-            color: $color-blue;
+            color: $color-black;
             font-weight: 600;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-            transition: all 0.2s;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 2;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba($color-black, 0.1);
+            transition: all 0.3s ease;
+
+            .arrow {
+                font-size: 1.25rem;
+                transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
 
             &:hover {
                 border-bottom-color: $color-blue;
-                gap: 0.75rem;
-            }
+                color: $color-blue;
+                gap: 1.25rem;
 
-            .arrow {
-                font-size: 1.2rem;
-                line-height: 1;
+                .arrow {
+                    transform: translateX(5px);
+                }
             }
+        }
+
+        // Hover Effect: Lift & Subtle Blue Shadow
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(18, 25, 132, 0.15); // Blue-tinted shadow
+            border-color: transparent;
         }
     }
 }

@@ -346,8 +346,8 @@
     .btn--primary {
       background-color: $color-accent-pink;
       color: $color-white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px; // Pill shape
+      // padding: 0.5rem 1.5rem; // Removed to match global button padding (18px 24px)
+      border-radius: 50px; // Pill shape maintained
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
