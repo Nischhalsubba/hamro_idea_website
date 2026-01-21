@@ -51,6 +51,7 @@
     margin: 0;
     padding: 0;
     gap: 2rem;
+    position: static;
 
     @include breakpoint-up(lg) {
       display: flex;
@@ -99,35 +100,18 @@
 
       // Rotate arrow on hover OR click
       &:hover,
-      &.active-click {
+      &.active-click,
+      &.is-open {
         >.nav-link::after {
           transform: rotate(-135deg);
           margin-top: 2px;
         }
-
-        // Show Menus on Hover (CSS Logic)
-        .mega-menu,
-        .dropdown-menu {
-          opacity: 1;
-          visibility: visible;
-          pointer-events: auto; // Content becomes interactive
-        }
-
-        .mega-menu {
-          transform: translateY(0);
-        }
-
-        .dropdown-menu {
-          transform: translateY(0);
-        }
       }
 
       &:focus-within {
-        .mega-menu {
-          opacity: 1;
-          visibility: visible;
-          pointer-events: auto;
-          transform: translateY(0);
+        >.nav-link::after {
+          transform: rotate(-135deg);
+          margin-top: 2px;
         }
       }
     }
@@ -135,11 +119,11 @@
 
   // Mega Menu Container (Reference Design)
   .mega-menu {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: var(--nav-height, 88px);
     left: 0;
     right: 0;
-    width: 100%;
+    width: auto;
     // Dark Glassmorphism for VisionOS theme (Reference was white, we adapt to dark)
     background: rgba(#050a1a, 0.95);
     backdrop-filter: blur(20px);
@@ -154,6 +138,7 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     z-index: 999;
 
+    &.is-open,
     &:hover {
       opacity: 1;
       visibility: visible;
@@ -604,6 +589,37 @@
         text-decoration: none;
         font-size: 0.9rem;
       }
+    }
+  }
+}
+
+@include breakpoint-down(lg) {
+  .mega-menu {
+    display: none;
+  }
+}
+
+@include breakpoint-down(md) {
+  .mobile-nav-overlay {
+    .mobile-nav-header {
+      padding: 1.25rem;
+
+      .logo-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    .mobile-nav-list {
+      padding: 1.5rem;
+
+      li a,
+      li span {
+        font-size: 1.25rem;
+      }
+    }
+
+    .mobile-nav-actions {
+      padding: 1.5rem;
     }
   }
 }

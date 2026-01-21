@@ -42,9 +42,17 @@ initGlider(".testimonial", ".card-slider", {
 
 // Header Sticky Logic - Kept from original
 document.addEventListener("DOMContentLoaded", function (event) {
+  const nav = document.querySelector(".navbar");
+  const setNavHeight = () => {
+    if (!nav) return;
+    document.documentElement.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
+  };
+
+  setNavHeight();
+  window.addEventListener("resize", setNavHeight);
+
   let isSticky = false;
   window.addEventListener("scroll", function () {
-    const nav = document.querySelector(".navbar");
     if (nav) {
       const shouldStick = window.scrollY > 10;
       if (shouldStick && !isSticky) {
@@ -90,65 +98,71 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
   });
 
-  // Desktop Navbar Logic: Click to Toggle Dropdown
-  // This addresses user feedback: "I can't expand the dropdown clicking any menu item."
-  const desktopDropdowns = document.querySelectorAll('.navbar__menu-desktop .has-dropdown, .navbar__menu-desktop .has-mega-menu');
+  // Desktop Mega Menu Logic (detached panels)
+  const megaMenuItems = document.querySelectorAll(".navbar__menu-desktop .has-mega-menu");
+  const megaMenus = document.querySelectorAll(".mega-menus .mega-menu");
+  let megaCloseTimeout;
 
-  desktopDropdowns.forEach(item => {
-    const link = item.querySelector('.nav-link');
+  const closeMegaMenus = () => {
+    megaMenuItems.forEach((item) => item.classList.remove("is-open"));
+    megaMenus.forEach((menu) => menu.classList.remove("is-open"));
+  };
 
-    // Check if device is touch or user explicitly clicks
+  const openMegaMenu = (key) => {
+    closeMegaMenus();
+    const menu = document.querySelector(`.mega-menus .mega-menu[data-mega="${key}"]`);
+    const item = document.querySelector(`.navbar__menu-desktop [data-mega-target="${key}"]`);
+    if (menu) {
+      menu.classList.add("is-open");
+    }
+    if (item) {
+      item.classList.add("is-open");
+    }
+  };
+
+  megaMenuItems.forEach((item) => {
+    const key = item.getAttribute("data-mega-target");
+    const link = item.querySelector(".nav-link");
+
+    item.addEventListener("mouseenter", () => {
+      clearTimeout(megaCloseTimeout);
+      if (key) {
+        openMegaMenu(key);
+      }
+    });
+
+    item.addEventListener("mouseleave", () => {
+      megaCloseTimeout = setTimeout(() => {
+        if (!document.querySelector(".mega-menus .mega-menu.is-open:hover")) {
+          closeMegaMenus();
+        }
+      }, 120);
+    });
+
     if (link) {
-      link.addEventListener('click', function (e) {
-        // If the item has a dropdown, we prevent default nav ONLY if it's currently hidden
-        // Or we allow nav if user wants strict "click to go".
-        // User Request: "expand dropdwon clicking"
-
-        // Logic: Toggle a 'show' class on the parent list item
-        // The CSS must handle this .show class to override hover if needed, or just complement it.
-
-        // Note: Since we updated hrefs to valid pages, we might want BOTH:
-        // 1. Navigation happens.
-        // 2. Dropdown shows? (Hard to do both at once without preventing default).
-
-        // Compromise: On touch/click, we toggle visibility.
-        // If the user wants to go to the page, they might double click? 
-        // OR: We simply rely on CSS Hover for desktop, BUT ensure "Click" doesn't do nothing.
-        // Current State: Click -> Navigates to page (e.g. services.html).
-        // User said: "I can't expand dropdown clicking".
-        // This implies they MIGHT be on a touch device or expect click-toggle on desktop.
-
-        // Let's add a temporary toggle class for robust Interaction.
-        e.preventDefault(); // Stop navigation to allow dropdown inspection first? 
-        // IF we prevent default, they can't go to the page. 
-        // IF we don't, the page loads and dropdown closes.
-
-        // BEST PRACTICE: Click toggles dropdown. Double click or clicking "Overview" in dropdown goes to page.
-        // OR: Since we have "See all Services" inside, maybe top link is just a toggle?
-
-        // Implemented: Click toggles 'active' class.
-        const parent = this.parentElement;
-        const wasActive = parent.classList.contains('active-click');
-
-        // Close all others
-        desktopDropdowns.forEach(other => other.classList.remove('active-click'));
-
-        if (!wasActive) {
-          parent.classList.add('active-click');
-          e.preventDefault(); // Prevent nav on first click to show menu
-        } else {
-          // If already active, allow click to proceed to URL (Navigation)
-          // e.preventDefault(); // Allow default (Navigation)
-          window.location.href = this.href;
+      link.addEventListener("click", (e) => {
+        const isOpen = item.classList.contains("is-open");
+        if (!isOpen) {
+          e.preventDefault();
+          openMegaMenu(key);
         }
       });
     }
   });
 
-  // Close dropdowns when clicking outside
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.navbar__menu-desktop')) {
-      desktopDropdowns.forEach(item => item.classList.remove('active-click'));
+  megaMenus.forEach((menu) => {
+    menu.addEventListener("mouseenter", () => {
+      clearTimeout(megaCloseTimeout);
+    });
+
+    menu.addEventListener("mouseleave", () => {
+      megaCloseTimeout = setTimeout(closeMegaMenus, 120);
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".navbar") && !e.target.closest(".mega-menus")) {
+      closeMegaMenus();
     }
   });
 });
