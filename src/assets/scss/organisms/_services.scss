@@ -35,7 +35,7 @@
             width: 48px;
             height: 48px;
             background-color: $color-blue;
-            border-radius: 0; // Sharp Corners
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,7 +98,7 @@
         @include glass-material(0.65); // Use new Glass Mixin
         color: $color-black;
         padding: 2.5rem; // Reduced from 4rem for tighter feel
-        border-radius: 0; // Sharp Corners
+        border-radius: 16px;
         position: relative;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         margin-bottom: 0px; // Reset margin for cleaner layout

@@ -9,6 +9,16 @@
     justify-content: center;
     // overflow: hidden; // REMOVED: Causing footer to be cut off
 
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, rgba(0, 0, 0, 0.75) 0%, transparent 45%, rgba(18, 25, 132, 0.35) 100%);
+        mix-blend-mode: normal;
+        z-index: 1;
+        pointer-events: none;
+    }
+
     // Complex Mesh Gradient Background with Noise
     .hero-bg-gradient {
         position: absolute;
@@ -20,9 +30,9 @@
         overflow: hidden; // Keep bg contained
         // Refined gradient flow based on screenshot (bottom-left focus)
         background:
-            radial-gradient(circle at 75% 25%, rgba($color-accent-pink, 0.25) 0%, transparent 45%), // Top right pink glow
-            radial-gradient(circle at 15% 85%, rgba(#2a34a8, 0.9) 0%, transparent 60%), // Bottom left strong blue
-            linear-gradient(125deg, #050a30 0%, $color-primary 50%, #000000 100%); // Deep rich base
+            radial-gradient(circle at 80% 35%, rgba(150, 160, 255, 0.55) 0%, transparent 45%),
+            radial-gradient(circle at 15% 85%, rgba(#1a215f, 0.95) 0%, transparent 60%),
+            linear-gradient(140deg, #03051a 0%, #0d1460 45%, #1c2a88 100%);
         background-size: 200% 200%; // Enlarge for movement
         animation: gradientFlow 15s ease infinite alternate;
         opacity: 1;
@@ -70,29 +80,37 @@
     .hero-title {
         font-family: 'Almarai', sans-serif;
         font-weight: 400; // Regular weight as per design
-        font-size: clamp(3rem, 5.5vw, 4.5rem); // Slightly larger
+        font-size: clamp(2.75rem, 5vw, 4.25rem);
         line-height: 1.15;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         letter-spacing: -0.015em;
     }
 
     .hero-subtitle {
         font-family: 'Almarai', sans-serif;
-        font-weight: 300;
-        font-size: 1.125rem;
-        line-height: 1.6;
-        color: rgba($color-white, 0.7);
+        font-weight: 400;
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: rgba($color-white, 0.75);
         max-width: 650px;
-        margin-bottom: 3.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba($color-white, 0.6);
+        max-width: 700px;
+        margin-bottom: 2.5rem;
     }
 
     .hero-actions {
         .btn-white-composite {
             background-color: $color-white;
             color: $color-black;
-            padding: 0.4rem 0.5rem 0.4rem 1.5rem; // Left padding for text, right for box
-            border-radius: 4px;
-            font-weight: 600;
+            padding: 0.4rem 0.4rem 0.4rem 1.4rem; // Left padding for text, right for box
+            border-radius: 6px;
+            font-weight: 500;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -105,9 +123,9 @@
 
             .icon-box {
                 background: $color-blue;
-                border-radius: 4px; // Matches outer radius style
-                width: 32px;
-                height: 32px;
+                border-radius: 6px; // Matches outer radius style
+                width: 34px;
+                height: 34px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -129,25 +147,27 @@
         margin-top: 4rem;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-top: 1px solid rgba($color-white, 0.1);
+        justify-content: flex-end;
+        border-top: 1px solid rgba($color-white, 0.15);
         padding-top: 2rem;
         width: 100%;
 
         .footer-label {
             font-size: 0.875rem;
             color: rgba($color-white, 0.6);
+            margin-right: 2rem;
         }
 
         .footer-logos {
             display: flex;
-            gap: 2rem;
-            opacity: 0.5;
+            gap: 1.5rem;
+            opacity: 0.6;
 
             .logo-placeholder {
                 font-weight: 700;
-                font-size: 1rem;
+                font-size: 0.95rem;
                 letter-spacing: 0.05em;
+                text-transform: uppercase;
             }
         }
     }
