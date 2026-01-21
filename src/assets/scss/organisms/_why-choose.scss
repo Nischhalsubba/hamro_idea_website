@@ -53,6 +53,12 @@
     display: flex;
     gap: 1.5rem;
     box-shadow: 0 20px 40px rgba($color-blue, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  &__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 56px rgba($color-blue, 0.12);
   }
 
   &__card-icon {

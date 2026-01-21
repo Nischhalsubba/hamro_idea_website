@@ -10,6 +10,56 @@ body {
   overflow-x: hidden;
 }
 
+a,
+button,
+input,
+textarea {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba($color-blue, 0.35);
+  outline-offset: 2px;
+}
+
+section {
+  position: relative;
+}
+
+.solutions__title,
+.services__title,
+.collaboration__title,
+.why-choose__title,
+.testimonial__title,
+.insights__title {
+  font-size: clamp(2.1rem, 3.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.solutions__description,
+.services__description,
+.collaboration__subtitle,
+.why-choose__subtitle,
+.testimonial__subtitle,
+.insights__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: $color-text-muted;
+}
+
+.solutions__item .item-title,
+.service-item .item-title,
+.why-choose__card-body h3,
+.collab-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 ul,
 ol {
   li {

@@ -64,16 +64,16 @@
 
         .services__title {
             font-family: $font-family-heading;
-            font-size: 3rem; // Larger, more authoritative
-            line-height: 1.1;
-            font-weight: 700;
+            font-size: clamp(2.1rem, 3.5vw, 3rem);
+            line-height: 1.2;
+            font-weight: 500;
             color: $color-text-head;
             margin-bottom: 2rem;
             letter-spacing: -0.02em;
         }
 
         .services__description {
-            font-size: 1.125rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             color: $color-text-body;
             font-weight: 400;
@@ -100,7 +100,7 @@
         padding: 2.5rem; // Reduced from 4rem for tighter feel
         border-radius: 16px;
         position: relative;
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
         margin-bottom: 0px; // Reset margin for cleaner layout
 
         // "Watermark" Number
@@ -173,11 +173,11 @@
 
         // Hover Effect: Lift & Subtle Blue Shadow (VisionOS Lift)
         &:hover {
-            transform: translateY(-8px) scale(1.02); // More pronounced 3D lift
+            transform: translateY(-8px);
             box-shadow:
-                0 30px 60px -12px rgba(18, 25, 132, 0.15), // Deep blue shadow
-                0 0 0 1px rgba(255, 255, 255, 0.8); // Highlight border on hover
-            background: rgba(255, 255, 255, 0.85); // Light up/become more opaque
+                0 30px 60px -12px rgba(18, 25, 132, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
         }
     }
 }

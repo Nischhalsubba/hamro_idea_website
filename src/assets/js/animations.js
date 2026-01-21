@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".services__sticky .services__title");
     revealItems(".services__sticky .services__description");
     revealItems(".collaboration__header");
-    revealItems(".collaboration .collab-card");
     revealItems(".solutions__header");
     revealItems(".solutions__item");
     revealItems(".why-choose__card");
@@ -103,6 +102,43 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".insights .insights__card");
     revealItems(".cta .cta__content");
     revealItems(".site-footer__card");
-    revealItems("footer .cta");
-    revealItems("footer .footer_bottom");
+
+    // Collaboration card motion
+    gsap.utils.toArray(".collaboration .collab-card").forEach((card) => {
+        const tlCard = gsap.timeline({
+            scrollTrigger: {
+                trigger: card,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        tlCard.from(card, { y: 40, opacity: 0, scale: 0.98, duration: 0.7, ease: "power3.out" });
+
+        if (card.classList.contains("collab-card--expertise")) {
+            const badge = card.querySelector(".expertise-badge");
+            if (badge) {
+                tlCard.from(badge, { y: 24, opacity: 0, duration: 0.6 }, "-=0.4");
+            }
+        }
+
+        if (card.classList.contains("collab-card--strategies")) {
+            const gauge = card.querySelector(".gauge-fill");
+            if (gauge) {
+                tlCard.fromTo(
+                    gauge,
+                    { strokeDashoffset: 377 },
+                    { strokeDashoffset: 120, duration: 1, ease: "power2.out" },
+                    "-=0.4"
+                );
+            }
+        }
+
+        if (card.classList.contains("collab-card--empowerment")) {
+            const layers = card.querySelectorAll(".layer");
+            if (layers.length) {
+                tlCard.from(layers, { y: 20, opacity: 0, stagger: 0.1, duration: 0.5 }, "-=0.4");
+            }
+        }
+    });
 });

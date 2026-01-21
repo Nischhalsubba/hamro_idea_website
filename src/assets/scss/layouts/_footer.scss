@@ -9,9 +9,10 @@
     border-radius: 18px;
     padding: clamp(2.5rem, 4vw, 3.5rem);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: minmax(240px, 1fr) 2.2fr;
     gap: 2.5rem;
     box-shadow: 0 35px 80px rgba(7, 12, 40, 0.35);
+    align-items: start;
   }
 
   &__intro {
@@ -29,6 +30,12 @@
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
   }
 
   &__brand {
@@ -77,6 +84,11 @@
       color: $color-text-muted;
       text-decoration: none;
       font-size: 0.95rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
     }
   }
 
