@@ -1,135 +1,230 @@
 # Hamro Idea Website
 
-Hamro Idea is a premium, technical web presence for a Nepal-based software and digital delivery studio serving global clients. The site showcases services, process, work, and insights with a strong emphasis on performance, clarity, and trust.
+A premium, technical marketing website for Hamro Idea - a Nepal-based software and digital delivery studio serving global clients.
 
-This repository contains the full frontend codebase, assets, and build pipeline.
+---
 
-## Project Goals
+## Quick Navigation
 
-- Present Hamro Idea as a premium, technically credible partner for software delivery.
-- Highlight core services: web development, custom CMS, enterprise software, website design, and branding.
-- Provide fast, polished navigation with immersive mega menus and interactive elements.
-- Maintain SEO-ready structure with clear headings, metadata, and content hierarchy.
-- Support quick iteration through a simple build pipeline (Gulp + asset bundling).
+<details open>
+  <summary><strong>Tabs</strong></summary>
 
-## Key Features
+  <table>
+    <tr>
+      <td><strong>README</strong></td>
+      <td><a href="STYLEGUIDE.md">Styleguide</a></td>
+    </tr>
+  </table>
+</details>
 
-- Multi-level mega menus with service-style layouts across all navigation items.
-- Comprehensive page system for services, process, work, insights, and contact.
-- Page transitions and micro-interactions (loading spinner, scroll reveal, back-to-top).
-- Performance-first UI with optimized CSS and lightweight JS.
-- Global grain texture overlay for visual depth.
+- **Docs**: [README](#hamro-idea-website) | [STYLEGUIDE.md](STYLEGUIDE.md)
+- **Pages**: [Home](index.html) | [Services](services.html) | [Solutions](solutions.html) | [Work](work.html) | [Process](process.html) | [About](about.html) | [Insights](insights.html) | [Contact](contact.html)
+- **Styleguide**: [Interactive](styleguide.html) | [Print/PDF](styleguide-print.html) | [Markdown](STYLEGUIDE.md)
 
-## Pages and Content
+> Tip: GitHub does not support real tabs in README. The links above serve as a clean switch between README and the styleguide.
 
-Core pages:
-- Home: index.html
-- Services: services.html
-- Solutions: solutions.html
-- Work: work.html
-- Process: process.html
-- About: about.html
-- Insights: insights.html
-- Contact: contact.html
+---
 
-Detail pages:
-- Services: services/*.html
-- Work: work/*.html
-- Process: process/*.html
-- About: about/*.html
-- Insights: insights/*.html
-- Contact: contact/*.html
-- Legal: privacy-policy.html, terms-of-use.html, cookie-consent.html
+## Table of Contents
+
+- [Overview](#overview)
+- [Goals](#goals)
+- [Features](#features)
+- [Information Architecture](#information-architecture)
+- [Tech Stack](#tech-stack)
+- [Repository Structure](#repository-structure)
+- [Development](#development)
+- [Scripts](#scripts)
+- [SEO + Accessibility](#seo--accessibility)
+- [Performance](#performance)
+- [Customization](#customization)
+- [Deployment](#deployment)
+- [Troubleshooting](#troubleshooting)
+- [Styleguide](#styleguide)
+- [Credits](#credits)
+
+---
+
+## Overview
+
+Hamro Idea positions itself as a premium, technically credible partner for companies and founders with ambitious ideas. The site emphasizes clarity, trust, and performance with modern visuals, structured content, and consistent navigation patterns.
+
+### Audience
+
+- Founders with validated ideas
+- Scaling startups and enterprises
+- Teams seeking web development, custom CMS, enterprise software, and branding
+
+---
+
+## Goals
+
+1. Communicate trust and technical credibility.
+2. Provide comprehensive service and process detail pages.
+3. Showcase case studies and results.
+4. Maintain a fast, accessible, SEO-friendly front end.
+
+---
+
+## Features
+
+- **Unified mega menus** with consistent layout across navigation.
+- **Comprehensive page system**: services, work, process, insights, contact.
+- **Micro-interactions**: scroll reveals, hover states, page spinner, back-to-top.
+- **Noise texture overlay** for subtle depth.
+- **Dedicated styleguide** in HTML, print/PDF, and Markdown.
+
+---
+
+## Information Architecture
+
+### Core Pages
+
+- `index.html` (Home)
+- `services.html`
+- `solutions.html`
+- `work.html`
+- `process.html`
+- `about.html`
+- `insights.html`
+- `contact.html`
+
+### Detail Pages
+
+- Services: `services/*.html`
+- Work: `work/*.html`
+- Process: `process/*.html`
+- About: `about/*.html`
+- Insights: `insights/*.html`
+- Contact: `contact/*.html`
+- Legal: `privacy-policy.html`, `terms-of-use.html`, `cookie-consent.html`
+
+---
 
 ## Tech Stack
 
-- HTML: static HTML output with reusable template structure.
-- CSS: compiled stylesheet at assets/css/main.css.
-- JS: compiled script at assets/js/all.js plus page UI enhancements.
-- Build: Gulp pipeline for HTML, CSS, JS, and assets.
+| Layer | Tech | Notes |
+| --- | --- | --- |
+| Markup | HTML | Static HTML output |
+| Styles | CSS | Compiled into `assets/css/main.css` |
+| Scripts | JS | Bundled in `assets/js/all.js` + `assets/js/page-ui.js` |
+| Build | Gulp | Compiles assets and templates |
+
+---
 
 ## Repository Structure
 
-- index.html: homepage
-- services.html, solutions.html, work.html, process.html, about.html, insights.html, contact.html
-- services/, work/, process/, about/, insights/, contact/: detail pages
-- assets/css/main.css: compiled styles
-- assets/js/all.js: compiled JS bundle
-- assets/js/page-ui.js: page interactions (spinner, scroll reveal, back-to-top)
-- templates/main.html: base layout template
-- organisms/: component partials (navbar, footer, hero, etc.)
-- src/: source assets and JS
+```text
+.
+├─ index.html
+├─ services.html
+├─ solutions.html
+├─ work.html
+├─ process.html
+├─ about.html
+├─ insights.html
+├─ contact.html
+├─ services/
+├─ work/
+├─ process/
+├─ about/
+├─ insights/
+├─ contact/
+├─ assets/
+│  ├─ css/
+│  ├─ js/
+│  └─ images/
+├─ templates/
+├─ organisms/
+└─ src/
+```
 
-## Styleguide
-
-- styleguide.html: full interactive styleguide
-- styleguide-print.html: print/PDF-friendly styleguide
-- STYLEGUIDE.md: repo documentation mirror
+---
 
 ## Development
 
-Install dependencies:
-
+```bash
 npm install
-
-Run development build:
-
 npm run start
+```
 
 Build production assets:
 
+```bash
 npm run build
+```
 
-The output is written to the project root and assets/ directories.
+---
 
 ## Scripts
 
-- npm run start: development build and watch
-- npm run build: production build
+- `npm run start` - development build + watch
+- `npm run build` - production build
 
-Note: The gulpfile is configured to output to the root. Review gulpfile.js if you need to adjust destinations.
+---
 
-## SEO and Metadata
+## SEO + Accessibility
 
-- Each page includes a unique title and meta description.
-- Content hierarchy uses a single H1 per page and structured H2/H3 sections.
-- Canonical URLs are set for all pages.
-- Open Graph and Twitter metadata are included.
+### SEO rules
 
-## Accessibility
+- One H1 per page, aligned with primary keyword + location.
+- Unique title and meta description per page.
+- Internal links from key sections and CTAs.
+- Structured headings with H2/H3 hierarchy.
 
-- Button focus states and visible outlines are enabled.
-- Semantic headings and list structures are used across sections.
+### Accessibility rules
 
-## Performance Notes
+- Visible focus states on all interactive elements.
+- Keyboard-friendly navigation and menus.
+- Proper semantic HTML (headings, lists, buttons).
+- Alt text for meaningful imagery.
 
-- Minimal JS dependencies for navigation and animations.
-- CSS is compiled and minified.
-- Noise texture is applied via CSS overlay; adjust opacity in assets/css/main.css if needed.
+---
+
+## Performance
+
+- SVG for icons and UI graphics.
+- Optimized hero assets, no heavy media in above-the-fold.
+- Limited font weights for faster loading.
+- Reduced motion support where necessary.
+
+---
 
 ## Customization
 
-- Update navigation and mega menu content in templates/main.html and organisms/navbar.html.
-- Edit page copy directly in each HTML file.
-- Adjust global styles in assets/css/main.css.
-- Update interactive behavior in assets/js/page-ui.js.
+- **Navigation**: `templates/main.html`, `organisms/navbar.html`
+- **Global styles**: `assets/css/main.css`
+- **Page UI interactions**: `assets/js/page-ui.js`
+- **Content**: edit HTML files directly per page
+
+---
 
 ## Deployment
 
-This is a static site. You can deploy to any static host:
+This is a static website. Deploy the project root to any static host:
 
 - Netlify
 - Vercel
 - GitHub Pages
 - Cloudflare Pages
 
-Build the site first, then publish the project root.
+---
 
 ## Troubleshooting
 
-- If a page does not show new content, ensure the correct HTML file was edited and reloaded.
-- If mega menus are missing, verify templates/main.html and organisms/navbar.html are in sync.
-- If scroll or overlays behave unexpectedly, check CSS overlays in assets/css/main.css.
+- If a page looks outdated, hard refresh or confirm the correct file was edited.
+- If mega menus are missing, sync `templates/main.html` with `organisms/navbar.html`.
+- If scroll or overlays behave unexpectedly, check `assets/css/main.css`.
+
+---
+
+## Styleguide
+
+- `styleguide.html` - interactive styleguide
+- `styleguide-print.html` - print/PDF styleguide
+- `STYLEGUIDE.md` - Markdown documentation
+
+---
 
 ## Credits
 
