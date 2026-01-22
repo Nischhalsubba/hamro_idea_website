@@ -42,6 +42,13 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
+    img {
+      width: 120px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
   }
 
   &__brand-name {
