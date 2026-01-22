@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   </head>
-  <body class="page-light">
+  <body class="page-light page-shell">
     <nav class="navbar">
       <div class="container">
         <div class="navbar__wrapper"><a class="navbar__brand" href="/"> <span class="navbar__logo-icon"><img class="navbar__logo-img" src="assets/images/Logo-dark.png" alt="Hamro Idea logo" width="32" height="32"></span></a>
@@ -255,174 +255,116 @@
         </div>
       </div>
     </nav><main class="page-content">
-    <section class="page-hero">
+    <section class="page-hero page-hero--split page-section--pattern">
       <div class="page-hero__glow"></div>
       <div class="container">
-        <div class="page-hero__content">
-          <p class="page-eyebrow">Insights</p>
-          <h1>Articles & Guides</h1>
-          <p class="page-lead">Expert perspectives on growth strategy, design systems, and technology decisions for modern teams.</p>
-          <div class="page-hero__meta">
-            <ul>
-              <li>Weekly guides</li><li>Practical frameworks</li><li>Actionable insights</li>
-            </ul>
-          </div>
-          <div class="page-actions">
-            <a class="btn btn--icon-block" href="/insights/resources.html"><span class="text">Browse Resources</span><span class="btn-icon-box">
+        <div class="page-hero__grid">
+          <div class="page-hero__content reveal">
+            <p class="page-eyebrow">Insights</p>
+            <h1>Articles & Guides</h1>
+            <p class="page-lead">Expert guidance designed for leaders scaling digital growth programs.</p>
+            <div class="hero-badges"><span class="hero-badge">Growth playbooks</span><span class="hero-badge">Design systems</span><span class="hero-badge">AI strategy</span></div>
+            <div class="page-actions"><a class="btn btn--icon-block" href="/insights/resources.html"><span class="text">Browse Resources</span><span class="btn-icon-box">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
-              </svg></span></a><a class="btn btn--icon-block btn--ghost" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
+              </svg></span></a>
+<a class="btn btn--icon-block btn--ghost" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
+              </svg></span></a></div>
+          </div>
+          <div class="page-hero__panel reveal hover-glow">
+            <h3>Editorial Strategy</h3>
+            <p>We publish content that turns complex topics into actionable guidance.</p>
+            <div class="hero-metrics"><div class="hero-metric"><strong>52+</strong><span>Articles yearly</span></div><div class="hero-metric"><strong>6</strong><span>Editorial themes</span></div><div class="hero-metric"><strong>100%</strong><span>Actionable insights</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="page-section__header reveal">
+          <h2>Featured Articles</h2>
+          <p>Deep dives and guides curated for leadership teams.</p>
+        </div>
+        <div class="page-card-grid">
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">Growth</p>
+          <h3>The Digital Growth Playbook</h3>
+          <p>A systems approach to aligning teams and driving measurable results.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">Strategy</p>
+          <h3>From Vision to Roadmap</h3>
+          <p>How to translate leadership goals into executable delivery plans.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">Performance</p>
+          <h3>Core Web Vitals for Leaders</h3>
+          <p>Why speed and UX performance impact revenue outcomes.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+</div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="page-section__header reveal">
+          <h2>Latest Research</h2>
+          <p>Signals and benchmarks from recent engagements.</p>
+        </div>
+        <div class="page-card-grid">
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">Design</p>
+          <h3>Design Systems at Scale</h3>
+          <p>Improve consistency and efficiency across teams.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">Analytics</p>
+          <h3>Leadership Dashboards That Matter</h3>
+          <p>Build reporting systems that support better decisions.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+
+        <article class="page-card reveal hover-glow">
+          <p class="page-eyebrow">SEO</p>
+          <h3>SEO Beyond Keywords</h3>
+          <p>Build a sustainable organic growth program.</p>
+          <a class="micro-link" href="/insights/blog-detail.html">Read the full guide</a>
+        </article>
+</div>
+      </div>
+    </section>
+
+    <section class="cta page-cta">
+      <div class="cta__background"></div>
+      <div class="container">
+        <div class="cta__content reveal">
+          <div class="cta__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
+            </svg>
+          </div>
+          <h2 class="cta__title">Need a custom growth briefing?</h2>
+          <p class="cta__subtitle">We can create a bespoke report for your leadership team.</p>
+          <div class="page-actions">
+            <a class="btn btn--icon-block" href="/contact/book-a-call.html"><span class="text">Book a Call</span><span class="btn-icon-box">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
+              </svg></span></a>
+            <a class="btn btn--icon-block btn--ghost" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
               </svg></span></a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section page-section--alt">
-      <div class="container">
-        <div class="page-section__header">
-          <h2>Strategic Focus Areas</h2>
-          <p>A clear view of where we add the most leverage and how each pillar connects to growth.</p>
-        </div>
-        <div class="page-card-grid">
-          
-          <article class="page-card animate-rise">
-            <h3>Growth Strategy</h3>
-            <p>Frameworks for acquisition and retention.</p>
-          </article>
-
-          <article class="page-card animate-rise">
-            <h3>Product Design</h3>
-            <p>UX principles and design system guidance.</p>
-          </article>
-
-          <article class="page-card animate-rise">
-            <h3>Marketing Ops</h3>
-            <p>Operational best practices for teams.</p>
-          </article>
-
-          <article class="page-card animate-rise">
-            <h3>Technology</h3>
-            <p>Modern stacks and AI adoption.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="page-section__header">
-          <h2>How We Deliver</h2>
-          <p>A senior-led workflow that keeps initiatives lean, measurable, and on schedule.</p>
-        </div>
-        <div class="page-steps">
-          
-          <div class="page-step">
-            <span class="page-step__index">01</span>
-            <div>
-              <h3>Research</h3>
-              <p>We use project data and market insights.</p>
-            </div>
-          </div>
-
-          <div class="page-step">
-            <span class="page-step__index">02</span>
-            <div>
-              <h3>Draft</h3>
-              <p>Clear, practical writing with structure.</p>
-            </div>
-          </div>
-
-          <div class="page-step">
-            <span class="page-step__index">03</span>
-            <div>
-              <h3>Review</h3>
-              <p>Fact checks and editorial reviews.</p>
-            </div>
-          </div>
-
-          <div class="page-step">
-            <span class="page-step__index">04</span>
-            <div>
-              <h3>Publish</h3>
-              <p>Actionable guides with next steps.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section page-section--alt">
-      <div class="container">
-        <div class="page-section__header">
-          <h2>What You Get</h2>
-          <p>Comprehensive deliverables that align teams, reduce risk, and accelerate launch.</p>
-        </div>
-        <ul class="page-list">
-          <li>Monthly editorial themes</li><li>Downloadable frameworks</li><li>Expert interviews</li><li>Quarterly research updates</li><li>Community Q and A sessions</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="page-section page-section--dark">
-      <div class="container">
-        <div class="page-section__header">
-          <h2>Measured Impact</h2>
-          <p>Benchmarks we aim for across every engagement, based on recent programs.</p>
-        </div>
-        <div class="page-stats">
-          
-          <div class="page-stat">
-            <span class="page-stat__value">52+</span>
-            <span class="page-stat__label">Articles per year</span>
-          </div>
-
-          <div class="page-stat">
-            <span class="page-stat__value">6</span>
-            <span class="page-stat__label">Editorial themes</span>
-          </div>
-
-          <div class="page-stat">
-            <span class="page-stat__value">100%</span>
-            <span class="page-stat__label">Actionable takeaways</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="page-section__header">
-          <h2>Common Questions</h2>
-          <p>Clarifying how we scope, execute, and measure success.</p>
-        </div>
-        <div class="page-faqs">
-          
-          <div class="page-faq">
-            <h3>Can I subscribe?</h3>
-            <p>Yes, updates are available via email.</p>
-          </div>
-
-          <div class="page-faq">
-            <h3>Do you accept guest posts?</h3>
-            <p>We review high-quality submissions.</p>
-          </div>
-
-          <div class="page-faq">
-            <h3>Is the content free?</h3>
-            <p>Yes, all articles are free to read.</p>
-          </div>
-
-          <div class="page-faq">
-            <h3>Do you cover AI topics?</h3>
-            <p>Yes, AI strategy is a recurring focus.</p>
-          </div>
-
         </div>
       </div>
     </section>
@@ -519,10 +461,20 @@
         </div>
       </div>
     </footer>
+    <div class="page-spinner" aria-hidden="true">
+      <div class="page-spinner__ring"></div>
+      <div class="page-spinner__core"></div>
+    </div>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4l-7 7h4v9h6v-9h4l-7-7z"></path>
+      </svg>
+    </button>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
     <script src="assets/js/all.js"></script>
+    <script src="assets/js/page-ui.js"></script>
   </body>
 </html>

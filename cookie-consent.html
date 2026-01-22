@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   </head>
-  <body class="page-light">
+  <body class="page-light page-shell">
     <nav class="navbar">
       <div class="container">
         <div class="navbar__wrapper"><a class="navbar__brand" href="/"> <span class="navbar__logo-icon"><img class="navbar__logo-img" src="assets/images/Logo-dark.png" alt="Hamro Idea logo" width="32" height="32"></span></a>
@@ -255,26 +255,28 @@
         </div>
       </div>
     </nav><main class="page-content">
-    <section class="page-hero">
+    <section class="page-hero page-hero--split page-section--pattern">
       <div class="page-hero__glow"></div>
       <div class="container">
-        <div class="page-hero__content">
-          <p class="page-eyebrow">Legal</p>
-          <h1>Cookie Consent</h1>
-          <p class="page-lead">We use cookies to improve performance and understand usage. You can control cookie preferences through your browser settings.</p>
-          <div class="page-hero__meta">
-            <ul>
-              <li>Policy updates</li><li>Data protection</li><li>Transparency</li>
-            </ul>
-          </div>
-          <div class="page-actions">
-            <a class="btn btn--icon-block" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
-              </svg></span></a><a class="btn btn--icon-block btn--ghost" href="/contact/book-a-call.html"><span class="text">Book a Call</span><span class="btn-icon-box">
+        <div class="page-hero__grid">
+          <div class="page-hero__content reveal">
+            <p class="page-eyebrow">Legal</p>
+            <h1>Cookie Consent</h1>
+            <p class="page-lead">We use cookies to improve performance and understand usage. You control preferences.</p>
+            <div class="hero-badges"><span class="hero-badge">Performance</span><span class="hero-badge">Analytics</span><span class="hero-badge">Control</span></div>
+            <div class="page-actions"><a class="btn btn--icon-block" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
               </svg></span></a>
+<a class="btn btn--icon-block btn--ghost" href="/contact/book-a-call.html"><span class="text">Book a Call</span><span class="btn-icon-box">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
+              </svg></span></a></div>
+          </div>
+          <div class="page-hero__panel reveal hover-glow">
+            <h3>Cookie Practices</h3>
+            <p>Simple, transparent cookie usage to improve experiences.</p>
+            <div class="hero-metrics"><div class="hero-metric"><strong>3</strong><span>Cookie types</span></div><div class="hero-metric"><strong>100%</strong><span>Control</span></div><div class="hero-metric"><strong>24h</strong><span>Response SLA</span></div></div>
           </div>
         </div>
       </div>
@@ -282,29 +284,28 @@
 
     <section class="page-section">
       <div class="container">
-        <div class="page-section__header">
+        <div class="page-section__header reveal">
           <h2>Policy Overview</h2>
+          <p>Clear, transparent guidance for how we handle data and engagement.</p>
         </div>
-        <div class="page-rich">
-          
-          <div class="page-rich-block">
-            <h3>Cookie Types</h3>
-            <p>We use essential, analytics, and performance cookies for site functionality.</p>
-            <ul class="page-list"><li>Essential cookies to keep the site working</li><li>Analytics cookies to understand usage</li><li>Performance cookies to improve speed</li></ul>
-          </div>
+        <div class="signature-grid"><article class="signature-card reveal"><h3>Transparency</h3><p>We describe what we collect and why.</p></article><article class="signature-card reveal"><h3>Security</h3><p>We apply reasonable measures to protect data.</p></article><article class="signature-card reveal"><h3>Control</h3><p>You can request access or updates at any time.</p></article><article class="signature-card reveal"><h3>Updates</h3><p>Policies are reviewed regularly for accuracy.</p></article></div>
+      </div>
+    </section>
 
-          <div class="page-rich-block">
-            <h3>Managing Preferences</h3>
-            <p>You can disable or delete cookies from your browser settings at any time.</p>
-            <ul class="page-list"><li>Update settings in your browser</li><li>Clear cookies if needed</li><li>Review browser help guides</li></ul>
+    <section class="page-section">
+      <div class="container">
+        <div class="split-section">
+          <div class="split-panel reveal">
+            <div class="page-section__header">
+              <h2>Key Highlights</h2>
+              <p>The most important points for teams and stakeholders.</p>
+            </div>
+            <ul class="page-list"><li>Data used only for service delivery and optimization</li><li>No unauthorized sharing of personal information</li><li>Clear opt-out and preference controls</li><li>Contact channels for policy questions</li><li>Updated regularly for compliance</li></ul>
           </div>
-
-          <div class="page-rich-block">
-            <h3>Consent</h3>
-            <p>By using our site, you consent to our cookie usage as described here.</p>
-            
+          <div class="image-frame reveal">
+            <div class="image-frame__glow"></div>
+            <span class="image-frame__badge">Policy Clarity</span>
           </div>
-
         </div>
       </div>
     </section>
@@ -312,21 +313,20 @@
     <section class="cta page-cta">
       <div class="cta__background"></div>
       <div class="container">
-        <div class="cta__content">
+        <div class="cta__content reveal">
           <div class="cta__icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
             </svg>
           </div>
-          <h2 class="cta__title">Need clarification or a custom NDA?</h2>
-          <p class="cta__subtitle">We can address questions about privacy, compliance, and data handling for your project.</p>
+          <h2 class="cta__title">Questions about compliance?</h2>
+          <p class="cta__subtitle">Our team can address privacy and data handling requirements.</p>
           <div class="page-actions">
             <a class="btn btn--icon-block" href="/contact.html"><span class="text">Contact Us</span><span class="btn-icon-box">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
               </svg></span></a>
-            
-          <a class="btn btn--icon-block btn--ghost" href="/contact/book-a-call.html"><span class="text">Book a Call</span><span class="btn-icon-box">
+            <a class="btn btn--icon-block btn--ghost" href="/contact/book-a-call.html"><span class="text">Book a Call</span><span class="btn-icon-box">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="white"></path>
               </svg></span></a>
@@ -427,10 +427,20 @@
         </div>
       </div>
     </footer>
+    <div class="page-spinner" aria-hidden="true">
+      <div class="page-spinner__ring"></div>
+      <div class="page-spinner__core"></div>
+    </div>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4l-7 7h4v9h6v-9h4l-7-7z"></path>
+      </svg>
+    </button>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
     <script src="assets/js/all.js"></script>
+    <script src="assets/js/page-ui.js"></script>
   </body>
 </html>
