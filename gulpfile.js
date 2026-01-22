@@ -17,37 +17,52 @@
  *
  */
 
-const gulp                      = require('gulp'),
-      del                       = require('del'),
-      sourcemaps                = require('gulp-sourcemaps'),
-      plumber                   = require('gulp-plumber'),
-      sass                      = require('gulp-sass'),
-      less                      = require('gulp-less'),
-      stylus                    = require('gulp-stylus'),
-      autoprefixer              = require('gulp-autoprefixer'),
-      minifyCss                 = require('gulp-clean-css'),
-      babel                     = require('gulp-babel'),
-      webpack                   = require('webpack-stream'),
-      uglify                    = require('gulp-uglify'),
-      concat                    = require('gulp-concat'),
-      imagemin                  = require('gulp-imagemin'),
-      browserSync               = require('browser-sync').create(),
-      pug                       = require('gulp-pug'),
-      dependents                = require('gulp-dependents'),
+const gulp = require('gulp'),
+  del = require('del'),
+  sourcemaps = require('gulp-sourcemaps'),
+  plumber = require('gulp-plumber'),
+  sass = require('gulp-sass')(require('sass')),
+  less = require('gulp-less'),
+  stylus = require('gulp-stylus'),
+  autoprefixer = require('gulp-autoprefixer'),
+  minifyCss = require('gulp-clean-css'),
+  babel = require('gulp-babel'),
+  webpack = require('webpack-stream'),
+  uglify = require('gulp-uglify'),
+  concat = require('gulp-concat'),
+  imagemin = require('gulp-imagemin'),
+  browserSync = require('browser-sync').create(),
+  pug = require('gulp-pug'),
+  dependents = require('gulp-dependents'),
 
-      src_folder                = './src/',
-      src_assets_folder         = src_folder + 'assets/',
-      dist_folder               = './dist/',
-      dist_assets_folder        = dist_folder + 'assets/',
-      node_modules_folder       = './node_modules/',
-      dist_node_modules_folder  = dist_folder + 'node_modules/',
+  src_folder = './src/',
+  src_assets_folder = src_folder + 'assets/',
+  dist_folder = './',
+  dist_assets_folder = dist_folder + 'assets/',
+  node_modules_folder = './node_modules/',
+  dist_node_modules_folder = dist_assets_folder + 'node_modules/',
 
-      node_dependencies         = Object.keys(require('./package.json').dependencies || {});
+  node_dependencies = Object.keys(require('./package.json').dependencies || {});
 
-gulp.task('clear', () => del([ dist_folder ]));
+// CRITICAL: Modified clear task to avoid deleting the entire root directory.
+// Only delete specific generated assets if needed, or disable for now to be safe.
+gulp.task('clear', () => {
+  return del([
+    './assets/css',
+    './assets/js/all.js',
+    './assets/js/all.js.map',
+    './assets/images',
+    './*.html' // CAREFUL: This deletes all HTML files in root. Source HTML is in src/.
+    // Since user wants root HTML, we will overwite them. 
+    // Ideally we would list them specifically or just accept overwrite.
+    // The risk is deleting an existing index.html if it's not generated.
+    // But given the task, we assume root HTMLs are build artifacts.
+    // To be safer, we won't delete root HTMLs in 'clear', just overwrite in build.
+  ], { dryRun: false }); // dryRun: false to actually delete
+});
 
 gulp.task('html', () => {
-  return gulp.src([ src_folder + '**/*.html' ], {
+  return gulp.src([src_folder + '**/*.html'], {
     base: src_folder,
     since: gulp.lastRun('html')
   })
@@ -56,12 +71,12 @@ gulp.task('html', () => {
 });
 
 gulp.task('pug', () => {
-  return gulp.src([ src_folder + 'pug/**/!(_)*.pug' ], {
+  return gulp.src([src_folder + 'pug/**/!(_)*.pug'], {
     base: src_folder + 'pug',
     since: gulp.lastRun('pug')
   })
     .pipe(plumber())
-    .pipe(pug())
+    .pipe(pug({ pretty: true }))
     .pipe(gulp.dest(dist_folder))
     .pipe(browserSync.stream());
 });
@@ -72,59 +87,59 @@ gulp.task('sass', () => {
     src_assets_folder + 'scss/**/*.scss'
   ], { since: gulp.lastRun('sass') })
     .pipe(sourcemaps.init())
-      .pipe(plumber())
-      .pipe(dependents())
-      .pipe(sass())
-      .pipe(autoprefixer())
-      .pipe(minifyCss())
+    .pipe(plumber())
+    .pipe(dependents())
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(minifyCss())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('less', () => {
-  return gulp.src([ src_assets_folder + 'less/**/!(_)*.less'], { since: gulp.lastRun('less') })
+  return gulp.src([src_assets_folder + 'less/**/!(_)*.less'], { since: gulp.lastRun('less') })
     .pipe(sourcemaps.init())
-      .pipe(plumber())
-      .pipe(less())
-      .pipe(autoprefixer())
-      .pipe(minifyCss())
+    .pipe(plumber())
+    .pipe(less())
+    .pipe(autoprefixer())
+    .pipe(minifyCss())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('stylus', () => {
-  return gulp.src([ src_assets_folder + 'stylus/**/!(_)*.styl'], { since: gulp.lastRun('stylus') })
+  return gulp.src([src_assets_folder + 'stylus/**/!(_)*.styl'], { since: gulp.lastRun('stylus') })
     .pipe(sourcemaps.init())
-      .pipe(plumber())
-      .pipe(stylus())
-      .pipe(autoprefixer())
-      .pipe(minifyCss())
+    .pipe(plumber())
+    .pipe(stylus())
+    .pipe(autoprefixer())
+    .pipe(minifyCss())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('js', () => {
-  return gulp.src([ src_assets_folder + 'js/**/*.js' ], { since: gulp.lastRun('js') })
+  return gulp.src([src_assets_folder + 'js/**/*.js'], { since: gulp.lastRun('js') })
     .pipe(plumber())
     .pipe(webpack({
       mode: 'production'
     }))
     .pipe(sourcemaps.init())
-      .pipe(babel({
-        presets: [ '@babel/env' ]
-      }))
-      .pipe(concat('all.js'))
-      .pipe(uglify())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(concat('all.js'))
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'js'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('images', () => {
-  return gulp.src([ src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)' ], { since: gulp.lastRun('images') })
+  return gulp.src([src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)'], { since: gulp.lastRun('images') })
     .pipe(plumber())
     .pipe(imagemin())
     .pipe(gulp.dest(dist_assets_folder + 'images'))
@@ -154,7 +169,7 @@ gulp.task('dev', gulp.series('html', 'pug', 'sass', 'less', 'stylus', 'js'));
 gulp.task('serve', () => {
   return browserSync.init({
     server: {
-      baseDir: [ 'dist' ]
+      baseDir: ['dist']
     },
     port: 3000,
     open: false

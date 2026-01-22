@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Colors (Based on User Design System)
+$color-blue: #121984; // Primary Brand Color
+$color-soft-lilac: #F6F4FC; // Backgrounds/Accents
+$color-white: #FCFCFC; // Main Background
+$color-gray: #4A4A4C; // Body Text
+$color-black: #000000; // Headings
+
+// Semantic Mappings
+$color-primary: $color-blue;
+$color-secondary: $color-soft-lilac;
+$color-bg-light: $color-white;
+$color-text-body: $color-gray;
+$color-text-head: $color-black;
+
+// Highlight/Accent
+$color-accent-pink: #FF009A;
+$color-highlight-yellow: #FFBE2C;
+$color-text-muted: rgba($color-black, 0.6);
+
+// Legacy Mappings (Crucial for compatible build)
+$brand-primary: $color-primary;
+$brand-secondary: $color-secondary;
+$white: $color-white;
+$black: $color-black;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Derived Legacy Helpers
+$dark_primary: darken($color-primary, 10%);
+$light_secondary: lighten($color-soft-lilac, 5%);
+$brand-accent: $color-accent-pink;
+$color-accent: $color-accent-pink;
+$color-bg-dark: #050a30;
+$gray_01: $gray-200;
+$gray_02: $gray-400;
+
+// Typography
+$font-family-base: 'Manrope', sans-serif;
+$font-family-heading: 'Manrope', sans-serif;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Breakpoints
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+// Spacing
+$spacer: 1rem;

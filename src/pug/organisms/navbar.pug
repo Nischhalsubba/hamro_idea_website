@@ -1,0 +1,266 @@
+//- Navbar
+nav.navbar
+    .container
+        .navbar__wrapper
+            a.navbar__brand(href="/") 
+                span.navbar__logo-icon
+                    img.navbar__logo-img(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="32", height="32")
+
+            //- Desktop Menu (Mega Menu)
+            ul.navbar__menu-desktop
+                //- SERVICES
+                li.nav-item.has-mega-menu(data-mega-target="services")
+                    a.nav-link(href="/services.html") Services
+
+                //- SOLUTIONS
+                li.nav-item.has-mega-menu(data-mega-target="solutions")
+                    a.nav-link(href="/solutions.html") Solutions
+
+                //- WORK
+                li.nav-item.has-mega-menu(data-mega-target="work")
+                    a.nav-link(href="/work.html") Work
+
+                //- PROCESS
+                li.nav-item.has-mega-menu(data-mega-target="process")
+                    a.nav-link(href="/process.html") Process
+
+                //- ABOUT
+                li.nav-item.has-mega-menu(data-mega-target="about")
+                    a.nav-link(href="/about.html") About
+
+                //- INSIGHTS
+                li.nav-item.has-mega-menu(data-mega-target="insights")
+                    a.nav-link(href="/insights.html") Insights
+
+                //- CONTACT
+                li.nav-item.has-mega-menu(data-mega-target="contact")
+                    a.nav-link(href="/contact.html") Contact
+
+            //- Desktop Actions
+            .navbar__actions-desktop
+                a.btn.btn--primary.btn--icon-block(href="/contact/book-a-call.html")
+                    span.text Book a Call
+                    span.btn-icon-box
+                        svg(width="12", height="12", viewBox="0 0 16 16", fill="none", xmlns="http://www.w3.org/2000/svg")
+                            path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
+
+            //- Mobile Toggle
+            button.navbar__toggle(aria-label="Toggle navigation")
+                span.navbar__toggle-icon
+
+    //- Mega Menus (Detached for consistent positioning)
+    .mega-menus
+        //- SERVICES
+        .mega-menu(data-mega="services")
+            .mega-menu__container.container
+                .mega-menu__layout
+                    .mega-menu__main
+                        h6.mega-section-title Core Solutions
+                        .services-grid
+                            a.service-card(href="/services/branding-identity.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11.19 18.32L5.55 12.68C5.24 12.37 5.24 11.87 5.55 11.56L11.19 5.92C11.5 5.61 12 5.61 12.31 5.92L17.95 11.56C18.26 11.87 18.26 12.37 17.95 12.68L12.31 18.32C12 18.63 11.5 18.63 11.19 18.32Z")
+                                .service-card__content
+                                    h4.service-card__title Branding & Identity
+                                    p.service-card__desc Design corporate identities, visual systems, and brand guidelines.
+                            a.service-card(href="/services/web-development.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M20 4H4C2.89 4 2 4.89 2 6V18C2 19.1 2.89 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.89 21.1 4 20 4ZM20 18H4V8H20V18Z")
+                                        path(d="M4 6H20V8H4V6Z")
+                                .service-card__content
+                                    h4.service-card__title Web Development
+                                    p.service-card__desc Custom business websites, web apps, and eCommerce platforms.
+                            a.service-card(href="/services/custom-cms.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M20 6H16V4C16 2.89 15.11 2 14 2H10C8.89 2 8 2.89 8 4V6H4C2.9 6 2 6.89 2 7.99V18C2 19.1 2.89 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.89 21.1 6 20 6ZM10 4H14V6H10V4ZM20 18H4V8H20V18Z")
+                                .service-card__content
+                                    h4.service-card__title Custom CMS
+                                    p.service-card__desc Tailored content management for WordPress, Drupal, and more.
+                            a.service-card(href="/services/digital-marketing-seo.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M21.99 7C21.99 6.45 21.55 6 21 6H17C16.45 6 16 6.45 16 7V17C16 17.55 16.45 18 17 18H21C21.55 18 21.99 17.55 21.99 17V7ZM14 2C14 1.45 13.55 1 13 1H9C8.45 1 8 1.45 8 2V17C8 17.55 8.45 18 9 18H13C13.55 18 14 17.55 14 17V2ZM7 12C7 11.45 6.55 11 6 11H2C1.45 11 1 11.45 1 12V17C1 17.55 1.45 18 2 18H6C6.55 18 7 17.55 7 17V12Z")
+                                .service-card__content
+                                    h4.service-card__title Digital Marketing & SEO
+                                    p.service-card__desc SEO audits, technical strategy, and growth analytics.
+                    .mega-menu__sidebar
+                        h6.mega-section-title Popular Requests
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="#")
+                                span.sidebar-icon 🚀
+                                div
+                                    span.sidebar-title Start a New Project
+                                    span.sidebar-desc Launch your MVP or Website
+                            li: a.sidebar-item(href="#")
+                                span.sidebar-icon 🛠
+                                div
+                                    span.sidebar-title Fix My SEO
+                                    span.sidebar-desc Technical audit & optimization
+                            li: a.sidebar-item(href="#")
+                                span.sidebar-icon 🛒
+                                div
+                                    span.sidebar-title eCommerce Growth
+                                    span.sidebar-desc Shopify & WooCommerce
+                        .mega-menu__footer-link
+                            a(href="/services/") See all 15+ Services →
+
+        //- SOLUTIONS
+        .mega-menu(data-mega="solutions")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title Solution Areas
+                        ul.mega-links
+                            li: a(href="/solutions.html") Digital Transformation
+                            li: a(href="/solutions.html") Enterprise Platforms
+                            li: a(href="/solutions.html") AI Enablement
+                            li: a(href="/solutions.html") Data & Analytics
+                    .mega-menu__sidebar
+                        h6.mega-section-title Quick Actions
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon [cal]
+                                div
+                                    span.sidebar-title Book a Call
+                                    span.sidebar-desc Talk to a strategist
+                            li: a.sidebar-item(href="/contact/whatsapp.html")
+                                span.sidebar-icon [chat]
+                                div
+                                    span.sidebar-title WhatsApp
+                                    span.sidebar-desc Fast response on chat
+
+        //- WORK
+        .mega-menu(data-mega="work")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title Featured Work
+                        ul.mega-links
+                            li: a(href="/work/case-studies.html") Case Studies
+                            li: a(href="/work/client-sites.html") Client Websites
+                            li: a(href="/work.html") Industry Highlights
+                            li: a(href="/work.html") Results & Impact
+                    .mega-menu__sidebar
+                        h6.mega-section-title Popular Requests
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon [launch]
+                                div
+                                    span.sidebar-title Start a New Project
+                                    span.sidebar-desc Launch your MVP or Website
+
+        //- PROCESS
+        .mega-menu(data-mega="process")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title How We Work
+                        ul.mega-links
+                            li: a(href="/process/how-we-work.html") Delivery Framework
+                            li: a(href="/process/engagement-models.html") Engagement Models
+                            li: a(href="/process/how-we-work.html") Discovery & Strategy
+                            li: a(href="/process/how-we-work.html") Build & Launch
+                    .mega-menu__sidebar
+                        h6.mega-section-title Next Step
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon [check]
+                                div
+                                    span.sidebar-title Book a Call
+                                    span.sidebar-desc Align on scope and goals
+
+        //- ABOUT
+        .mega-menu(data-mega="about")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title About Hamro Idea
+                        ul.mega-links
+                            li: a(href="/about/company.html") Company Overview
+                            li: a(href="/about/team.html") Leadership & Team
+                            li: a(href="/about/why-hamro-idea.html") Why Hamro Idea
+                            li: a(href="/about.html") Culture & Values
+                    .mega-menu__sidebar
+                        h6.mega-section-title Quick Facts
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/about/company.html")
+                                span.sidebar-icon [compass]
+                                div
+                                    span.sidebar-title Founded 2012
+                                    span.sidebar-desc Nepal-based digital studio
+
+        //- INSIGHTS
+        .mega-menu(data-mega="insights")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title Insights
+                        ul.mega-links
+                            li: a(href="/insights/blog.html") Articles & Guides
+                            li: a(href="/insights/resources.html") Resources
+                            li: a(href="/insights/blog.html") Case Notes
+                            li: a(href="/insights/blog.html") Podcasts
+                    .mega-menu__sidebar
+                        h6.mega-section-title Latest
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/insights/blog.html")
+                                span.sidebar-icon [pin]
+                                div
+                                    span.sidebar-title New Release
+                                    span.sidebar-desc The Hamro Idea Playbook
+
+        //- CONTACT
+        .mega-menu(data-mega="contact")
+            .mega-menu__container.container
+                .mega-menu__layout.mega-menu__layout--single
+                    .mega-menu__main
+                        h6.mega-section-title Contact
+                        ul.mega-links
+                            li: a(href="/contact/book-a-call.html") Book a Call
+                            li: a(href="/contact/whatsapp.html") WhatsApp
+                            li: a(href="/contact.html") Contact Form
+                            li: a(href="/contact/email/") Email Us
+                    .mega-menu__sidebar
+                        h6.mega-section-title Availability
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon [time]
+                                div
+                                    span.sidebar-title Response within 24h
+                                    span.sidebar-desc Weekdays, 10am-6pm
+
+//- Mobile Overlay (Same as before)
+.mobile-nav-overlay
+    .mobile-nav-content
+        .mobile-nav-header
+            span.logo-text
+                img.mobile-logo(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="28", height="28")
+            button.mobile-nav-close ×
+        
+        ul.mobile-nav-list
+            li: a(href="/") Home
+            li.has-submenu
+                span Services
+                ul.submenu
+                    li: a(href="/services/branding-identity/") Branding & Identity
+                    li: a(href="/services/web-development/") Website & Web App Dev
+                    li: a(href="/services/custom-cms/") Custom CMS Dev
+                    li: a(href="/services/digital-marketing-seo/") Digital Marketing & SEO
+            li: a(href="/work/") Work
+            li: a(href="/process/") Process
+            li: a(href="/about/") About
+            li: a(href="/insights/") Insights
+            li: a(href="/contact/") Contact
+        
+        .mobile-nav-actions
+            a.btn.btn--primary.btn--icon-block.btn--block(href="/contact/book-a-call/")
+                span.text Book a Call
+                span.btn-icon-box
+                    svg(width="12", height="12", viewBox="0 0 16 16", fill="none", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
+            .quick-actions
+                a(href="/contact/whatsapp/") WhatsApp
+                a(href="/contact/email/") Email

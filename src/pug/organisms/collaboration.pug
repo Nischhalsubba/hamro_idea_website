@@ -1,0 +1,74 @@
+//- Collaboration Section
+section.collaboration
+    .container
+        .collaboration__header
+            .collaboration__icon.section-icon
+                svg(width="24", height="24", viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="2", stroke-linecap="round", stroke-linejoin="round", xmlns="http://www.w3.org/2000/svg")
+                    path(d="M5 12L9 16L19 7")
+            
+            h2.collaboration__title Where Collaboration Meets #[br] Digital Excellence.
+            p.collaboration__subtitle We collaborate closely with your team to align strategy, build fast, and refine with real user feedback for measurable growth.
+
+        .collaboration__grid
+            //- Card 1: Proven Expertise (Text Badge)
+            .collab-card.collab-card--expertise
+                .collab-card__content
+                    h3.collab-card__title Product Strategy That Aligns Teams
+                    p.collab-card__desc We translate goals into a focused roadmap so every decision drives measurable business impact.
+                    .collab-card__metrics
+                        span.metric 12+ strategy workshops
+                        span.metric 30% faster alignment
+                
+                .collab-card__visual
+                    .expertise-badge
+                        .badge-icon 
+                            //- Simple icon (grid)
+                            svg(width="16", height="16", viewBox="0 0 24 24", fill="none", stroke="currentColor")
+                                rect(x="3", y="3", width="7", height="7")
+                                rect(x="14", y="3", width="7", height="7")
+                                rect(x="14", y="14", width="7", height="7")
+                                rect(x="3", y="14", width="7", height="7")
+                        span.badge-text Clarity before code
+
+            //- Card 2: Customized Strategies (Gauge Animation)
+            .collab-card.collab-card--strategies
+                .collab-card__content
+                    h3.collab-card__title AI Enablement With Real Outcomes
+                    p.collab-card__desc We identify where automation matters most and build workflows your team can trust and improve.
+                    .collab-card__metrics
+                        span.metric 8+ industries
+                        span.metric 40% ops savings
+                
+                .collab-card__visual
+                    .gauge-container
+                        //- Gauge SVG
+                        svg.gauge-graphic(width="280", height="140", viewBox="0 0 280 140")
+                            //- Background Arc
+                            path.gauge-bg(d="M20,140 A120,120 0 0,1 260,140", fill="none", stroke="#F0F2F5", stroke-width="40")
+                            //- Active Arc (Progress)
+                            path.gauge-fill(d="M20,140 A120,120 0 0,1 260,140", fill="none", stroke="#E6E9EF", stroke-width="40")
+                            //- Segments overlay
+                            path.gauge-segment(d="M20,140 A120,120 0 0,1 80,36", fill="none", stroke="none")
+                            
+                            //- Emoji Indicators (positioned)
+                            g.gauge-icons
+                                //- Happy Face (Target)
+                                circle(cx="140", cy="50", r="18", fill="#FFC107")
+                                path(d="M134,54 Q140,60 146,54", stroke="#856404", stroke-width="2", fill="none")
+                                circle(cx="135", cy="46", r="2", fill="#856404")
+                                circle(cx="145", cy="46", r="2", fill="#856404")
+
+            //- Card 3: Empowerment (Layered Sheets)
+            .collab-card.collab-card--empowerment
+                .collab-card__content
+                    h3.collab-card__title Delivery Partnership That Scales
+                    p.collab-card__desc From design systems to handover docs, we build with your team to scale with confidence.
+                    
+                    a.btn-text-icon(href="/process.html") Unlock Strategic Value
+                        span.icon-arrow →
+
+                .collab-card__visual
+                    .layers-container
+                        .layer.layer-1
+                        .layer.layer-2
+                        .layer.layer-3

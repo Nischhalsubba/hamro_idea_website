@@ -1,0 +1,302 @@
+// Collaboration Section Styles
+.collaboration {
+    padding: 100px 0;
+    background-color: $color-white;
+
+    &__header {
+        max-width: 600px;
+        margin-bottom: 4rem;
+
+        .collaboration__icon {
+            margin-bottom: 2rem;
+        }
+
+        .collaboration__title {
+            font-family: $font-family-heading;
+            font-size: clamp(2.1rem, 3.5vw, 3rem);
+            font-weight: 500;
+            line-height: 1.2;
+            color: $color-text-head;
+            margin-bottom: 1.5rem;
+        }
+
+        .collaboration__subtitle {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: $color-text-body;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include breakpoint-up(lg) {
+            grid-template-columns: repeat(2, 1fr);
+
+            // 3rd card spans full width
+            >.collab-card--empowerment {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    .collab-card {
+        background-color: #F8F9FE; // Very light blue/grey
+        border: 1px solid rgba($color-blue, 0.08);
+        padding: 3rem;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 420px;
+        gap: 1.5rem;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, rgba($color-blue, 0.2), rgba($color-blue, 0.45));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 70px rgba($color-blue, 0.16);
+            border-color: rgba($color-blue, 0.2);
+
+            &::after {
+                opacity: 1;
+            }
+
+            .collab-card__visual {
+                transform: translateY(-6px);
+            }
+        }
+
+        &__content {
+            z-index: 2;
+            position: relative;
+            margin-bottom: 0;
+
+            .collab-card__title {
+                font-family: $font-family-heading;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: $color-text-head;
+            }
+
+            .collab-card__desc {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: $color-text-body;
+                max-width: 90%;
+            }
+
+            .collab-card__metrics {
+                display: flex;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+
+                .metric {
+                    background: rgba($color-blue, 0.08);
+                    color: $color-blue;
+                    font-weight: 600;
+                    font-size: 0.85rem;
+                    padding: 0.35rem 0.7rem;
+                    border-radius: 999px;
+                }
+            }
+        }
+
+        &__visual {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease;
+        }
+
+        // --- Specific Card Styles ---
+
+        // 1. Proven Expertise
+        &--expertise {
+            .collab-card__content {
+                padding-bottom: 1rem;
+            }
+
+            .expertise-badge {
+                background: $color-white;
+                padding: 1rem 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                position: absolute;
+                bottom: 12px;
+                width: 88%;
+                left: 6%;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                .badge-icon {
+                    width: 32px;
+                    height: 32px;
+                    background: $color-primary;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $color-white;
+                    flex-shrink: 0;
+                }
+
+                .badge-text {
+                    font-weight: 600;
+                    color: $color-primary;
+                    font-size: 0.95rem;
+                }
+            }
+
+            &:hover {
+                .expertise-badge {
+                    transform: translateY(-30px) scale(1.02);
+                }
+            }
+        }
+
+        // 2. Customized Strategies (Gauge)
+        &--strategies {
+            .collab-card__visual {
+                overflow: hidden;
+            }
+
+            .gauge-graphic {
+                transform-origin: bottom center;
+                transition: transform 0.5s ease;
+            }
+
+            .gauge-fill {
+                stroke: #7B85CE; // Muted purple/blue
+                stroke-dasharray: 377; // C = 2*pi*r -> 120 arc length approx
+                stroke-dashoffset: 377; // Start empty
+                transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0.5;
+            }
+
+            // The highlighted "Target" segment
+            &.active,
+            // JS trigger or hover
+            &:hover {
+                .gauge-fill {
+                    stroke-dashoffset: 100; // Animate fill
+                }
+            }
+        }
+
+        // 3. Empowerment (Layered)
+        &--empowerment {
+            flex-direction: row;
+            align-items: center;
+            background: linear-gradient(135deg, #F8F9FE 0%, #EFF1FD 100%);
+            gap: 2rem;
+
+            @media (max-width: 991px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .collab-card__content {
+                flex: 1;
+                padding-right: 2rem;
+            }
+
+            .collab-card__visual {
+                flex: 1;
+                height: 300px;
+                perspective: 1000px; // For 3D transform
+            }
+
+            .btn-text-icon {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 1.5rem;
+                padding: 0.75rem 1.5rem;
+                background: rgba($color-primary, 0.1);
+                color: $color-primary;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: $color-primary;
+                    color: $color-white;
+                }
+            }
+
+            .layers-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .layer {
+                position: absolute;
+                width: 200px;
+                height: 260px;
+                background: linear-gradient(135deg, #9FA8DA 0%, #7986CB 100%);
+                border-radius: 12px;
+                box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+                transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+
+                // Stack them
+                &.layer-1 {
+                    background: #C5CAE9;
+                    z-index: 1;
+                    transform: translateX(-40px) translateY(20px) scale(0.9);
+                }
+
+                &.layer-2 {
+                    background: #9FA8DA;
+                    z-index: 2;
+                    transform: translateX(0) translateY(0) scale(1);
+                }
+
+                &.layer-3 {
+                    background: #7986CB; // Darkest
+                    z-index: 3;
+                    transform: translateX(40px) translateY(-20px) scale(1.1);
+                }
+            }
+
+            &:hover {
+                .layer-1 {
+                    transform: translateX(-80px) translateY(40px) rotateY(-10deg);
+                }
+
+                .layer-2 {
+                    transform: translateX(0) translateY(0) rotateY(0deg);
+                }
+
+                .layer-3 {
+                    transform: translateX(80px) translateY(-40px) rotateY(10deg);
+                }
+            }
+        }
+    }
+}

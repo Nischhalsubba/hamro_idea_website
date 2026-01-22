@@ -1,0 +1,155 @@
+// Services Section Styles (Premium Card Redesign)
+.services {
+    padding: 120px 0;
+    // Updated background from user feedback #F6F4FC (mapped to $color-soft-lilac)
+    background-color: $color-soft-lilac;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        position: relative;
+
+        @include breakpoint-up(lg) {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 60px; // Reduced from 120px
+        }
+    }
+
+    // Left Sticky Side
+    &__sticky {
+        width: 100%;
+
+        @include breakpoint-up(lg) {
+            width: 35%;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 25vh;
+            height: fit-content;
+        }
+
+        .icon-cube {
+            margin-bottom: 2.5rem;
+        }
+
+        .services__title {
+            font-family: $font-family-heading;
+            font-size: clamp(2.1rem, 3.5vw, 3rem);
+            line-height: 1.2;
+            font-weight: 500;
+            color: $color-text-head;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .services__description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: $color-text-body;
+            font-weight: 400;
+            max-width: 90%;
+        }
+    }
+
+    // Right Scrollable Side
+    &__list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem; // Increased gap for 'breathing room'
+
+        @include breakpoint-up(lg) {
+            width: 55%;
+        }
+    }
+
+    // Service Item Card (Premium VisionOS Redesign)
+    .service-item {
+        @include glass-material(0.65); // Use new Glass Mixin
+        color: $color-black;
+        padding: 2.5rem; // Reduced from 4rem for tighter feel
+        border-radius: 16px;
+        position: relative;
+        transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+        margin-bottom: 0px; // Reset margin for cleaner layout
+
+        // "Watermark" Number
+        .item-number {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba($color-blue, 0.04); // Very subtle watermark
+            line-height: 1;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            pointer-events: none;
+        }
+
+        .item-dot {
+            display: none;
+        }
+
+        .item-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: $color-blue; // Brand color for titles
+            position: relative;
+            z-index: 2;
+        }
+
+        .item-desc {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: lighten($color-text-body, 10%); // Slightly softer for readability
+            margin-bottom: 2.5rem;
+            max-width: 95%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .item-link {
+            text-decoration: none;
+            color: $color-black;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 2;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba($color-black, 0.1);
+            transition: all 0.3s ease;
+
+            .arrow {
+                font-size: 1.25rem;
+                transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            &:hover {
+                border-bottom-color: $color-blue;
+                color: $color-blue;
+                gap: 1.25rem;
+
+                .arrow {
+                    transform: translateX(5px);
+                }
+            }
+        }
+
+        // Hover Effect: Lift & Subtle Blue Shadow (VisionOS Lift)
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 30px 60px -12px rgba(18, 25, 132, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+}

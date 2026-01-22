@@ -1,0 +1,114 @@
+.site-footer {
+  background: #0a0e3a;
+  padding: 80px 0 60px;
+  color: $color-white;
+
+  &__card {
+    background: $color-white;
+    color: $color-text-head;
+    border-radius: 18px;
+    padding: clamp(2.5rem, 4vw, 3.5rem);
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) 2.2fr;
+    gap: 2.5rem;
+    box-shadow: 0 35px 80px rgba(7, 12, 40, 0.35);
+    align-items: start;
+  }
+
+  &__intro {
+    max-width: 320px;
+
+    h3 {
+      font-size: 1.75rem;
+      margin: 1rem 0;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    p {
+      color: $color-text-muted;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    img {
+      width: 120px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  &__brand-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  &__cta {
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  &__column {
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    a {
+      color: $color-text-muted;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.85rem;
+  }
+
+  &__legal {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+
+    a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+    }
+  }
+}

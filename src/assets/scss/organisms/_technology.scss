@@ -1,0 +1,78 @@
+// Technology Section SCSS
+.technology {
+    padding: 120px 0;
+
+    .title {
+        font-family: $font-family-heading;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 5rem;
+
+        .card {
+            @include glass-material(0.6);
+            padding: 1.5rem 2.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            transition: all 0.3s ease;
+
+            .skill-name {
+                font-weight: 600;
+                color: $color-blue;
+                font-size: 1.1rem;
+            }
+
+            &:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 10px 25px rgba($color-blue, 0.15);
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
+
+    .border_line {
+        border: 0;
+        height: 1px;
+        background: rgba($color-black, 0.1);
+        margin: 4rem 0;
+    }
+
+    .experience {
+        padding: 0 2rem;
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .experience_item {
+            .title {
+                font-size: 3.5rem;
+                font-weight: 800;
+                color: $color-blue;
+                margin-bottom: 0.5rem;
+                line-height: 1;
+            }
+
+            .content {
+                font-size: 1.1rem;
+                color: $color-text-body;
+                font-weight: 500;
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+// CTA Section
+.cta {
+  position: relative;
+  padding: 140px 0 180px;
+  color: $color-white;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(109, 117, 255, 0.55) 0%, transparent 55%),
+      radial-gradient(circle at 80% 30%, rgba(34, 42, 152, 0.85) 0%, transparent 55%),
+      linear-gradient(135deg, #0a0e3a 0%, #151d6a 45%, #1a2a88 100%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__content {
+    max-width: 700px;
+  }
+
+  &__icon {
+    margin-bottom: 1.75rem;
+  }
+
+  &__title {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    max-width: 520px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: $color-white;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__input:focus-visible {
+    outline: none;
+  }
+
+  &__form:focus-within {
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+  }
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,125 @@
+// Insights Section
+.insights {
+  padding: 140px 0;
+  background-color: $color-soft-lilac;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  &__header-content {
+    max-width: 680px;
+  }
+
+  &__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  &__link {
+    color: $color-blue;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:after {
+      content: "→";
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover:after {
+      transform: translateX(4px);
+    }
+  }
+
+  &__icon {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: clamp(2.1rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: $color-text-head;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    color: $color-text-muted;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  &__card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba($color-blue, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba($color-blue, 0.12);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: $color-text-muted;
+    padding: 1rem 1.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__tag {
+    background: rgba($color-blue, 0.1);
+    color: $color-blue;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem 1.5rem;
+    margin: 0;
+    color: $color-text-head;
+    line-height: 1.4;
+  }
+
+  .insights__card:hover .insights__image {
+    transform: scale(1.03);
+  }
+}

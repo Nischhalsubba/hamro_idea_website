@@ -1,0 +1,128 @@
+.btn {
+  padding: 18px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-family: $font-family-base;
+  font-weight: 400; // Normal weight
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px; // Slight rounded corners for modern look
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba($color-blue, 0.15);
+  }
+}
+
+.btn--icon-block {
+  background: $color-white;
+  color: $color-black;
+  padding: 0.5rem 0.6rem 0.5rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba($color-blue, 0.12);
+  box-shadow: 0 10px 24px rgba($color-blue, 0.15);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba($color-blue, 0.2);
+  }
+
+  .btn-icon-box,
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    background: $color-blue;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba($color-primary, 0.9) 0%, rgba($color-primary, 1) 100%);
+  color: $color-white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 10px rgba($color-primary, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2); // Inner rim
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: linear-gradient(135deg, $color-primary 0%, lighten($color-primary, 5%) 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba($color-primary, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.btn-secondary {
+  // Glass Button
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: $color-white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.button {
+  &__arrow {
+    padding-right: 2rem !important;
+
+    .arrow {
+      &__icon {
+        display: inline-block;
+        transform: translateX(10px);
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      .arrow {
+        &__icon {
+          animation: arrowHover 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes arrowHover {
+  0% {
+    transform: translateX(10px);
+  }
+
+  30% {
+    transform: translateX(5px);
+  }
+
+  80% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(10px);
+  }
+}

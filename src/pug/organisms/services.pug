@@ -1,0 +1,54 @@
+//- Services Section (Split Sticky Layout)
+section.services
+    .container
+        .services__wrapper
+            //- Left Sticky Column
+            .services__sticky
+                .sticky-content
+                    .icon-cube.section-icon
+                        //- 3D Cube Icon (Stroke)
+                        svg(width="24", height="24", viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="2", stroke-linecap="round", stroke-linejoin="round")
+                            path(d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z")
+                            polyline(points="3.27 6.96 12 12.01 20.73 6.96")
+                            line(x1="12", y1="22.08", x2="12", y2="12")
+                            
+                    h2.services__title Our Services,#[br]Your Competitive Edge.
+                    p.services__description From idea to launch, we build digital products that support business growth, lead generation, and long-term ownership.
+
+            //- Right Scrollable Column
+            .services__list
+                //- Item 01
+                .service-item
+                    span.item-number 01
+                    .item-dot
+                    h3.item-title Branding and Corporate Identity Development
+                    p.item-desc We craft distinct brands with strategic positioning, visual identity systems, and launch-ready brand assets for Nepal and global markets.
+                    a.item-link(href="javascript:void(0)") Learn More 
+                        span.arrow →
+
+                //- Item 02
+                .service-item
+                    span.item-number 02
+                    .item-dot
+                    h3.item-title Website and Web App Development
+                    p.item-desc Build fast, scalable websites and web apps that convert visitors and integrate cleanly with your workflows.
+                    a.item-link(href="javascript:void(0)") Learn More 
+                        span.arrow →
+
+                //- Item 03
+                .service-item
+                    span.item-number 03
+                    .item-dot
+                    h3.item-title Custom CMS Development
+                    p.item-desc Tailor-made CMS platforms that simplify publishing, reduce overhead, and give teams full content control.
+                    a.item-link(href="javascript:void(0)") Learn More 
+                        span.arrow →
+
+                //- Item 04
+                .service-item
+                    span.item-number 04
+                    .item-dot
+                    h3.item-title Digital Marketing and SEO
+                    p.item-desc Data-driven SEO and growth marketing that improves visibility, qualified leads, and retention.
+                    a.item-link(href="javascript:void(0)") Learn More 
+                        span.arrow →
