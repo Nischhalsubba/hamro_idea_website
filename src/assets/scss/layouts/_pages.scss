@@ -15,6 +15,10 @@
   padding: calc(var(--nav-height, 88px) + 64px) 0 96px;
   overflow: hidden;
   background: $color-white;
+  --hero-accent: rgba(120, 136, 255, 0.28);
+  --hero-accent-2: rgba(255, 0, 154, 0.16);
+  --hero-orb: rgba(18, 25, 132, 0.18);
+  --hero-panel-accent: #121984;
 
   &::before {
     content: "";
@@ -31,7 +35,7 @@
     inset: -140px 0 -320px 0;
     background: linear-gradient(180deg,
         rgba($color-soft-lilac, 0.75) 0%,
-        rgba($color-accent-pink, 0.3) 40%,
+        var(--hero-accent) 40%,
         rgba($color-white, 0.96) 78%,
         rgba($color-white, 1) 100%);
     transform: translate3d(calc(var(--theatre-drift, 0) * 12px), calc(var(--theatre-drift, 0) * -8px), 0);
@@ -80,7 +84,7 @@
     right: -120px;
     top: 40px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($color-blue, 0.18), transparent 70%);
+    background: radial-gradient(circle, var(--hero-orb), transparent 70%);
     pointer-events: none;
     z-index: 1;
   }
@@ -89,8 +93,8 @@
     position: absolute;
     inset: -45% 0 auto 0;
     height: 360px;
-    background: radial-gradient(circle at 20% 20%, rgba($color-blue, 0.12), transparent 62%),
-      radial-gradient(circle at 80% 20%, rgba($color-accent-pink, 0.08), transparent 68%);
+    background: radial-gradient(circle at 20% 20%, var(--hero-accent-2), transparent 62%),
+      radial-gradient(circle at 80% 20%, rgba($color-blue, 0.08), transparent 68%);
     pointer-events: none;
     z-index: 0;
     opacity: 0.55;
@@ -662,6 +666,18 @@
   justify-self: end;
   height: fit-content;
   align-content: start;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--hero-panel-accent);
+    opacity: 0.85;
+  }
 
   h3 {
     font-size: 1.2rem;
@@ -776,6 +792,65 @@
   margin-top: 1.5rem;
   display: grid;
   gap: 1.5rem;
+}
+
+.page-section:has(.signature-grid):has(.section-media) .container,
+.page-section:has(.page-list):has(.section-media) .container,
+.page-section:has(.metrics-band):has(.section-media) .container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.page-section:has(.signature-grid):has(.section-media) .page-section__header,
+.page-section:has(.page-list):has(.section-media) .page-section__header,
+.page-section:has(.metrics-band):has(.section-media) .page-section__header {
+  grid-column: 1;
+}
+
+.page-section:has(.signature-grid):has(.section-media) .section-media,
+.page-section:has(.page-list):has(.section-media) .section-media,
+.page-section:has(.metrics-band):has(.section-media) .section-media {
+  grid-column: 2;
+  margin-bottom: 0;
+}
+
+.page-section:has(.signature-grid) .signature-grid,
+.page-section:has(.page-list) .page-list,
+.page-section:has(.metrics-band) .metrics-band {
+  grid-column: 1 / -1;
+  margin-top: 1.25rem;
+}
+
+.page-section:has(.metrics-band) .metrics-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.page-section:has(.page-list) .page-list ul {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0;
+}
+
+.page-section:has(.page-list) .page-list li {
+  list-style: none;
+  padding: 0.75rem 1rem;
+  background: rgba($color-soft-lilac, 0.6);
+  border: 1px solid rgba($color-blue, 0.08);
+}
+
+.page-section:has(.visual-card) .split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-section {
@@ -914,4 +989,218 @@ body:has(.page-hero) {
     height: 260px;
     opacity: 0.35;
   }
+}
+
+// Hero theme variants per detail page (unique mood per page)
+main[data-barba-namespace="services-web-development"] {
+  --hero-accent: rgba(92, 128, 255, 0.32);
+  --hero-accent-2: rgba(255, 0, 154, 0.12);
+  --hero-orb: rgba(18, 25, 132, 0.2);
+  --hero-panel-accent: #121984;
+}
+
+main[data-barba-namespace="services-enterprise-software"] {
+  --hero-accent: rgba(72, 98, 255, 0.3);
+  --hero-accent-2: rgba(18, 25, 132, 0.15);
+  --hero-orb: rgba(5, 10, 48, 0.25);
+  --hero-panel-accent: #050a30;
+}
+
+main[data-barba-namespace="services-custom-cms"] {
+  --hero-accent: rgba(68, 209, 168, 0.28);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(26, 92, 76, 0.2);
+  --hero-panel-accent: #1a5c4c;
+}
+
+main[data-barba-namespace="services-digital-marketing-seo"] {
+  --hero-accent: rgba(126, 60, 255, 0.28);
+  --hero-accent-2: rgba(255, 0, 154, 0.14);
+  --hero-orb: rgba(60, 26, 112, 0.22);
+  --hero-panel-accent: #3c1a70;
+}
+
+main[data-barba-namespace="services-branding-identity"] {
+  --hero-accent: rgba(255, 108, 77, 0.28);
+  --hero-accent-2: rgba(255, 0, 154, 0.12);
+  --hero-orb: rgba(120, 32, 14, 0.2);
+  --hero-panel-accent: #78200e;
+}
+
+main[data-barba-namespace="services-ecommerce-growth"] {
+  --hero-accent: rgba(255, 190, 44, 0.25);
+  --hero-accent-2: rgba(18, 25, 132, 0.1);
+  --hero-orb: rgba(153, 103, 7, 0.22);
+  --hero-panel-accent: #996707;
+}
+
+main[data-barba-namespace="services-fix-my-seo"] {
+  --hero-accent: rgba(38, 174, 120, 0.24);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(14, 82, 55, 0.2);
+  --hero-panel-accent: #0e5237;
+}
+
+main[data-barba-namespace="services-start-a-new-project"] {
+  --hero-accent: rgba(146, 96, 255, 0.26);
+  --hero-accent-2: rgba(255, 0, 154, 0.12);
+  --hero-orb: rgba(40, 26, 88, 0.2);
+  --hero-panel-accent: #281a58;
+}
+
+main[data-barba-namespace="work-case-studies"] {
+  --hero-accent: rgba(88, 132, 255, 0.26);
+  --hero-accent-2: rgba(18, 25, 132, 0.18);
+  --hero-orb: rgba(10, 18, 64, 0.25);
+  --hero-panel-accent: #0a1240;
+}
+
+main[data-barba-namespace="work-client-sites"] {
+  --hero-accent: rgba(64, 176, 255, 0.24);
+  --hero-accent-2: rgba(18, 25, 132, 0.14);
+  --hero-orb: rgba(12, 34, 88, 0.22);
+  --hero-panel-accent: #0c2258;
+}
+
+main[data-barba-namespace="work-project-detail"] {
+  --hero-accent: rgba(110, 96, 255, 0.26);
+  --hero-accent-2: rgba(18, 25, 132, 0.2);
+  --hero-orb: rgba(18, 20, 80, 0.24);
+  --hero-panel-accent: #121450;
+}
+
+main[data-barba-namespace="process-how-we-work"] {
+  --hero-accent: rgba(88, 190, 255, 0.25);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(18, 74, 132, 0.22);
+  --hero-panel-accent: #124a84;
+}
+
+main[data-barba-namespace="process-engagement-models"] {
+  --hero-accent: rgba(110, 160, 255, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.14);
+  --hero-orb: rgba(16, 60, 120, 0.22);
+  --hero-panel-accent: #103c78;
+}
+
+main[data-barba-namespace="about-company"] {
+  --hero-accent: rgba(255, 140, 110, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(96, 38, 30, 0.2);
+  --hero-panel-accent: #60261e;
+}
+
+main[data-barba-namespace="about-team"] {
+  --hero-accent: rgba(255, 190, 90, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.1);
+  --hero-orb: rgba(120, 70, 20, 0.2);
+  --hero-panel-accent: #784614;
+}
+
+main[data-barba-namespace="about-why-hamro-idea"] {
+  --hero-accent: rgba(255, 120, 180, 0.2);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(110, 40, 80, 0.2);
+  --hero-panel-accent: #6e2850;
+}
+
+main[data-barba-namespace="insights-blog"] {
+  --hero-accent: rgba(108, 160, 255, 0.25);
+  --hero-accent-2: rgba(255, 0, 154, 0.1);
+  --hero-orb: rgba(28, 60, 120, 0.2);
+  --hero-panel-accent: #1c3c78;
+}
+
+main[data-barba-namespace="insights-blog-detail"] {
+  --hero-accent: rgba(92, 138, 255, 0.25);
+  --hero-accent-2: rgba(18, 25, 132, 0.12);
+  --hero-orb: rgba(28, 50, 110, 0.2);
+  --hero-panel-accent: #1c326e;
+}
+
+main[data-barba-namespace="insights-resources"] {
+  --hero-accent: rgba(120, 190, 255, 0.22);
+  --hero-accent-2: rgba(255, 0, 154, 0.08);
+  --hero-orb: rgba(30, 70, 130, 0.2);
+  --hero-panel-accent: #1e4682;
+}
+
+main[data-barba-namespace="contact-book-a-call"] {
+  --hero-accent: rgba(120, 200, 255, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.1);
+  --hero-orb: rgba(20, 70, 120, 0.2);
+  --hero-panel-accent: #144678;
+}
+
+main[data-barba-namespace="contact-email"] {
+  --hero-accent: rgba(110, 180, 255, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.1);
+  --hero-orb: rgba(20, 60, 110, 0.2);
+  --hero-panel-accent: #143c6e;
+}
+
+main[data-barba-namespace="contact-whatsapp"] {
+  --hero-accent: rgba(90, 220, 160, 0.22);
+  --hero-accent-2: rgba(18, 25, 132, 0.1);
+  --hero-orb: rgba(20, 80, 60, 0.2);
+  --hero-panel-accent: #14503c;
+}
+
+main[data-barba-namespace="privacy-policy"],
+main[data-barba-namespace="terms-of-use"],
+main[data-barba-namespace="cookie-consent"] {
+  --hero-accent: rgba(120, 120, 140, 0.2);
+  --hero-accent-2: rgba(18, 25, 132, 0.08);
+  --hero-orb: rgba(50, 50, 70, 0.18);
+  --hero-panel-accent: #323246;
+}
+
+// Hero layout variants per page group
+main[data-barba-namespace^="work-"] .page-hero__grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+main[data-barba-namespace^="work-"] .page-hero__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+main[data-barba-namespace^="work-"] .hero-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+main[data-barba-namespace^="process-"] .page-hero__panel {
+  border-left: 4px solid var(--hero-panel-accent);
+  padding-left: 1.5rem;
+}
+
+main[data-barba-namespace^="about-"] .page-hero__grid {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+}
+
+main[data-barba-namespace^="about-"] .page-hero__panel {
+  order: -1;
+}
+
+main[data-barba-namespace^="insights-"] .page-hero__grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+}
+
+main[data-barba-namespace^="insights-"] .page-hero__panel {
+  background: rgba($color-white, 0.88);
+}
+
+main[data-barba-namespace^="contact-"] .page-hero__panel {
+  max-width: 360px;
+  justify-self: end;
+}
+
+main[data-barba-namespace="privacy-policy"] .page-hero__panel,
+main[data-barba-namespace="terms-of-use"] .page-hero__panel,
+main[data-barba-namespace="cookie-consent"] .page-hero__panel {
+  max-width: 420px;
+  background: rgba($color-white, 0.9);
 }
