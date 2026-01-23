@@ -28,7 +28,7 @@
 
   &__bg {
     position: absolute;
-    inset: -140px 0 -260px 0;
+    inset: -140px 0 -320px 0;
     background: linear-gradient(180deg,
         rgba($color-soft-lilac, 0.75) 0%,
         rgba($color-accent-pink, 0.3) 40%,
@@ -38,13 +38,15 @@
     z-index: 0;
     mask-image: linear-gradient(180deg,
         rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.9) 58%,
-        rgba(0, 0, 0, 0.2) 86%,
+        rgba(0, 0, 0, 0.95) 55%,
+        rgba(0, 0, 0, 0.6) 75%,
+        rgba(0, 0, 0, 0.25) 88%,
         rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: linear-gradient(180deg,
         rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.9) 58%,
-        rgba(0, 0, 0, 0.2) 86%,
+        rgba(0, 0, 0, 0.95) 55%,
+        rgba(0, 0, 0, 0.6) 75%,
+        rgba(0, 0, 0, 0.25) 88%,
         rgba(0, 0, 0, 0) 100%);
   }
 
@@ -101,14 +103,39 @@
 
   &__content {
     max-width: 620px;
+
+    h1 {
+      font-size: clamp(2.4rem, 3.6vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: $color-text-head;
+    }
+
+    p {
+      max-width: 560px;
+    }
   }
 
   &__panel {
     background: rgba($color-white, 0.95);
     border: 1px solid rgba($color-blue, 0.16);
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 30px 70px rgba($color-blue, 0.12);
+    border-radius: $radius-lg;
+    padding: 2rem;
+    box-shadow: 0 24px 60px rgba($color-blue, 0.12);
+    display: grid;
+    gap: 1.25rem;
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0;
+      color: $color-text-head;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-muted;
+      line-height: 1.6;
+    }
   }
 }
 
@@ -145,7 +172,7 @@
   background: rgba($color-blue, 0.08);
   color: $color-blue;
   padding: 0.35rem 0.75rem;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   font-weight: 600;
   font-size: 0.8rem;
 }
@@ -159,7 +186,7 @@
 
 .hero-chip {
   padding: 0.35rem 0.85rem;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   font-weight: 600;
   font-size: 0.8rem;
   background: rgba($color-blue, 0.08);
@@ -187,6 +214,34 @@
     color: $color-text-muted;
     font-size: 0.85rem;
   }
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.focus-item {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba($color-blue, 0.12);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.focus-label {
+  font-weight: 700;
+  color: $color-blue;
+  font-size: 1rem;
+}
+
+.focus-desc {
+  color: $color-text-muted;
+  font-size: 0.85rem;
 }
 
 .page-section {
@@ -234,6 +289,7 @@
   p {
     color: $color-text-muted;
     line-height: 1.6;
+    max-width: 640px;
   }
 }
 
@@ -241,19 +297,76 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  counter-reset: signature-card;
 }
 
 .signature-card {
+  position: relative;
   background: $color-white;
-  border: 1px solid rgba($color-blue, 0.14);
-  border-radius: 18px;
-  padding: 1.75rem;
-  box-shadow: 0 18px 40px rgba($color-blue, 0.1);
+  border: 1px solid rgba($color-blue, 0.2);
+  padding: 2rem;
+  box-shadow: 0 22px 46px rgba($color-blue, 0.12);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 26px 60px rgba($color-blue, 0.16);
+    box-shadow: 0 32px 70px rgba($color-blue, 0.18);
+  }
+
+  &::before {
+    counter-increment: signature-card;
+    content: "0" counter(signature-card);
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba($color-blue, 0.55);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.65rem;
+  }
+
+  p {
+    line-height: 1.6;
+    color: $color-text-muted;
+  }
+
+  .signature-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-blue;
+    margin-bottom: 0.9rem;
+  }
+
+  .signature-points {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: $color-text-body;
+      margin-bottom: 0.4rem;
+
+      &::before {
+        content: "•";
+        color: $color-blue;
+        font-weight: 700;
+      }
+    }
   }
 }
 
@@ -266,7 +379,7 @@
 .mosaic-tile {
   background: rgba($color-white, 0.08);
   border: 1px solid rgba($color-white, 0.15);
-  border-radius: 16px;
+  border-radius: $radius-lg;
   padding: 1.75rem;
   color: $color-white;
 }
@@ -282,7 +395,7 @@
   gap: 1.5rem;
   align-items: center;
   background: rgba($color-white, 0.95);
-  border-radius: 18px;
+  border-radius: $radius-lg;
   padding: 1.5rem 2rem;
   box-shadow: 0 18px 40px rgba($color-blue, 0.1);
 }
@@ -290,7 +403,7 @@
 .timeline-marker {
   width: 54px;
   height: 54px;
-  border-radius: 14px;
+  border-radius: $radius-md;
   background: rgba($color-blue, 0.12);
   color: $color-blue;
   display: flex;
@@ -307,11 +420,11 @@
 
 .metric-card {
   background: $color-white;
-  border-radius: 18px;
-  padding: 1.5rem;
-  border: 1px solid rgba($color-blue, 0.12);
+  padding: 1.6rem;
+  border: 1px solid rgba($color-blue, 0.18);
+  border-top: 3px solid rgba($color-blue, 0.6);
   text-align: center;
-  box-shadow: 0 16px 30px rgba($color-blue, 0.1);
+  box-shadow: 0 18px 36px rgba($color-blue, 0.14);
 
   strong {
     display: block;
@@ -328,19 +441,36 @@
 
 .page-list {
   background: $color-white;
-  border-radius: 18px;
-  border: 1px solid rgba($color-blue, 0.12);
-  padding: 1.5rem 2rem;
-  box-shadow: 0 14px 30px rgba($color-blue, 0.1);
+  border: 1px solid rgba($color-blue, 0.16);
+  padding: 1.75rem 2.25rem;
+  box-shadow: 0 18px 36px rgba($color-blue, 0.12);
 
   ul {
     margin: 0;
     padding-left: 1.25rem;
+    column-count: 2;
+    column-gap: 2.5rem;
+
+    @media (max-width: 768px) {
+      column-count: 1;
+    }
 
     li {
-      list-style: disc;
+      list-style: none;
       margin-bottom: 0.5rem;
       color: $color-text-body;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.1rem;
+
+      &::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        top: 0.15rem;
+        font-size: 0.6rem;
+        color: rgba($color-blue, 0.7);
+      }
     }
   }
 }
@@ -353,10 +483,13 @@
 
 .page-faq {
   background: $color-white;
-  border-radius: 18px;
-  border: 1px solid rgba($color-blue, 0.12);
-  padding: 1.5rem;
-  box-shadow: 0 18px 40px rgba($color-blue, 0.1);
+  border: 1px solid rgba($color-blue, 0.16);
+  padding: 1.6rem;
+  box-shadow: 0 18px 40px rgba($color-blue, 0.12);
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .page-cta {
@@ -376,23 +509,33 @@
 
 .visual-card {
   position: relative;
-  padding: 2.75rem;
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba($color-blue, 0.08) 0%, rgba($color-soft-lilac, 0.5) 45%, rgba($color-white, 0.95) 100%);
-  border: 1px solid rgba($color-blue, 0.12);
-  box-shadow: 0 30px 70px rgba($color-blue, 0.12);
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba($color-blue, 0.1) 0%, rgba($color-soft-lilac, 0.55) 45%, rgba($color-white, 0.98) 100%);
+  border: 1px solid rgba($color-blue, 0.18);
+  box-shadow: 0 30px 70px rgba($color-blue, 0.15);
   min-height: 260px;
   overflow: hidden;
+
+  .visual-card__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .visual-card__desc {
+    color: $color-text-muted;
+    margin-bottom: 1.5rem;
+    max-width: 360px;
+  }
 }
 
 .visual-card__ring {
   position: absolute;
   width: 220px;
   height: 220px;
-  border-radius: 50%;
   border: 1px dashed rgba($color-blue, 0.25);
   top: -40px;
   right: -40px;
+  opacity: 0.6;
 }
 
 .visual-card__grid {
@@ -401,12 +544,88 @@
 }
 
 .visual-card__tile {
-  background: rgba($color-white, 0.85);
-  border: 1px solid rgba($color-blue, 0.1);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
+  background: rgba($color-white, 0.92);
+  border: 1px solid rgba($color-blue, 0.16);
+  padding: 0.85rem 1rem;
   font-weight: 600;
   color: $color-text-head;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &::after {
+    content: "→";
+    color: rgba($color-blue, 0.6);
+    font-weight: 700;
+  }
+}
+
+.project-form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text-head;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba($color-blue, 0.18);
+  background: $color-white;
+  font-size: 0.95rem;
+  color: $color-text-body;
+  outline: none;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-helper {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+}
+
+.form-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.form-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: $color-text-body;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 body:has(.page-hero) {

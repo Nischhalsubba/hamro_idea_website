@@ -5,17 +5,19 @@
   box-sizing: border-box;
 }
 
-body,
-body * {
-  border-radius: 0 !important;
-}
-
 body {
   background: $color-white;
   color: $color-text-body;
   margin: 0;
   font-family: $font-family-base;
   overflow-x: hidden;
+}
+
+// Enforce sharp geometry across the site (no rounded corners).
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
 }
 
 :is(a, button, input, textarea) {
@@ -162,6 +164,7 @@ section:hover .section-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: $radius-sm;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 
@@ -178,13 +181,6 @@ section:hover .section-icon {
   border-color: $color-blue;
 }
 
-ul,
-ol {
-  li {
-    text-decoration: none;
-    list-style: none;
-  }
-}
 
 .page_not_found {
   background: $color-primary; // Updated from $brand-primary

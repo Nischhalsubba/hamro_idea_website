@@ -149,6 +149,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Subtle hero layer motion on detail pages (extra GSAP without overwhelming)
+    gsap.utils.toArray(".page-hero").forEach((hero) => {
+        const bg = hero.querySelector(".page-hero__bg");
+        const orb = hero.querySelector(".page-hero__orb");
+        const noise = hero.querySelector(".page-hero__noise");
+        const chips = hero.querySelectorAll(".hero-chip");
+
+        if (bg) {
+            gsap.to(bg, { y: -10, duration: 10, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        }
+        if (orb) {
+            gsap.to(orb, { y: -14, x: 10, duration: 8, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        }
+        if (noise) {
+            gsap.to(noise, { opacity: 0.25, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        }
+        if (chips.length) {
+            gsap.fromTo(chips, { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: "power2.out" });
+        }
+    });
+
     // Button Hover Effects
     const buttons = document.querySelectorAll(".btn-white-composite");
     buttons.forEach((btn) => {
@@ -200,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".site-footer__card");
     revealItems(".page-section__header");
     revealItems(".signature-card");
+    revealItems(".visual-card__tile");
     revealItems(".mosaic-tile");
     revealItems(".timeline-step");
     revealItems(".metric-card");
@@ -284,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverLift(".page-faq", { scale: 1.01, y: -3 });
     hoverLift(".page-list li", { scale: 1.01, y: -2 });
     hoverLift(".page-hero__panel", { scale: 1.01, y: -4 });
+    hoverLift(".visual-card__tile", { scale: 1.02, y: -3 });
 
     if (!isDetailPage) {
         // Ambient float for card-based sections (disabled on detail pages)

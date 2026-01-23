@@ -132,4 +132,26 @@
       list?.addEventListener('mouseleave', resetMedia);
     }
   }
+
+  const projectForm = document.querySelector('#project-form');
+  if (projectForm) {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service');
+    const projectType = params.get('projectType');
+
+    const serviceSelect = projectForm.querySelector('#service-type');
+    if (serviceSelect && service) {
+      const option = serviceSelect.querySelector(`option[value="${service}"]`);
+      if (option) {
+        serviceSelect.value = service;
+      }
+    }
+
+    if (projectType) {
+      const types = projectForm.querySelectorAll(`input[name="projectType"][value="${projectType}"]`);
+      types.forEach((input) => {
+        input.checked = true;
+      });
+    }
+  }
 })();
