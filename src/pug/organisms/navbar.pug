@@ -1,40 +1,41 @@
 //- Navbar
-nav.navbar
+nav.navbar(aria-label="Primary")
     .container
         .navbar__wrapper
             a.navbar__brand(href="/") 
                 span.navbar__logo-icon
-                    img.navbar__logo-img(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="32", height="32")
+                    img.navbar__logo-img.navbar__logo-img--light(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="32", height="32", decoding="async")
+                    img.navbar__logo-img.navbar__logo-img--dark(src="assets/images/Logo-dark.png", alt="Hamro Idea logo", width="32", height="32", decoding="async")
 
             //- Desktop Menu (Mega Menu)
             ul.navbar__menu-desktop
                 //- SERVICES
                 li.nav-item.has-mega-menu(data-mega-target="services")
-                    a.nav-link(href="/services.html") Services
+                    a.nav-link(href="/services/web-development.html") Services
 
                 //- SOLUTIONS
                 li.nav-item.has-mega-menu(data-mega-target="solutions")
-                    a.nav-link(href="/solutions.html") Solutions
+                    a.nav-link(href="/services/enterprise-software.html") Solutions
 
                 //- WORK
                 li.nav-item.has-mega-menu(data-mega-target="work")
-                    a.nav-link(href="/work.html") Work
+                    a.nav-link(href="/work/case-studies.html") Work
 
                 //- PROCESS
                 li.nav-item.has-mega-menu(data-mega-target="process")
-                    a.nav-link(href="/process.html") Process
+                    a.nav-link(href="/process/how-we-work.html") Process
 
                 //- ABOUT
                 li.nav-item.has-mega-menu(data-mega-target="about")
-                    a.nav-link(href="/about.html") About
+                    a.nav-link(href="/about/company.html") About
 
                 //- INSIGHTS
                 li.nav-item.has-mega-menu(data-mega-target="insights")
-                    a.nav-link(href="/insights.html") Insights
+                    a.nav-link(href="/insights/blog.html") Insights
 
                 //- CONTACT
                 li.nav-item.has-mega-menu(data-mega-target="contact")
-                    a.nav-link(href="/contact.html") Contact
+                    a.nav-link(href="/contact/book-a-call.html") Contact
 
             //- Desktop Actions
             .navbar__actions-desktop
@@ -45,7 +46,7 @@ nav.navbar
                             path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
 
             //- Mobile Toggle
-            button.navbar__toggle(aria-label="Toggle navigation")
+            button.navbar__toggle(aria-label="Toggle navigation", type="button")
                 span.navbar__toggle-icon
 
     //- Mega Menus (Detached for consistent positioning)
@@ -89,178 +90,410 @@ nav.navbar
                     .mega-menu__sidebar
                         h6.mega-section-title Popular Requests
                         ul.sidebar-list
-                            li: a.sidebar-item(href="#")
+                            li: a.sidebar-item(href="/services/start-a-new-project.html")
                                 span.sidebar-icon 🚀
                                 div
                                     span.sidebar-title Start a New Project
                                     span.sidebar-desc Launch your MVP or Website
-                            li: a.sidebar-item(href="#")
+                            li: a.sidebar-item(href="/services/fix-my-seo.html")
                                 span.sidebar-icon 🛠
                                 div
                                     span.sidebar-title Fix My SEO
                                     span.sidebar-desc Technical audit & optimization
-                            li: a.sidebar-item(href="#")
+                            li: a.sidebar-item(href="/services/ecommerce-growth.html")
                                 span.sidebar-icon 🛒
                                 div
                                     span.sidebar-title eCommerce Growth
                                     span.sidebar-desc Shopify & WooCommerce
                         .mega-menu__footer-link
-                            a(href="/services/") See all 15+ Services →
+                            a(href="/services/web-development.html") See all 15+ Services →
 
         //- SOLUTIONS
         .mega-menu(data-mega="solutions")
             .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
+                .mega-menu__layout
                     .mega-menu__main
                         h6.mega-section-title Solution Areas
-                        ul.mega-links
-                            li: a(href="/solutions.html") Digital Transformation
-                            li: a(href="/solutions.html") Enterprise Platforms
-                            li: a(href="/solutions.html") AI Enablement
-                            li: a(href="/solutions.html") Data & Analytics
-                    .mega-menu__sidebar
-                        h6.mega-section-title Quick Actions
-                        ul.sidebar-list
-                            li: a.sidebar-item(href="/contact/book-a-call.html")
-                                span.sidebar-icon [cal]
-                                div
-                                    span.sidebar-title Book a Call
-                                    span.sidebar-desc Talk to a strategist
-                            li: a.sidebar-item(href="/contact/whatsapp.html")
-                                span.sidebar-icon [chat]
-                                div
-                                    span.sidebar-title WhatsApp
-                                    span.sidebar-desc Fast response on chat
-
-        //- WORK
-        .mega-menu(data-mega="work")
-            .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
-                    .mega-menu__main
-                        h6.mega-section-title Featured Work
-                        ul.mega-links
-                            li: a(href="/work/case-studies.html") Case Studies
-                            li: a(href="/work/client-sites.html") Client Websites
-                            li: a(href="/work.html") Industry Highlights
-                            li: a(href="/work.html") Results & Impact
+                        .services-grid
+                            a.service-card(href="/services/enterprise-software.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M3 12L12 3l9 9-9 9-9-9z")
+                                .service-card__content
+                                    h4.service-card__title Digital Transformation
+                                    p.service-card__desc Modernize platforms, workflows, and customer experience.
+                            a.service-card(href="/services/enterprise-software.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v12H4z")
+                                        path(d="M7 9h10v6H7z")
+                                .service-card__content
+                                    h4.service-card__title Enterprise Software
+                                    p.service-card__desc Secure, scalable systems for modern operations.
+                            a.service-card(href="/services/enterprise-software.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z")
+                                .service-card__content
+                                    h4.service-card__title AI Enablement
+                                    p.service-card__desc Automation and intelligence embedded across teams.
+                            a.service-card(href="/services/enterprise-software.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 19h16v2H4z")
+                                        path(d="M7 10h3v7H7zM11 6h3v11h-3zM15 3h3v14h-3z")
+                                .service-card__content
+                                    h4.service-card__title Data & Analytics
+                                    p.service-card__desc Dashboards and pipelines that drive decisions.
                     .mega-menu__sidebar
                         h6.mega-section-title Popular Requests
                         ul.sidebar-list
                             li: a.sidebar-item(href="/contact/book-a-call.html")
-                                span.sidebar-icon [launch]
+                                span.sidebar-icon 🚀
                                 div
-                                    span.sidebar-title Start a New Project
-                                    span.sidebar-desc Launch your MVP or Website
+                                    span.sidebar-title Modernize a Platform
+                                    span.sidebar-desc Plan a transformation roadmap
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon ✨
+                                div
+                                    span.sidebar-title AI Roadmap
+                                    span.sidebar-desc Find the right use cases
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon 📈
+                                div
+                                    span.sidebar-title Data Strategy
+                                    span.sidebar-desc Unify analytics and reporting
+                        .mega-menu__footer-link
+                            a(href="/services/enterprise-software.html") See all Solutions →
+
+        //- WORK
+        .mega-menu(data-mega="work")
+            .mega-menu__container.container
+                .mega-menu__layout
+                    .mega-menu__main
+                        h6.mega-section-title Featured Work
+                        .services-grid
+                            a.service-card(href="/work/case-studies.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 5h16v14H4z")
+                                        path(d="M7 8h10v2H7zM7 12h6v2H7z")
+                                .service-card__content
+                                    h4.service-card__title Case Studies
+                                    p.service-card__desc Measurable outcomes and delivery detail.
+                            a.service-card(href="/work/client-sites.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v10H4z")
+                                        path(d="M8 18h8v2H8z")
+                                .service-card__content
+                                    h4.service-card__title Client Websites
+                                    p.service-card__desc High-performance web experiences.
+                            a.service-card(href="/work/project-detail.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 2l8 6v12H4V8l8-6z")
+                                .service-card__content
+                                    h4.service-card__title Growth Platforms
+                                    p.service-card__desc Enterprise rebuilds and scale-ups.
+                            a.service-card(href="/work/project-detail.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 3l9 4-9 4-9-4 9-4z")
+                                        path(d="M3 10l9 4 9-4v6l-9 4-9-4z")
+                                .service-card__content
+                                    h4.service-card__title Brand Transformations
+                                    p.service-card__desc Premium design systems and identity work.
+                    .mega-menu__sidebar
+                        h6.mega-section-title Popular Requests
+                        ul.sidebar-list
+                            li: a.sidebar-item(href="/work/case-studies.html")
+                                span.sidebar-icon ✨
+                                div
+                                    span.sidebar-title View Case Studies
+                                    span.sidebar-desc Results and outcomes
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon 🚀
+                                div
+                                    span.sidebar-title Website Redesign
+                                    span.sidebar-desc Upgrade performance and UX
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon 🧭
+                                div
+                                    span.sidebar-title Product Launch
+                                    span.sidebar-desc Ship a new platform fast
+                        .mega-menu__footer-link
+                            a(href="/work/case-studies.html") Explore all Work →
 
         //- PROCESS
         .mega-menu(data-mega="process")
             .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
+                .mega-menu__layout
                     .mega-menu__main
                         h6.mega-section-title How We Work
-                        ul.mega-links
-                            li: a(href="/process/how-we-work.html") Delivery Framework
-                            li: a(href="/process/engagement-models.html") Engagement Models
-                            li: a(href="/process/how-we-work.html") Discovery & Strategy
-                            li: a(href="/process/how-we-work.html") Build & Launch
+                        .services-grid
+                            a.service-card(href="/process/how-we-work.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v12H4z")
+                                        path(d="M7 9h10v6H7z")
+                                .service-card__content
+                                    h4.service-card__title Delivery Framework
+                                    p.service-card__desc A clear, milestone-driven delivery flow.
+                            a.service-card(href="/process/engagement-models.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M3 12h18")
+                                        path(d="M7 6h10")
+                                        path(d="M7 18h10")
+                                .service-card__content
+                                    h4.service-card__title Engagement Models
+                                    p.service-card__desc Flexible ways to work with Hamro Idea.
+                            a.service-card(href="/process/how-we-work.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z")
+                                .service-card__content
+                                    h4.service-card__title Discovery & Strategy
+                                    p.service-card__desc Align vision, scope, and success metrics.
+                            a.service-card(href="/process/how-we-work.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 19h16v2H4z")
+                                        path(d="M7 10h3v7H7zM11 6h3v11h-3zM15 3h3v14h-3z")
+                                .service-card__content
+                                    h4.service-card__title Build & Launch
+                                    p.service-card__desc Execution with senior technical leadership.
                     .mega-menu__sidebar
                         h6.mega-section-title Next Step
                         ul.sidebar-list
+                            li: a.sidebar-item(href="/process/how-we-work.html")
+                                span.sidebar-icon ✅
+                                div
+                                    span.sidebar-title Review the Process
+                                    span.sidebar-desc See timelines and milestones
+                            li: a.sidebar-item(href="/process/engagement-models.html")
+                                span.sidebar-icon ⏱️
+                                div
+                                    span.sidebar-title Choose Engagement
+                                    span.sidebar-desc Retainer or project-based
                             li: a.sidebar-item(href="/contact/book-a-call.html")
-                                span.sidebar-icon [check]
+                                span.sidebar-icon 🚀
                                 div
                                     span.sidebar-title Book a Call
                                     span.sidebar-desc Align on scope and goals
+                        .mega-menu__footer-link
+                            a(href="/process/how-we-work.html") See full Process →
 
         //- ABOUT
         .mega-menu(data-mega="about")
             .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
+                .mega-menu__layout
                     .mega-menu__main
                         h6.mega-section-title About Hamro Idea
-                        ul.mega-links
-                            li: a(href="/about/company.html") Company Overview
-                            li: a(href="/about/team.html") Leadership & Team
-                            li: a(href="/about/why-hamro-idea.html") Why Hamro Idea
-                            li: a(href="/about.html") Culture & Values
+                        .services-grid
+                            a.service-card(href="/about/company.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v12H4z")
+                                        path(d="M7 9h10v6H7z")
+                                .service-card__content
+                                    h4.service-card__title Company Overview
+                                    p.service-card__desc The studio, culture, and senior leadership.
+                            a.service-card(href="/about/team.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z")
+                                        path(d="M4 20a8 8 0 0 1 16 0")
+                                .service-card__content
+                                    h4.service-card__title Leadership & Team
+                                    p.service-card__desc Senior specialists across strategy and delivery.
+                            a.service-card(href="/about/why-hamro-idea.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z")
+                                .service-card__content
+                                    h4.service-card__title Why Hamro Idea
+                                    p.service-card__desc Credible delivery with measurable outcomes.
+                            a.service-card(href="/about/company.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 19h16v2H4z")
+                                        path(d="M7 10h3v7H7zM11 6h3v11h-3zM15 3h3v14h-3z")
+                                .service-card__content
+                                    h4.service-card__title Culture & Values
+                                    p.service-card__desc Premium, fast-moving, and partnership-led.
                     .mega-menu__sidebar
                         h6.mega-section-title Quick Facts
                         ul.sidebar-list
-                            li: a.sidebar-item(href="/about/company.html")
-                                span.sidebar-icon [compass]
+                            li: a.sidebar-item(href="/about/team.html")
+                                span.sidebar-icon 🧭
                                 div
-                                    span.sidebar-title Founded 2012
-                                    span.sidebar-desc Nepal-based digital studio
+                                    span.sidebar-title Senior-Led Teams
+                                    span.sidebar-desc Deep technical leadership
+                            li: a.sidebar-item(href="/about/company.html")
+                                span.sidebar-icon 🗺️
+                                div
+                                    span.sidebar-title Nepal + Global
+                                    span.sidebar-desc Remote-ready delivery
+                            li: a.sidebar-item(href="/contact/book-a-call.html")
+                                span.sidebar-icon ⭐
+                                div
+                                    span.sidebar-title Premium Results
+                                    span.sidebar-desc Technical and credible
+                        .mega-menu__footer-link
+                            a(href="/about/company.html") Explore About →
 
         //- INSIGHTS
         .mega-menu(data-mega="insights")
             .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
+                .mega-menu__layout
                     .mega-menu__main
                         h6.mega-section-title Insights
-                        ul.mega-links
-                            li: a(href="/insights/blog.html") Articles & Guides
-                            li: a(href="/insights/resources.html") Resources
-                            li: a(href="/insights/blog.html") Case Notes
-                            li: a(href="/insights/blog.html") Podcasts
+                        .services-grid
+                            a.service-card(href="/insights/blog.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v12H4z")
+                                        path(d="M7 9h10v2H7zM7 12h8v2H7z")
+                                .service-card__content
+                                    h4.service-card__title Articles & Guides
+                                    p.service-card__desc Strategy, delivery, and product thinking.
+                            a.service-card(href="/insights/resources.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M3 6h18v2H3z")
+                                        path(d="M6 10h12v2H6zM6 14h12v2H6z")
+                                .service-card__content
+                                    h4.service-card__title Resources
+                                    p.service-card__desc Checklists, playbooks, and templates.
+                            a.service-card(href="/insights/blog.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M12 3l9 4-9 4-9-4 9-4z")
+                                        path(d="M3 10l9 4 9-4v6l-9 4-9-4z")
+                                .service-card__content
+                                    h4.service-card__title Case Notes
+                                    p.service-card__desc Lessons from real client work.
+                            a.service-card(href="/insights/blog.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 7h16v10H4z")
+                                        path(d="M7 10h10v4H7z")
+                                .service-card__content
+                                    h4.service-card__title Podcasts
+                                    p.service-card__desc Conversations with builders and teams.
                     .mega-menu__sidebar
                         h6.mega-section-title Latest
                         ul.sidebar-list
-                            li: a.sidebar-item(href="/insights/blog.html")
-                                span.sidebar-icon [pin]
+                            li: a.sidebar-item(href="/insights/blog-detail.html")
+                                span.sidebar-icon 📌
                                 div
                                     span.sidebar-title New Release
                                     span.sidebar-desc The Hamro Idea Playbook
+                            li: a.sidebar-item(href="/insights/blog.html")
+                                span.sidebar-icon 📝
+                                div
+                                    span.sidebar-title Guides
+                                    span.sidebar-desc Delivery and growth playbooks
+                            li: a.sidebar-item(href="/contact/email.html")
+                                span.sidebar-icon ✉️
+                                div
+                                    span.sidebar-title Newsletter
+                                    span.sidebar-desc Monthly insights
+                        .mega-menu__footer-link
+                            a(href="/insights/blog.html") See all Insights →
 
         //- CONTACT
         .mega-menu(data-mega="contact")
             .mega-menu__container.container
-                .mega-menu__layout.mega-menu__layout--single
+                .mega-menu__layout
                     .mega-menu__main
                         h6.mega-section-title Contact
-                        ul.mega-links
-                            li: a(href="/contact/book-a-call.html") Book a Call
-                            li: a(href="/contact/whatsapp.html") WhatsApp
-                            li: a(href="/contact.html") Contact Form
-                            li: a(href="/contact/email/") Email Us
+                        .services-grid
+                            a.service-card(href="/contact/book-a-call.html")
+                                .service-card__icon.icon--blue
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M6 4h12v16H6z")
+                                        path(d="M9 8h6v2H9zM9 12h6v2H9z")
+                                .service-card__content
+                                    h4.service-card__title Book a Call
+                                    p.service-card__desc Talk to a strategist.
+                            a.service-card(href="/contact/whatsapp.html")
+                                .service-card__icon.icon--green
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 4h16v12H4z")
+                                        path(d="M7 8h10v2H7zM7 12h10v2H7z")
+                                .service-card__content
+                                    h4.service-card__title WhatsApp
+                                    p.service-card__desc Fast responses during business hours.
+                            a.service-card(href="/contact/email.html")
+                                .service-card__icon.icon--orange
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M4 6h16v12H4z")
+                                        path(d="M4 7l8 5 8-5")
+                                .service-card__content
+                                    h4.service-card__title Email Us
+                                    p.service-card__desc Share your brief and requirements.
+                            a.service-card(href="/contact/book-a-call.html")
+                                .service-card__icon.icon--purple
+                                    svg(width="24", height="24", viewBox="0 0 24 24", fill="currentColor", xmlns="http://www.w3.org/2000/svg")
+                                        path(d="M3 4h18v16H3z")
+                                        path(d="M7 8h10v2H7zM7 12h10v2H7z")
+                                .service-card__content
+                                    h4.service-card__title Contact Form
+                                    p.service-card__desc Send a detailed inquiry.
                     .mega-menu__sidebar
                         h6.mega-section-title Availability
                         ul.sidebar-list
                             li: a.sidebar-item(href="/contact/book-a-call.html")
-                                span.sidebar-icon [time]
+                                span.sidebar-icon ⏱️
                                 div
                                     span.sidebar-title Response within 24h
                                     span.sidebar-desc Weekdays, 10am-6pm
+                            li: a.sidebar-item(href="/services/start-a-new-project.html")
+                                span.sidebar-icon 🚀
+                                div
+                                    span.sidebar-title Start a Project
+                                    span.sidebar-desc Launch with a roadmap
+                            li: a.sidebar-item(href="/contact/email.html")
+                                span.sidebar-icon ✉️
+                                div
+                                    span.sidebar-title Send a Brief
+                                    span.sidebar-desc Share goals and timeline
+                        .mega-menu__footer-link
+                            a(href="/contact/book-a-call.html") Contact options →
 
 //- Mobile Overlay (Same as before)
 .mobile-nav-overlay
     .mobile-nav-content
         .mobile-nav-header
             span.logo-text
-                img.mobile-logo(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="28", height="28")
-            button.mobile-nav-close ×
+                img.mobile-logo(src="assets/images/Logo-white.png", alt="Hamro Idea logo", width="28", height="28", decoding="async")
+            button.mobile-nav-close(type="button") ×
         
         ul.mobile-nav-list
             li: a(href="/") Home
             li.has-submenu
                 span Services
                 ul.submenu
-                    li: a(href="/services/branding-identity/") Branding & Identity
-                    li: a(href="/services/web-development/") Website & Web App Dev
-                    li: a(href="/services/custom-cms/") Custom CMS Dev
-                    li: a(href="/services/digital-marketing-seo/") Digital Marketing & SEO
-            li: a(href="/work/") Work
-            li: a(href="/process/") Process
-            li: a(href="/about/") About
-            li: a(href="/insights/") Insights
-            li: a(href="/contact/") Contact
+                    li: a(href="/services/branding-identity.html") Branding & Identity
+                    li: a(href="/services/web-development.html") Website & Web App Dev
+                    li: a(href="/services/custom-cms.html") Custom CMS Dev
+                    li: a(href="/services/digital-marketing-seo.html") Digital Marketing & SEO
+            li: a(href="/work/case-studies.html") Work
+            li: a(href="/process/how-we-work.html") Process
+            li: a(href="/about/company.html") About
+            li: a(href="/insights/blog.html") Insights
+            li: a(href="/contact/book-a-call.html") Contact
         
         .mobile-nav-actions
-            a.btn.btn--primary.btn--icon-block.btn--block(href="/contact/book-a-call/")
+            a.btn.btn--primary.btn--icon-block.btn--block(href="/contact/book-a-call.html")
                 span.text Book a Call
                 span.btn-icon-box
                     svg(width="12", height="12", viewBox="0 0 16 16", fill="none", xmlns="http://www.w3.org/2000/svg")
                         path(d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z", fill="white")
-            .quick-actions
-                a(href="/contact/whatsapp/") WhatsApp
-                a(href="/contact/email/") Email
+        
+        .quick-actions
+            a(href="/contact/whatsapp.html") WhatsApp
+            a(href="/contact/email.html") Email

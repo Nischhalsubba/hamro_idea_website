@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .pagination {
   padding-top: 32px;
   padding-bottom: 82px;
@@ -17,7 +21,7 @@
 
     &:hover {
       a {
-        color: lighten($brand-primary, 5%);
+        color: color.adjust($brand-primary, $lightness: 5%);
         background-color: rgba(255, 0, 154, 0.25);
         border: solid 1px $brand-secondary;
       border-right: none;
@@ -25,7 +29,7 @@
     }
     &.active {
       a {
-        color: lighten($brand-primary, 5%);
+        color: color.adjust($brand-primary, $lightness: 5%);
         background-color: rgba(255, 0, 154, 0.25);
         border: solid 1px $brand-secondary;
       border-right: none;
@@ -51,7 +55,7 @@
     a {
       border: 1px solid $gray_01;
       border-right: none;
-      color: darken($brand-primary, 45%);
+      color: color.adjust($brand-primary, $lightness: -45%);
       text-decoration: none;
       text-transform: uppercase;
       display: inline-block;

@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // CTA Section
 .cta {
   position: relative;
@@ -91,5 +95,90 @@
     cursor: pointer;
     background: none;
     padding: 0;
+  }
+
+  .btn--icon-block {
+    background: $color-highlight-yellow;
+    color: $color-black;
+    border-color: transparent;
+    box-shadow: 0 12px 24px rgba($color-black, 0.2);
+
+    .btn-icon-box {
+      background: $color-blue;
+      color: $color-white;
+    }
+
+    &:hover {
+      background: color.adjust($color-highlight-yellow, $lightness: -6%);
+      box-shadow: 0 16px 30px rgba($color-black, 0.25);
+    }
+  }
+}
+
+.cta.page-cta {
+  padding: 110px 0 140px;
+  color: $color-text-head;
+
+  &::after {
+    opacity: 0.25;
+  }
+
+  &__background {
+    background: linear-gradient(135deg, rgba($color-blue, 0.08) 0%, rgba($color-accent-pink, 0.12) 45%, rgba($color-white, 0.96) 100%);
+  }
+
+  .cta__content {
+    max-width: 900px;
+    padding: 2.5rem 3rem;
+    background: rgba($color-white, 0.95);
+    border-radius: 22px;
+    border: 1px solid rgba($color-blue, 0.12);
+    box-shadow: 0 26px 60px rgba($color-blue, 0.12);
+  }
+
+  .cta__icon {
+    background: rgba($color-blue, 0.08);
+    color: $color-blue;
+    border-radius: 12px;
+    padding: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta__title {
+    color: $color-text-head;
+  }
+
+  .cta__subtitle {
+    color: $color-text-muted;
+  }
+
+  .btn--icon-block {
+    background: $color-blue;
+    color: $color-white;
+    border-color: transparent;
+    box-shadow: 0 12px 26px rgba($color-blue, 0.25);
+
+    .btn-icon-box {
+      background: $color-white;
+      color: $color-blue;
+    }
+
+    &:hover {
+      background: color.adjust($color-blue, $lightness: -6%);
+      box-shadow: 0 16px 32px rgba($color-blue, 0.3);
+    }
+  }
+
+  .btn--ghost {
+    background: rgba($color-blue, 0.08);
+    border-color: rgba($color-blue, 0.2);
+    color: $color-blue;
+
+    .btn-icon-box {
+      background: $color-blue;
+      color: $color-white;
+    }
   }
 }

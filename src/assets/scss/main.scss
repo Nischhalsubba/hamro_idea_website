@@ -1,46 +1,46 @@
 // Importing Common assets
-@import "common/variables";
-@import "common/normalize";
-@import "common/container";
-@import "common/utilities";
-@import "common/typography";
-@import "common/grid";
-@import "common/global";
-@import "common/mixins";
+@use "common/variables" as *;
+@use "common/normalize" as *;
+@use "common/container" as *;
+@use "common/utilities" as *;
+@use "common/typography" as *;
+@use "common/grid" as *;
+@use "common/global" as *;
+@use "common/mixins" as *;
 
 // Components
-@import "components/buttons";
-@import "components/comments";
-@import "components/cursor";
-@import "components/forms";
-@import "components/nav";
-@import "components/wp-classes";
-@import "components/badge";
-@import "components/search-bar";
-@import "components/page-header";
-@import "components/pagination";
+@use "components/buttons" as *;
+@use "components/comments" as *;
+@use "components/cursor" as *;
+@use "components/forms" as *;
+@use "components/nav" as *;
+@use "components/wp-classes" as *;
+@use "components/badge" as *;
+@use "components/search-bar" as *;
+@use "components/page-header" as *;
+@use "components/pagination" as *;
 
 // Importing Pages
-@import "pages/home";
-@import "pages/portfolio";
-@import "pages/blog";
-@import "pages/contact";
+@use "pages/home" as *;
+@use "pages/portfolio" as *;
+@use "pages/blog" as *;
+@use "pages/contact" as *;
 
 // Organisms
-@import "organisms/hero";
-@import "organisms/services";
-@import "organisms/collaboration"; // New Section
-@import "organisms/solutions";
-@import "organisms/why-choose";
-@import "organisms/testimonial";
-@import "organisms/insights";
-@import "organisms/cta";
+@use "organisms/hero" as *;
+@use "organisms/services" as *;
+@use "organisms/collaboration" as *; // New Section
+@use "organisms/solutions" as *;
+@use "organisms/why-choose" as *;
+@use "organisms/testimonial" as *;
+@use "organisms/insights" as *;
+@use "organisms/cta" as *;
 
 // Layouts
-@import "layouts/header";
-@import "layouts/top-bar";
-@import "layouts/sidebar";
-@import "layouts/footer";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/responsive";
+@use "layouts/header" as *;
+@use "layouts/top-bar" as *;
+@use "layouts/sidebar" as *;
+@use "layouts/footer" as *;
+@use "layouts/pages" as *;
+@use "layouts/posts" as *;
+@use "layouts/responsive" as *;

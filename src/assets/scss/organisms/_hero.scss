@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .hero {
     position: relative;
     padding: clamp(96px, 14vh, 150px) 0 clamp(24px, 4vh, 48px);

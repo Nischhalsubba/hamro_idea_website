@@ -2,7 +2,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+        return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
+    const isHome = document.querySelector(".hero") !== null;
+    const isDetailPage = document.querySelector(".page-hero") !== null && !isHome;
 
     // Initial State - Hidden
     gsap.set(".navbar", { y: -20, opacity: 0 });
@@ -22,6 +29,47 @@ document.addEventListener("DOMContentLoaded", () => {
         .to(".hero-desc", { duration: 0.8, y: 0, opacity: 1 }, "-=0.6")
         .to(".hero-actions .btn", { duration: 0.5, scale: 1, opacity: 1, stagger: 0.1 }, "-=0.4");
 
+    // Page hero timeline (non-home pages)
+    gsap.utils.toArray(".page-hero").forEach((hero) => {
+        const content = hero.querySelector(".page-hero__content");
+        const panel = hero.querySelector(".page-hero__panel");
+        const badges = hero.querySelectorAll(".hero-badge");
+        const actions = hero.querySelectorAll(".page-actions .btn");
+
+        const heroElements = [content, panel].filter(Boolean);
+        if (heroElements.length) {
+            gsap.set(heroElements, { y: 30, opacity: 0 });
+        }
+        if (badges.length) {
+            gsap.set(badges, { y: 12, opacity: 0, scale: 0.95 });
+        }
+        if (actions.length) {
+            gsap.set(actions, { y: 12, opacity: 0, scale: 0.96 });
+        }
+
+        const heroTl = gsap.timeline({
+            defaults: { ease: "power3.out" },
+            scrollTrigger: {
+                trigger: hero,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        if (content) {
+            heroTl.to(content, { duration: 0.9, y: 0, opacity: 1 });
+        }
+        if (panel) {
+            heroTl.to(panel, { duration: 0.9, y: 0, opacity: 1 }, "-=0.6");
+        }
+        if (badges.length) {
+            heroTl.to(badges, { duration: 0.6, y: 0, opacity: 1, scale: 1, stagger: 0.08 }, "-=0.5");
+        }
+        if (actions.length) {
+            heroTl.to(actions, { duration: 0.6, y: 0, opacity: 1, scale: 1, stagger: 0.08 }, "-=0.5");
+        }
+    });
+
     // Custom Cursor Logic
     const cursor = document.querySelector(".cursor");
     const mouse = { x: 0, y: 0 };
@@ -33,19 +81,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // RAF Loop for smooth cursor following
-    gsap.ticker.add(() => {
+    if (cursor) {
+        gsap.ticker.add(() => {
         const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
         cursorObj.x += (mouse.x - cursorObj.x) * dt;
         cursorObj.y += (mouse.y - cursorObj.y) * dt;
         gsap.set(cursor, { x: cursorObj.x, y: cursorObj.y });
-    });
+        });
+    }
 
     // Cursor Interactions
     const interactiveElements = document.querySelectorAll("a, button, .btn");
-    interactiveElements.forEach(el => {
-        el.addEventListener("mouseenter", () => cursor.classList.add("active"));
-        el.addEventListener("mouseleave", () => cursor.classList.remove("active"));
-    });
+    if (cursor) {
+        interactiveElements.forEach((el) => {
+            el.addEventListener("mouseenter", () => cursor.classList.add("active"));
+            el.addEventListener("mouseleave", () => cursor.classList.remove("active"));
+        });
+    }
 
     // Hero Background Micro-animation
     gsap.to(".hero-bg-gradient", {
@@ -56,10 +108,52 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "sine.inOut"
     });
 
+    if (!isDetailPage) {
+        // Page hero ambient motion (disabled on detail pages)
+        gsap.utils.toArray(".page-hero").forEach((hero) => {
+            const glow = hero.querySelector(".page-hero__glow");
+            const panel = hero.querySelector(".page-hero__panel");
+            const badges = hero.querySelectorAll(".hero-badge");
+
+            if (glow) {
+                gsap.to(glow, {
+                    opacity: 0.9,
+                    scale: 1.04,
+                    duration: 6,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+
+            if (panel) {
+                gsap.to(panel, {
+                    y: -10,
+                    duration: 4.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+
+            if (badges.length) {
+                gsap.to(badges, {
+                    y: -6,
+                    duration: 2.6,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    stagger: 0.2
+                });
+            }
+        });
+    }
+
     // Button Hover Effects
     const buttons = document.querySelectorAll(".btn-white-composite");
-    buttons.forEach(btn => {
+    buttons.forEach((btn) => {
         const icon = btn.querySelector(".icon-box svg");
+        if (!icon) return;
         btn.addEventListener("mouseenter", () => {
             gsap.to(icon, { x: 5, duration: 0.3, ease: "power2.out" });
         });
@@ -104,6 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems(".section-controls");
     revealItems(".cta .cta__content");
     revealItems(".site-footer__card");
+    revealItems(".page-section__header");
+    revealItems(".signature-card");
+    revealItems(".mosaic-tile");
+    revealItems(".timeline-step");
+    revealItems(".metric-card");
+    revealItems(".page-faq");
+    revealItems(".page-list li");
 
     // Collaboration card motion
     gsap.utils.toArray(".collaboration .collab-card").forEach((card) => {
@@ -176,6 +277,26 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverLift(".navbar__menu-desktop .nav-link", { scale: 1.03, y: -2 });
     hoverLift(".mega-menu .service-card", { scale: 1.02, y: -3 });
     hoverLift(".services .service-item", { scale: 1.01, y: -3 });
+    hoverLift(".signature-card", { scale: 1.02, y: -6 });
+    hoverLift(".mosaic-tile", { scale: 1.02, y: -6 });
+    hoverLift(".timeline-step", { scale: 1.01, y: -4 });
+    hoverLift(".metric-card", { scale: 1.02, y: -5 });
+    hoverLift(".page-faq", { scale: 1.01, y: -3 });
+    hoverLift(".page-list li", { scale: 1.01, y: -2 });
+    hoverLift(".page-hero__panel", { scale: 1.01, y: -4 });
+
+    if (!isDetailPage) {
+        // Ambient float for card-based sections (disabled on detail pages)
+        gsap.utils.toArray(".signature-card, .mosaic-tile, .metric-card, .page-faq").forEach((card, index) => {
+            gsap.to(card, {
+                y: -6,
+                duration: 4 + (index % 3) * 0.6,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+        });
+    }
 
     const arrowButtons = document.querySelectorAll(".btn--icon-block");
     arrowButtons.forEach((btn) => {

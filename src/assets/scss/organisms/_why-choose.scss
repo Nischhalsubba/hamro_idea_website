@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // Why Choose Section
 .why-choose {
   padding: 140px 0;
@@ -48,11 +51,17 @@
     gap: 1.5rem;
     box-shadow: 0 20px 40px rgba($color-blue, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
   }
 
   &__card:hover {
     transform: translateY(-6px);
     box-shadow: 0 26px 56px rgba($color-blue, 0.12);
+  }
+
+  &__card.is-active {
+    border-color: rgba($color-blue, 0.3);
+    box-shadow: 0 28px 60px rgba($color-blue, 0.16);
   }
 
   &__card-icon {
@@ -91,6 +100,12 @@
       box-shadow: 0 35px 80px rgba(12, 16, 60, 0.2);
       object-fit: cover;
       min-height: 420px;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    &.is-switching img {
+      opacity: 0.4;
+      transform: scale(0.98);
     }
   }
 }

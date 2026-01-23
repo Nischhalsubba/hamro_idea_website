@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // Work Section SCSS
 .work {
     padding: 120px 0;

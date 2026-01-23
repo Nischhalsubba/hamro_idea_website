@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .btn {
   padding: 18px 24px;
   display: inline-flex;
@@ -63,7 +67,7 @@
   &:hover,
   &:active,
   &:focus {
-    background: linear-gradient(135deg, $color-primary 0%, lighten($color-primary, 5%) 100%);
+    background: linear-gradient(135deg, $color-primary 0%, color.adjust($color-primary, $lightness: 5%) 100%);
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 20px rgba($color-primary, 0.4);
     border-color: rgba(255, 255, 255, 0.4);

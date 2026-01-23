@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // Collaboration Section Styles
 .collaboration {
     padding: 100px 0;
@@ -136,6 +139,50 @@
                 padding-bottom: 1rem;
             }
 
+            .expertise-orbit {
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                border-radius: 50%;
+                border: 1px dashed rgba($color-blue, 0.2);
+                display: grid;
+                place-items: center;
+                animation: orbitSpin 14s linear infinite;
+
+                .orbit-dot {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: $color-highlight-yellow;
+                    box-shadow: 0 0 12px rgba($color-highlight-yellow, 0.6);
+
+                    &:nth-child(1) {
+                        top: -5px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    &:nth-child(2) {
+                        right: -5px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:nth-child(3) {
+                        bottom: -5px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    &:nth-child(4) {
+                        left: -5px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
             .expertise-badge {
                 background: $color-white;
                 padding: 1rem 1.5rem;
@@ -171,6 +218,11 @@
                 .expertise-badge {
                     transform: translateY(-30px) scale(1.02);
                 }
+
+                .expertise-orbit {
+                    animation-play-state: paused;
+                    transform: scale(1.05);
+                }
             }
         }
 
@@ -193,12 +245,43 @@
                 opacity: 0.5;
             }
 
+            .gauge-pulse {
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba($color-blue, 0.2) 0%, transparent 70%);
+                opacity: 0.6;
+                filter: blur(2px);
+                animation: pulseGlow 2.6s ease-in-out infinite;
+            }
+
+            .gauge-pointer {
+                position: absolute;
+                width: 4px;
+                height: 70px;
+                background: $color-highlight-yellow;
+                border-radius: 6px;
+                transform-origin: bottom center;
+                transform: translateY(24px) rotate(-40deg);
+                box-shadow: 0 0 18px rgba($color-highlight-yellow, 0.6);
+                transition: transform 0.6s ease;
+            }
+
             // The highlighted "Target" segment
             &.active,
             // JS trigger or hover
             &:hover {
                 .gauge-fill {
                     stroke-dashoffset: 100; // Animate fill
+                }
+
+                .gauge-graphic {
+                    transform: scale(1.02);
+                }
+
+                .gauge-pointer {
+                    transform: translateY(24px) rotate(18deg);
                 }
             }
         }
@@ -254,6 +337,30 @@
                 justify-content: center;
             }
 
+            .layers-rings {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span {
+                    position: absolute;
+                    width: 220px;
+                    height: 220px;
+                    border-radius: 50%;
+                    border: 1px solid rgba($color-blue, 0.12);
+                    animation: ringFloat 6s ease-in-out infinite;
+
+                    &:nth-child(2) {
+                        width: 280px;
+                        height: 280px;
+                        animation-delay: 1.5s;
+                        border-color: rgba($color-blue, 0.08);
+                    }
+                }
+            }
+
             .layer {
                 position: absolute;
                 width: 200px;
@@ -296,7 +403,45 @@
                 .layer-3 {
                     transform: translateX(80px) translateY(-40px) rotateY(10deg);
                 }
+
+                .layers-rings span {
+                    transform: scale(1.05);
+                }
             }
         }
+    }
+}
+
+@keyframes orbitSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+}
+
+@keyframes ringFloat {
+    0%,
+    100% {
+        transform: scale(0.98);
+    }
+    50% {
+        transform: scale(1.04);
     }
 }

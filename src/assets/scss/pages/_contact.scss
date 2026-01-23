@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .contact-page-container {
   .contact-info {
     padding: 82px 0px;

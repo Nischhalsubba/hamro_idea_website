@@ -2,6 +2,8 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+@use "sass:color";
+
 // Colors (Based on User Design System)
 $color-blue: #121984; // Primary Brand Color
 $color-soft-lilac: #F6F4FC; // Backgrounds/Accents
@@ -37,8 +39,8 @@ $gray-800: #343a40;
 $gray-900: #212529;
 
 // Derived Legacy Helpers
-$dark_primary: darken($color-primary, 10%);
-$light_secondary: lighten($color-soft-lilac, 5%);
+$dark_primary: color.adjust($color-primary, $lightness: -10%);
+$light_secondary: color.adjust($color-soft-lilac, $lightness: 5%);
 $brand-accent: $color-accent-pink;
 $color-accent: $color-accent-pink;
 $color-bg-dark: #050a30;

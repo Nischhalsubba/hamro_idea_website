@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .navbar {
   background-color: transparent;
   padding: 1.5rem 0;
@@ -7,6 +10,7 @@
   width: 100%; // Ensure it spans full width
   z-index: 1000;
   border-bottom: 1px solid rgba($color-white, 0.1);
+  overflow: visible;
 
   &.sticky {
     position: fixed;
@@ -47,6 +51,10 @@
       height: auto;
       display: block;
       object-fit: contain;
+    }
+
+    .navbar__logo-img--dark {
+      display: none;
     }
   }
 
@@ -125,9 +133,17 @@
   }
 
   // Mega Menu Container (Reference Design)
+  .mega-menus {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
   .mega-menu {
-    position: fixed;
-    top: var(--nav-height, 88px);
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     width: auto;
@@ -474,6 +490,41 @@
         top: 8px;
       }
     }
+  }
+}
+
+// Light pages: flip navigation contrast to match light hero backgrounds.
+body:has(.page-hero) {
+  .navbar {
+    border-bottom-color: rgba($color-blue, 0.12);
+  }
+
+  .navbar__brand {
+    color: $color-text-head;
+
+    .navbar__logo-img--light {
+      display: none;
+    }
+
+    .navbar__logo-img--dark {
+      display: block;
+    }
+  }
+
+  .navbar__menu-desktop .nav-item .nav-link {
+    color: rgba($color-text-head, 0.8);
+  }
+
+  .navbar__menu-desktop .nav-item .nav-link:hover {
+    color: $color-blue;
+  }
+
+  .navbar.sticky {
+    background: rgba($color-white, 0.9);
+    border-bottom-color: rgba($color-blue, 0.16);
+    box-shadow: 0 18px 40px rgba($color-blue, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
 }
 

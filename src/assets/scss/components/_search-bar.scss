@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .header_search_form {
   width: 100%;
   padding: 62px 0px;

@@ -41,7 +41,7 @@ initGlider(".testimonial", ".card-slider", {
 // Hedear
 
 // Header Sticky Logic - Kept from original
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".navbar");
   const setNavHeight = () => {
     if (!nav) return;
@@ -49,26 +49,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   setNavHeight();
-  window.addEventListener("resize", setNavHeight);
+  window.addEventListener("resize", setNavHeight, { passive: true });
 
   let isSticky = false;
-  window.addEventListener("scroll", function () {
-    if (nav) {
-      const shouldStick = window.scrollY > 10;
-      if (shouldStick && !isSticky) {
-        nav.classList.add("sticky");
-        gsap.fromTo(
-          nav,
-          { y: -12 },
-          { y: 0, duration: 0.45, ease: "back.out(1.6)" }
-        );
-        isSticky = true;
-      } else if (!shouldStick && isSticky) {
-        nav.classList.remove("sticky");
-        isSticky = false;
-      }
+  window.addEventListener("scroll", () => {
+    if (!nav) return;
+    const shouldStick = window.scrollY > 10;
+    if (shouldStick && !isSticky) {
+      nav.classList.add("sticky");
+      gsap.fromTo(
+        nav,
+        { y: -12 },
+        { y: 0, duration: 0.45, ease: "back.out(1.6)" }
+      );
+      isSticky = true;
+    } else if (!shouldStick && isSticky) {
+      nav.classList.remove("sticky");
+      isSticky = false;
     }
-  });
+  }, { passive: true });
 
   // Mobile Menu Logic
   const mobileToggle = document.querySelector('.navbar__toggle');
@@ -89,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Mobile Submenu Logic
   const menuWithSub = document.querySelectorAll('.mobile-nav-list .has-submenu');
-  menuWithSub.forEach(item => {
-    item.addEventListener('click', function () {
-      const submenu = this.querySelector('.submenu');
+  menuWithSub.forEach((item) => {
+    item.addEventListener('click', () => {
+      const submenu = item.querySelector('.submenu');
       if (submenu) {
         submenu.classList.toggle('open');
       }
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   megaMenuItems.forEach((item) => {
-    const key = item.getAttribute("data-mega-target");
+    const key = item.dataset.megaTarget;
     const link = item.querySelector(".nav-link");
 
     item.addEventListener("mouseenter", () => {
