@@ -259,6 +259,16 @@
     .page-section__header p {
       color: $color-white;
     }
+
+    .section-media__stat {
+      background: rgba($color-white, 0.08);
+      box-shadow: none;
+    }
+
+    .section-media__stat strong,
+    .section-media__stat span {
+      color: $color-white;
+    }
   }
 
   &--pattern {
@@ -273,17 +283,30 @@
     .page-section__header p {
       color: $color-white;
     }
+
+    .section-media__stat {
+      background: rgba($color-white, 0.08);
+      box-shadow: none;
+    }
+
+    .section-media__stat strong,
+    .section-media__stat span {
+      color: $color-white;
+    }
   }
 }
 
 .page-section__header {
   max-width: 680px;
   margin-bottom: 2.5rem;
+  position: relative;
+  padding-left: 0;
 
   h2 {
     font-size: clamp(2rem, 3.2vw, 2.8rem);
     color: $color-text-head;
     margin-bottom: 0.85rem;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -295,30 +318,31 @@
 
 .signature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
   counter-reset: signature-card;
 }
 
 .signature-card {
   position: relative;
   background: $color-white;
-  border: 1px solid rgba($color-blue, 0.2);
-  padding: 2rem;
-  box-shadow: 0 22px 46px rgba($color-blue, 0.12);
+  border: none;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 32px 70px rgba($color-blue, 0.18);
+    box-shadow: 0 34px 76px rgba($color-blue, 0.2);
   }
 
   &::before {
     counter-increment: signature-card;
     content: "0" counter(signature-card);
     position: absolute;
-    top: 1.4rem;
-    right: 1.4rem;
+    top: 1.2rem;
+    right: 1.2rem;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -327,7 +351,7 @@
   }
 
   h3 {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     margin-bottom: 0.65rem;
   }
 
@@ -344,8 +368,25 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: $color-blue;
+    color: rgba($color-blue, 0.85);
     margin-bottom: 0.9rem;
+  }
+
+  .signature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba($color-blue, 0.06);
+    color: $color-blue;
+    margin-bottom: 0.75rem;
+  }
+
+  .signature-icon svg {
+    width: 14px;
+    height: 14px;
+    display: block;
   }
 
   .signature-points {
@@ -414,17 +455,16 @@
 
 .metrics-band {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
 }
 
 .metric-card {
   background: $color-white;
-  padding: 1.6rem;
-  border: 1px solid rgba($color-blue, 0.18);
-  border-top: 3px solid rgba($color-blue, 0.6);
+  padding: 1.75rem;
+  border: none;
   text-align: center;
-  box-shadow: 0 18px 36px rgba($color-blue, 0.14);
+  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
 
   strong {
     display: block;
@@ -441,9 +481,9 @@
 
 .page-list {
   background: $color-white;
-  border: 1px solid rgba($color-blue, 0.16);
-  padding: 1.75rem 2.25rem;
-  box-shadow: 0 18px 36px rgba($color-blue, 0.12);
+  border: none;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
 
   ul {
     margin: 0;
@@ -477,18 +517,60 @@
 
 .page-faqs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
 }
 
 .page-faq {
   background: $color-white;
-  border: 1px solid rgba($color-blue, 0.16);
-  padding: 1.6rem;
-  box-shadow: 0 18px 40px rgba($color-blue, 0.12);
+  border: none;
+  padding: 0;
+  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
+  overflow: hidden;
 
-  h3 {
-    margin-bottom: 0.5rem;
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.4rem 1.6rem;
+    font-weight: 600;
+    color: $color-text-head;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: $color-blue;
+    background: rgba($color-blue, 0.1);
+  }
+
+  .page-faq__body {
+    padding: 0 1.6rem 1.5rem;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+
+  &[open] {
+    box-shadow: 0 26px 56px rgba($color-blue, 0.2);
+
+    .faq-toggle::before {
+      content: "−";
+    }
+  }
+
+  .faq-toggle::before {
+    content: "+";
   }
 }
 
@@ -509,10 +591,10 @@
 
 .visual-card {
   position: relative;
-  padding: 2.5rem;
-  background: linear-gradient(135deg, rgba($color-blue, 0.1) 0%, rgba($color-soft-lilac, 0.55) 45%, rgba($color-white, 0.98) 100%);
-  border: 1px solid rgba($color-blue, 0.18);
-  box-shadow: 0 30px 70px rgba($color-blue, 0.15);
+  padding: 2.75rem;
+  background: $color-white;
+  border: none;
+  box-shadow: 0 22px 50px rgba($color-blue, 0.1);
   min-height: 260px;
   overflow: hidden;
 
@@ -541,12 +623,13 @@
 .visual-card__grid {
   display: grid;
   gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .visual-card__tile {
   background: rgba($color-white, 0.92);
-  border: 1px solid rgba($color-blue, 0.16);
-  padding: 0.85rem 1rem;
+  border: none;
+  padding: 0.9rem 1rem;
   font-weight: 600;
   color: $color-text-head;
   display: flex;
@@ -558,6 +641,125 @@
     color: rgba($color-blue, 0.6);
     font-weight: 700;
   }
+}
+
+.page-hero__panel {
+  width: 100%;
+  max-width: none;
+  padding: 1.4rem 1.6rem;
+  background: rgba($color-white, 0.92);
+  box-shadow: 0 18px 44px rgba($color-blue, 0.14);
+  border: none;
+  align-self: stretch;
+  justify-self: end;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: $color-text-muted;
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .hero-metric {
+    text-align: left;
+    background: rgba($color-blue, 0.05);
+    padding: 0.55rem 0.6rem;
+  }
+
+  .hero-metric strong {
+    font-size: 0.95rem;
+  }
+
+  .hero-metric span {
+    font-size: 0.75rem;
+  }
+}
+
+.section-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-media__figure {
+  margin: 0;
+  box-shadow: 0 20px 50px rgba($color-blue, 0.14);
+  overflow: hidden;
+}
+
+.section-media__figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-media__graphic {
+  position: relative;
+  background: $color-white;
+  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.section-media__graphic--tech {
+  background: linear-gradient(135deg, rgba($color-blue, 0.12), rgba($color-soft-lilac, 0.22));
+}
+
+.section-media__graphic--growth {
+  background: linear-gradient(135deg, rgba($color-blue, 0.08), rgba($color-accent-pink, 0.22));
+}
+
+.section-media__graphic--brand {
+  background: linear-gradient(135deg, rgba($color-soft-lilac, 0.25), rgba($color-accent-pink, 0.18));
+}
+
+.section-media__graphic--process {
+  background: linear-gradient(135deg, rgba($color-blue, 0.1), rgba($color-white, 0.3));
+}
+
+.section-media__graphic .hi-graphic {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.section-media__stats {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.section-media__stat {
+  background: $color-white;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 10px 24px rgba($color-blue, 0.08);
+}
+
+.section-media__stat strong {
+  display: block;
+  font-size: 0.95rem;
+  color: $color-blue;
+  margin-bottom: 0.2rem;
+}
+
+.section-media__stat span {
+  font-size: 0.85rem;
+  color: $color-text-muted;
 }
 
 .project-form {
