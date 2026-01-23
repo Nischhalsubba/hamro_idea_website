@@ -17,7 +17,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(145deg, rgba(0, 0, 0, 0.75) 0%, transparent 45%, rgba(18, 25, 132, 0.35) 100%);
+        background: linear-gradient(145deg, rgba(0, 0, 0, 0.68) 0%, rgba(12, 18, 64, 0.4) 45%, rgba(18, 25, 132, 0.28) 100%);
         mix-blend-mode: normal;
         z-index: 1;
         pointer-events: none;
@@ -34,9 +34,9 @@
         overflow: hidden; // Keep bg contained
         // Refined gradient flow based on screenshot (bottom-left focus)
         background:
-            radial-gradient(circle at 80% 35%, rgba(150, 160, 255, 0.55) 0%, transparent 45%),
-            radial-gradient(circle at 15% 85%, rgba(#1a215f, 0.95) 0%, transparent 60%),
-            linear-gradient(140deg, #03051a 0%, #0d1460 45%, #1c2a88 100%);
+            radial-gradient(circle at 78% 30%, rgba(118, 134, 255, 0.4) 0%, transparent 48%),
+            radial-gradient(circle at 10% 82%, rgba(12, 18, 64, 0.95) 0%, transparent 62%),
+            linear-gradient(140deg, #040726 0%, #0f1668 45%, #18227a 100%);
         background-size: 200% 200%; // Enlarge for movement
         animation: gradientFlow 15s ease infinite alternate;
         opacity: 1;
@@ -52,7 +52,7 @@
             height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'%3E%3Canimate attributeName='baseFrequency' dur='9s' values='0.58;0.7;0.58' repeatCount='indefinite'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
             background-size: 240px 240px;
-            opacity: 0.14; // Grainy effect
+            opacity: 0.12; // Grainy effect
             mix-blend-mode: soft-light;
             pointer-events: none;
         }
@@ -63,7 +63,7 @@
         inset: 0;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'%3E%3Canimate attributeName='baseFrequency' dur='6s' values='0.7;0.8;0.7' repeatCount='indefinite'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
         background-size: 260px 260px;
-        opacity: 0.22;
+        opacity: 0.18;
         mix-blend-mode: soft-light;
         pointer-events: none;
         z-index: 1;
@@ -112,7 +112,7 @@
         font-weight: 400;
         font-size: 1rem;
         line-height: 1.6;
-        color: rgba($color-white, 0.75);
+        color: rgba($color-white, 0.82);
         max-width: 650px;
         margin-bottom: 1.1rem;
     }
@@ -120,7 +120,7 @@
     .hero-desc {
         font-size: 0.98rem;
         line-height: 1.65;
-        color: rgba($color-white, 0.6);
+        color: rgba($color-white, 0.72);
         max-width: 700px;
         margin-bottom: 1.75rem;
     }

@@ -8,7 +8,7 @@
 $color-blue: #121984; // Primary Brand Color
 $color-soft-lilac: #F6F4FC; // Backgrounds/Accents
 $color-white: #FCFCFC; // Main Background
-$color-gray: #4A4A4C; // Body Text
+$color-gray: #2F3035; // Body Text (stronger contrast)
 $color-black: #000000; // Headings
 
 // Semantic Mappings
@@ -21,7 +21,7 @@ $color-text-head: $color-black;
 // Highlight/Accent
 $color-accent-pink: #FF009A;
 $color-highlight-yellow: #FFBE2C;
-$color-text-muted: rgba($color-black, 0.6);
+$color-text-muted: rgba($color-black, 0.7);
 
 // Legacy Mappings (Crucial for compatible build)
 $brand-primary: $color-primary;

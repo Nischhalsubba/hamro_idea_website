@@ -5,12 +5,39 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background: $color-white;
   color: $color-text-body;
   margin: 0;
   font-family: $font-family-base;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
   overflow-x: hidden;
+}
+
+:is(p, li) {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $color-text-body;
+}
+
+small,
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+strong {
+  font-weight: 600;
+  color: $color-text-head;
 }
 
 // Enforce sharp geometry across the site (no rounded corners).

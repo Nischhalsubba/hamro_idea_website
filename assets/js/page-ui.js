@@ -1,6 +1,7 @@
 (() => {
-  const spinner = document.querySelector('.page-spinner');
-  const backToTop = document.querySelector('.back-to-top');
+  const initPageUI = () => {
+    const spinner = document.querySelector('.page-spinner');
+    const backToTop = document.querySelector('.back-to-top');
 
   const showSpinner = () => {
     if (spinner) {
@@ -52,24 +53,24 @@
     });
   }
 
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
 
-    revealElements.forEach((el) => observer.observe(el));
-  } else {
-    revealElements.forEach((el) => el.classList.add('is-visible'));
-  }
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add('is-visible'));
+    }
 
   const whyChoose = document.querySelector('.why-choose');
   if (whyChoose) {
@@ -133,25 +134,29 @@
     }
   }
 
-  const projectForm = document.querySelector('#project-form');
-  if (projectForm) {
-    const params = new URLSearchParams(window.location.search);
-    const service = params.get('service');
-    const projectType = params.get('projectType');
+    const projectForm = document.querySelector('#project-form');
+    if (projectForm) {
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get('service');
+      const projectType = params.get('projectType');
 
-    const serviceSelect = projectForm.querySelector('#service-type');
-    if (serviceSelect && service) {
-      const option = serviceSelect.querySelector(`option[value="${service}"]`);
-      if (option) {
-        serviceSelect.value = service;
+      const serviceSelect = projectForm.querySelector('#service-type');
+      if (serviceSelect && service) {
+        const option = serviceSelect.querySelector(`option[value="${service}"]`);
+        if (option) {
+          serviceSelect.value = service;
+        }
+      }
+
+      if (projectType) {
+        const types = projectForm.querySelectorAll(`input[name="projectType"][value="${projectType}"]`);
+        types.forEach((input) => {
+          input.checked = true;
+        });
       }
     }
+  };
 
-    if (projectType) {
-      const types = projectForm.querySelectorAll(`input[name="projectType"][value="${projectType}"]`);
-      types.forEach((input) => {
-        input.checked = true;
-      });
-    }
-  }
+  window.initPageUI = initPageUI;
+  document.addEventListener('DOMContentLoaded', initPageUI);
 })();

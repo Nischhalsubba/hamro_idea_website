@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-document.addEventListener("DOMContentLoaded", () => {
+const initAnimations = () => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
         return;
@@ -321,6 +321,108 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Anime.js micro-motion (if available)
+    if (window.anime && !prefersReducedMotion) {
+        window.anime({
+            targets: ".signature-kicker, .hero-badge, .section-kicker",
+            translateY: [0, -3],
+            direction: "alternate",
+            loop: true,
+            easing: "easeInOutSine",
+            delay: window.anime.stagger(120),
+            duration: 2400
+        });
+    }
+
+    // Three.js ambient canvas (if available)
+    if (window.THREE && !prefersReducedMotion) {
+        const hero = document.querySelector(".page-hero");
+        if (hero) {
+            const canvas = document.createElement("canvas");
+            canvas.className = "hero-ambient-canvas";
+            hero.appendChild(canvas);
+
+            const renderer = new window.THREE.WebGLRenderer({
+                canvas,
+                alpha: true,
+                antialias: true
+            });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+            const scene = new window.THREE.Scene();
+            const camera = new window.THREE.PerspectiveCamera(45, 1, 0.1, 100);
+            camera.position.z = 6;
+
+            const count = 120;
+            const geometry = new window.THREE.BufferGeometry();
+            const positions = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 8;
+                positions[i + 1] = (Math.random() - 0.5) * 5;
+                positions[i + 2] = (Math.random() - 0.5) * 6;
+            }
+            geometry.setAttribute("position", new window.THREE.BufferAttribute(positions, 3));
+
+            const material = new window.THREE.PointsMaterial({
+                color: 0x6a6df5,
+                size: 0.035,
+                opacity: 0.6,
+                transparent: true
+            });
+            const points = new window.THREE.Points(geometry, material);
+            scene.add(points);
+
+            const resize = () => {
+                const rect = hero.getBoundingClientRect();
+                const width = rect.width || window.innerWidth;
+                const height = rect.height || window.innerHeight;
+                renderer.setSize(width, height, false);
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+            };
+            resize();
+            window.addEventListener("resize", resize, { passive: true });
+
+            const render = () => {
+                points.rotation.y += 0.0006;
+                points.rotation.x += 0.0004;
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+            };
+            render();
+        }
+    }
+
+    // Theatre.js drift control (if available)
+    if (window.Theatre && window.Theatre.getProject && window.Theatre.types && !prefersReducedMotion) {
+        try {
+            const project = window.Theatre.getProject("Hamro Idea Ambient");
+            const sheet = project.sheet("Hero Drift");
+            const hero = sheet.object("Gradient", {
+                drift: window.Theatre.types.number(0, { range: [-1, 1] })
+            });
+
+            hero.onValuesChange((values) => {
+                document.documentElement.style.setProperty("--theatre-drift", values.drift);
+            });
+
+            let t = 0;
+            const tick = () => {
+                t += 0.003;
+                const drift = Math.sin(t);
+                try {
+                    hero.value = { drift };
+                } catch (error) {
+                    document.documentElement.style.setProperty("--theatre-drift", drift);
+                }
+                requestAnimationFrame(tick);
+            };
+            tick();
+        } catch (error) {
+            document.documentElement.style.setProperty("--theatre-drift", 0);
+        }
+    }
+
     const arrowButtons = document.querySelectorAll(".btn--icon-block");
     arrowButtons.forEach((btn) => {
         const icon = btn.querySelector(".btn-icon-box svg");
@@ -355,4 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-});
+};
+
+window.initAnimations = initAnimations;
+document.addEventListener("DOMContentLoaded", initAnimations);
