@@ -363,16 +363,6 @@
     .page-section__header p {
       color: $color-white;
     }
-
-    .section-media__stat {
-      background: rgba($color-white, 0.08);
-      box-shadow: none;
-    }
-
-    .section-media__stat strong,
-    .section-media__stat span {
-      color: $color-white;
-    }
   }
 
   &--pattern {
@@ -385,16 +375,6 @@
 
     .page-section__header h2,
     .page-section__header p {
-      color: $color-white;
-    }
-
-    .section-media__stat {
-      background: rgba($color-white, 0.08);
-      box-shadow: none;
-    }
-
-    .section-media__stat strong,
-    .section-media__stat span {
       color: $color-white;
     }
   }
@@ -423,23 +403,23 @@
 .signature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  gap: clamp(1.25rem, 2vw, 2rem);
   align-items: stretch;
   counter-reset: signature-card;
 }
 
 .signature-card {
   position: relative;
-  background: transparent;
+  background: rgba($color-white, 0.94);
+  border-radius: $radius-md;
+  padding: clamp(1.35rem, 2vw, 1.75rem);
+  box-shadow: 0 18px 36px rgba($color-blue, 0.08);
   border: none;
-  padding: 0 0 1.4rem;
-  box-shadow: none;
-  border-bottom: 1px solid rgba($color-blue, 0.12);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: none;
+    box-shadow: 0 24px 44px rgba($color-blue, 0.12);
   }
 
   &::before {
@@ -561,22 +541,27 @@
 .metrics-band {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  gap: clamp(1.25rem, 2vw, 2rem);
 }
 
 .metric-card {
-  background: transparent;
-  padding: 0.75rem 0.6rem 0.75rem 1rem;
+  background: rgba($color-blue, 0.08);
+  padding: clamp(1.1rem, 2vw, 1.35rem);
+  border-radius: $radius-md;
   border: none;
-  text-align: left;
-  box-shadow: none;
-  border-left: 3px solid rgba($color-blue, 0.35);
+  text-align: center;
+  box-shadow: 0 16px 32px rgba($color-blue, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 130px;
 
   strong {
     display: block;
-    font-size: 1.2rem;
+    font-size: clamp(1.5rem, 2vw, 1.9rem);
     color: $color-blue;
-    margin-bottom: 0.35rem;
   }
 
   span {
@@ -609,7 +594,7 @@
       position: relative;
       padding-left: 1rem;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba($color-blue, 0.1);
+      border-bottom: none;
 
       &::before {
         content: "—";
@@ -635,7 +620,7 @@
   padding: 0.65rem 0;
   box-shadow: none;
   overflow: visible;
-  border-bottom: 1px solid rgba($color-blue, 0.12);
+  border-bottom: none;
 
   summary {
     list-style: none;
@@ -686,7 +671,7 @@
 }
 
 .split-grid {
-  display: grid;
+  // display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3rem;
   align-items: center;
@@ -816,85 +801,6 @@
   }
 }
 
-.section-media {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-  gap: 1.25rem;
-  align-items: center;
-  margin-bottom: 1.5rem;
-
-  @media (max-width: 991px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.section-media__figure {
-  margin: 0;
-  box-shadow: 0 20px 50px rgba($color-blue, 0.14);
-  overflow: hidden;
-}
-
-.section-media__figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.section-media__graphic {
-  position: relative;
-  background: $color-white;
-  box-shadow: 0 18px 40px rgba($color-blue, 0.08);
-  overflow: hidden;
-  min-height: 220px;
-}
-
-.section-media__graphic--tech {
-  background: linear-gradient(135deg, rgba($color-blue, 0.12), rgba($color-soft-lilac, 0.22));
-}
-
-.section-media__graphic--growth {
-  background: linear-gradient(135deg, rgba($color-blue, 0.08), rgba($color-accent-pink, 0.22));
-}
-
-.section-media__graphic--brand {
-  background: linear-gradient(135deg, rgba($color-soft-lilac, 0.25), rgba($color-accent-pink, 0.18));
-}
-
-.section-media__graphic--process {
-  background: linear-gradient(135deg, rgba($color-blue, 0.1), rgba($color-white, 0.3));
-}
-
-.section-media__graphic .hi-graphic {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.section-media__stats {
-  display: grid;
-  gap: 0.85rem;
-  align-self: start;
-}
-
-.section-media__stat {
-  background: transparent;
-  padding: 0.4rem 0;
-  box-shadow: none;
-  border-bottom: 1px solid rgba($color-blue, 0.12);
-}
-
-.section-media__stat strong {
-  display: block;
-  font-size: 0.95rem;
-  color: $color-blue;
-  margin-bottom: 0.2rem;
-}
-
-.section-media__stat span {
-  font-size: 0.85rem;
-  color: $color-text-muted;
-}
-
 .project-form {
   margin-top: 1.5rem;
   display: grid;
@@ -904,7 +810,7 @@
 .page-section[data-section-layout="rail"] .container,
 .page-section[data-section-layout="split"] .container,
 .page-section[data-section-layout="cards"] .container {
-  display: grid;
+  // display: grid;
   grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 3vw, 2.75rem);
   align-items: start;
@@ -915,35 +821,6 @@
 .page-section[data-section-layout="cards"] .page-section__header {
   grid-column: 1;
   margin-bottom: 0;
-}
-
-.page-section[data-section-layout="rail"] .section-media,
-.page-section[data-section-layout="split"] .section-media,
-.page-section[data-section-layout="cards"] .section-media {
-  grid-column: 2;
-  margin-bottom: 0;
-  align-self: start;
-}
-
-@media (max-width: 991px) {
-  .page-section[data-section-layout="rail"] .container,
-  .page-section[data-section-layout="split"] .container,
-  .page-section[data-section-layout="cards"] .container {
-    grid-template-columns: 1fr;
-  }
-
-  .page-section[data-section-layout="rail"] .page-section__header,
-  .page-section[data-section-layout="split"] .page-section__header,
-  .page-section[data-section-layout="cards"] .page-section__header {
-    grid-column: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .page-section[data-section-layout="rail"] .section-media,
-  .page-section[data-section-layout="split"] .section-media,
-  .page-section[data-section-layout="cards"] .section-media {
-    grid-column: 1;
-  }
 }
 
 .page-section[data-section-layout="rail"] .signature-grid,
@@ -981,7 +858,69 @@
   list-style: none;
   padding: 0.75rem 1rem;
   background: rgba($color-soft-lilac, 0.6);
-  border: 1px solid rgba($color-blue, 0.08);
+  border: none;
+  box-shadow: 0 20px 40px rgba($color-blue, 0.06);
+}
+
+.delivery-blueprint {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 3vw, 3rem);
+  align-items: start;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__lead {
+    color: $color-text-muted;
+    max-width: 420px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  &__card {
+    padding: 1.3rem 1.5rem;
+    border-radius: $radius-xl;
+    background: linear-gradient(180deg, rgba($color-white, 0.95) 0%, rgba($color-soft-lilac, 0.7) 100%);
+    box-shadow: 0 20px 40px rgba($color-blue, 0.08);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-height: 150px;
+  }
+
+  &__step {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $color-blue;
+  }
+
+  &__card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: $color-text-head;
+  }
+
+  &__card p {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
 }
 
 .page-section[data-section-layout="stack"] .split-grid {
@@ -1109,14 +1048,13 @@ body:has(.page-hero) {
   }
 
   .page-content .page-section + .page-section {
-    border-top: 1px solid rgba($color-blue, 0.08);
+    border-top: none;
   }
 
   .page-content .page-section:nth-of-type(even) {
     background: rgba($color-soft-lilac, 0.35);
   }
 
-  .page-content .page-section:nth-of-type(even) .section-media__stat,
   .page-content .page-section:nth-of-type(even) .signature-card,
   .page-content .page-section:nth-of-type(even) .visual-card {
     box-shadow: 0 16px 32px rgba($color-blue, 0.08);
