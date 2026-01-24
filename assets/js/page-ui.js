@@ -1,15 +1,21 @@
 (() => {
-  const initPageUI = () => {
-    const spinner = document.querySelector('.page-spinner');
-    const backToTop = document.querySelector('.back-to-top');
+  let globalListenersInitialized = false;
+  let scrollHandler;
+  let clickHandler;
+  let backToTopClickHandler;
+
+  const getSpinner = () => document.querySelector('.page-spinner');
+  const getBackToTop = () => document.querySelector('.back-to-top');
 
   const showSpinner = () => {
+    const spinner = getSpinner();
     if (spinner) {
       spinner.classList.add('is-active');
     }
   };
 
   const hideSpinner = () => {
+    const spinner = getSpinner();
     if (spinner) {
       spinner.classList.remove('is-active');
     }
@@ -26,32 +32,48 @@
     return true;
   };
 
-  document.addEventListener('click', (event) => {
-    const link = event.target.closest('a');
-    if (!shouldHandleLink(link)) return;
-    showSpinner();
-  });
+  const toggleBackToTop = () => {
+    const backToTop = getBackToTop();
+    if (!backToTop) return;
+    if (window.scrollY > 600) {
+      backToTop.classList.add('is-visible');
+    } else {
+      backToTop.classList.remove('is-visible');
+    }
+  };
 
-  window.addEventListener('pageshow', hideSpinner);
-  window.addEventListener('load', hideSpinner);
+  const initGlobalListeners = () => {
+    if (globalListenersInitialized) return;
 
-  if (backToTop) {
-    const toggleBackToTop = () => {
-      if (window.scrollY > 600) {
-        backToTop.classList.add('is-visible');
-      } else {
-        backToTop.classList.remove('is-visible');
+    clickHandler = (event) => {
+      const link = event.target.closest('a');
+      if (shouldHandleLink(link)) {
+        showSpinner();
       }
     };
 
-    toggleBackToTop();
-    window.addEventListener('scroll', toggleBackToTop, { passive: true });
-
-    backToTop.addEventListener('click', (event) => {
+    backToTopClickHandler = (event) => {
+      const button = event.target.closest('.back-to-top');
+      if (!button) return;
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+    };
+
+    scrollHandler = () => {
+      toggleBackToTop();
+    };
+
+    document.addEventListener('click', clickHandler);
+    document.addEventListener('click', backToTopClickHandler);
+    window.addEventListener('pageshow', hideSpinner);
+    window.addEventListener('load', hideSpinner);
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    globalListenersInitialized = true;
+  };
+
+  const initPageUI = () => {
+    initGlobalListeners();
+    toggleBackToTop();
 
     const revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0 && 'IntersectionObserver' in window) {
@@ -72,67 +94,67 @@
       revealElements.forEach((el) => el.classList.add('is-visible'));
     }
 
-  const whyChoose = document.querySelector('.why-choose');
-  if (whyChoose) {
-    const cards = Array.from(whyChoose.querySelectorAll('.why-choose__card'));
-    const media = whyChoose.querySelector('.why-choose__media');
-    const mediaImg = media?.querySelector('img');
+    const whyChoose = document.querySelector('.why-choose');
+    if (whyChoose) {
+      const cards = Array.from(whyChoose.querySelectorAll('.why-choose__card'));
+      const media = whyChoose.querySelector('.why-choose__media');
+      const mediaImg = media?.querySelector('img');
 
-    if (cards.length > 0 && mediaImg) {
-      const defaultSrc = mediaImg.getAttribute('src');
-      const defaultAlt = mediaImg.getAttribute('alt');
+      if (cards.length > 0 && mediaImg) {
+        const defaultSrc = mediaImg.getAttribute('src');
+        const defaultAlt = mediaImg.getAttribute('alt');
 
-      const swapMedia = (card) => {
-        const nextSrc = card.dataset.media;
-        const nextAlt = card.dataset.mediaAlt || defaultAlt;
-        if (!nextSrc || nextSrc === mediaImg.getAttribute('src')) {
-          return;
-        }
+        const swapMedia = (card) => {
+          const nextSrc = card.dataset.media;
+          const nextAlt = card.dataset.mediaAlt || defaultAlt;
+          if (!nextSrc || nextSrc === mediaImg.getAttribute('src')) {
+            return;
+          }
 
-        media?.classList.add('is-switching');
-        mediaImg.addEventListener(
-          'load',
-          () => {
-            media?.classList.remove('is-switching');
-          },
-          { once: true }
-        );
-        mediaImg.setAttribute('src', nextSrc);
-        mediaImg.setAttribute('alt', nextAlt);
+          media?.classList.add('is-switching');
+          mediaImg.addEventListener(
+            'load',
+            () => {
+              media?.classList.remove('is-switching');
+            },
+            { once: true }
+          );
+          mediaImg.setAttribute('src', nextSrc);
+          mediaImg.setAttribute('alt', nextAlt);
 
-        cards.forEach((item) => {
-          item.classList.toggle('is-active', item === card);
+          cards.forEach((item) => {
+            item.classList.toggle('is-active', item === card);
+          });
+        };
+
+        const resetMedia = () => {
+          media?.classList.add('is-switching');
+          mediaImg.addEventListener(
+            'load',
+            () => {
+              media?.classList.remove('is-switching');
+            },
+            { once: true }
+          );
+          mediaImg.setAttribute('src', defaultSrc);
+          mediaImg.setAttribute('alt', defaultAlt);
+          cards.forEach((item, index) => {
+            item.classList.toggle('is-active', index === 0);
+          });
+        };
+
+        cards.forEach((card, index) => {
+          if (index === 0) {
+            card.classList.add('is-active');
+          }
+          card.addEventListener('mouseenter', () => swapMedia(card));
+          card.addEventListener('focusin', () => swapMedia(card));
         });
-      };
 
-      const resetMedia = () => {
-        media?.classList.add('is-switching');
-        mediaImg.addEventListener(
-          'load',
-          () => {
-            media?.classList.remove('is-switching');
-          },
-          { once: true }
-        );
-        mediaImg.setAttribute('src', defaultSrc);
-        mediaImg.setAttribute('alt', defaultAlt);
-        cards.forEach((item, index) => {
-          item.classList.toggle('is-active', index === 0);
-        });
-      };
-
-      cards.forEach((card, index) => {
-        if (index === 0) {
-          card.classList.add('is-active');
-        }
-        card.addEventListener('mouseenter', () => swapMedia(card));
-        card.addEventListener('focusin', () => swapMedia(card));
-      });
-
-      const list = whyChoose.querySelector('.why-choose__list');
-      list?.addEventListener('mouseleave', resetMedia);
+        const list = whyChoose.querySelector('.why-choose__list');
+        list?.addEventListener('mouseleave', resetMedia);
+      }
     }
-  }
 
     const projectForm = document.querySelector('#project-form');
     if (projectForm) {

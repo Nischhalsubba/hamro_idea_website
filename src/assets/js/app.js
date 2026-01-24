@@ -257,6 +257,12 @@ const initBarbaTransitions = () => {
       window.initAnimations();
     }
   });
+
+  window.barba.hooks.beforeLeave(() => {
+    if (window.cleanupAnimations) {
+      window.cleanupAnimations();
+    }
+  });
 };
 
 document.addEventListener('DOMContentLoaded', initBarbaTransitions);

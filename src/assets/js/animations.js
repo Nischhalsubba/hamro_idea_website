@@ -1,7 +1,57 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+let cursorTicker = null;
+let mouseMoveHandler = null;
+let threeResizeHandler = null;
+let threeRenderFrame = null;
+let theatreFrame = null;
+let threeRenderer = null;
+let ambientCanvas = null;
+
+const cleanupAnimations = () => {
+    if (cursorTicker) {
+        gsap.ticker.remove(cursorTicker);
+        cursorTicker = null;
+    }
+
+    if (mouseMoveHandler) {
+        window.removeEventListener("mousemove", mouseMoveHandler);
+        mouseMoveHandler = null;
+    }
+
+    if (threeResizeHandler) {
+        window.removeEventListener("resize", threeResizeHandler);
+        threeResizeHandler = null;
+    }
+
+    if (threeRenderFrame) {
+        cancelAnimationFrame(threeRenderFrame);
+        threeRenderFrame = null;
+    }
+
+    if (theatreFrame) {
+        cancelAnimationFrame(theatreFrame);
+        theatreFrame = null;
+    }
+
+    if (threeRenderer) {
+        threeRenderer.dispose();
+        threeRenderer = null;
+    }
+
+    if (ambientCanvas && ambientCanvas.parentNode) {
+        ambientCanvas.parentNode.removeChild(ambientCanvas);
+        ambientCanvas = null;
+    }
+
+    if (ScrollTrigger) {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    }
+};
+
 const initAnimations = () => {
+    cleanupAnimations();
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
         return;
@@ -75,19 +125,21 @@ const initAnimations = () => {
     const mouse = { x: 0, y: 0 };
     const cursorObj = { x: 0, y: 0 };
 
-    window.addEventListener("mousemove", (e) => {
+    mouseMoveHandler = (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
-    });
+    };
+    window.addEventListener("mousemove", mouseMoveHandler);
 
     // RAF Loop for smooth cursor following
     if (cursor) {
-        gsap.ticker.add(() => {
-        const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
-        cursorObj.x += (mouse.x - cursorObj.x) * dt;
-        cursorObj.y += (mouse.y - cursorObj.y) * dt;
-        gsap.set(cursor, { x: cursorObj.x, y: cursorObj.y });
-        });
+        cursorTicker = () => {
+            const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
+            cursorObj.x += (mouse.x - cursorObj.x) * dt;
+            cursorObj.y += (mouse.y - cursorObj.y) * dt;
+            gsap.set(cursor, { x: cursorObj.x, y: cursorObj.y });
+        };
+        gsap.ticker.add(cursorTicker);
     }
 
     // Cursor Interactions
@@ -338,16 +390,16 @@ const initAnimations = () => {
     if (window.THREE && !prefersReducedMotion) {
         const hero = document.querySelector(".page-hero");
         if (hero) {
-            const canvas = document.createElement("canvas");
-            canvas.className = "hero-ambient-canvas";
-            hero.appendChild(canvas);
+            ambientCanvas = document.createElement("canvas");
+            ambientCanvas.className = "hero-ambient-canvas";
+            hero.appendChild(ambientCanvas);
 
-            const renderer = new window.THREE.WebGLRenderer({
-                canvas,
+            threeRenderer = new window.THREE.WebGLRenderer({
+                canvas: ambientCanvas,
                 alpha: true,
                 antialias: true
             });
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            threeRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
             const scene = new window.THREE.Scene();
             const camera = new window.THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -376,18 +428,19 @@ const initAnimations = () => {
                 const rect = hero.getBoundingClientRect();
                 const width = rect.width || window.innerWidth;
                 const height = rect.height || window.innerHeight;
-                renderer.setSize(width, height, false);
+                threeRenderer.setSize(width, height, false);
                 camera.aspect = width / height;
                 camera.updateProjectionMatrix();
             };
-            resize();
-            window.addEventListener("resize", resize, { passive: true });
+            threeResizeHandler = resize;
+            threeResizeHandler();
+            window.addEventListener("resize", threeResizeHandler, { passive: true });
 
             const render = () => {
                 points.rotation.y += 0.0006;
                 points.rotation.x += 0.0004;
-                renderer.render(scene, camera);
-                requestAnimationFrame(render);
+                threeRenderer.render(scene, camera);
+                threeRenderFrame = requestAnimationFrame(render);
             };
             render();
         }
@@ -415,7 +468,7 @@ const initAnimations = () => {
                 } catch (error) {
                     document.documentElement.style.setProperty("--theatre-drift", drift);
                 }
-                requestAnimationFrame(tick);
+                theatreFrame = requestAnimationFrame(tick);
             };
             tick();
         } catch (error) {
@@ -460,4 +513,5 @@ const initAnimations = () => {
 };
 
 window.initAnimations = initAnimations;
+window.cleanupAnimations = cleanupAnimations;
 document.addEventListener("DOMContentLoaded", initAnimations);
