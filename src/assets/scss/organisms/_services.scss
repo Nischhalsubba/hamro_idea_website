@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // Services Section Styles (Premium Card Redesign)
 .services {
     padding: 120px 0;
@@ -106,7 +110,7 @@
         .item-desc {
             font-size: 1.05rem;
             line-height: 1.7;
-            color: lighten($color-text-body, 10%); // Slightly softer for readability
+            color: color.adjust($color-text-body, $lightness: 10%); // Slightly softer for readability
             margin-bottom: 2.5rem;
             max-width: 95%;
             position: relative;

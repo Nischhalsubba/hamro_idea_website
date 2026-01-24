@@ -46,9 +46,12 @@ html(lang="en")
         link(href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap", rel="stylesheet")
 
     body
-        include ../organisms/navbar
+        a.skip-link(href="#main-content") Skip to content
+        header.site-header
+            include ../organisms/navbar
         .cursor
-        block content
+        main#main-content.page-content
+            block content
 
         include ../organisms/footer
 
@@ -61,3 +64,4 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js")
         
         script(src="assets/js/all.js")
+        script(src="assets/js/page-ui.js", defer)

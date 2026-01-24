@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 // Testimonial Section SCSS
 .testimonial {
     padding: 140px 0;

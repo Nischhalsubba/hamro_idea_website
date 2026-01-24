@@ -1,31 +1,57 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 * {
   box-sizing: border-box;
 }
 
-body,
-body * {
-  border-radius: 0 !important;
+html {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: linear-gradient(180deg, $color-soft-lilac 0%, $color-bg-light 45%, #e4e6f5 100%);
+  background: $color-white;
   color: $color-text-body;
   margin: 0;
   font-family: $font-family-base;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
   overflow-x: hidden;
 }
 
-a,
-button,
-input,
-textarea {
+:is(p, li) {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $color-text-body;
+}
+
+small,
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+strong {
+  font-weight: 600;
+  color: $color-text-head;
+}
+
+// Enforce sharp geometry across the site (no rounded corners).
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+:is(a, button, input, textarea) {
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
+:is(a, button, input, textarea):focus-visible {
   outline: 2px solid rgba($color-blue, 0.35);
   outline-offset: 2px;
 }
@@ -90,6 +116,34 @@ section:hover .section-icon {
   box-shadow: 0 16px 32px rgba($color-blue, 0.28);
 }
 
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.85rem 1.2rem;
+  background: $color-blue;
+  color: $color-white;
+  text-decoration: none;
+  transform: translateY(-120%);
+  z-index: 3000;
+  border-radius: 0 0 8px 0;
+
+  &:focus-visible {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .solutions__title,
 .services__title,
 .collaboration__title,
@@ -137,6 +191,7 @@ section:hover .section-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: $radius-sm;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 
@@ -153,13 +208,6 @@ section:hover .section-icon {
   border-color: $color-blue;
 }
 
-ul,
-ol {
-  li {
-    text-decoration: none;
-    list-style: none;
-  }
-}
 
 .page_not_found {
   background: $color-primary; // Updated from $brand-primary

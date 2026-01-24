@@ -1,3 +1,6 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .portfolio{
     padding: 0px;
     .row{

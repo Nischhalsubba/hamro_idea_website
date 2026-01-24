@@ -2,11 +2,13 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+@use "sass:color";
+
 // Colors (Based on User Design System)
 $color-blue: #121984; // Primary Brand Color
 $color-soft-lilac: #F6F4FC; // Backgrounds/Accents
 $color-white: #FCFCFC; // Main Background
-$color-gray: #4A4A4C; // Body Text
+$color-gray: #2F3035; // Body Text (stronger contrast)
 $color-black: #000000; // Headings
 
 // Semantic Mappings
@@ -19,7 +21,7 @@ $color-text-head: $color-black;
 // Highlight/Accent
 $color-accent-pink: #FF009A;
 $color-highlight-yellow: #FFBE2C;
-$color-text-muted: rgba($color-black, 0.6);
+$color-text-muted: rgba($color-black, 0.7);
 
 // Legacy Mappings (Crucial for compatible build)
 $brand-primary: $color-primary;
@@ -37,8 +39,8 @@ $gray-800: #343a40;
 $gray-900: #212529;
 
 // Derived Legacy Helpers
-$dark_primary: darken($color-primary, 10%);
-$light_secondary: lighten($color-soft-lilac, 5%);
+$dark_primary: color.adjust($color-primary, $lightness: -10%);
+$light_secondary: color.adjust($color-soft-lilac, $lightness: 5%);
 $brand-accent: $color-accent-pink;
 $color-accent: $color-accent-pink;
 $color-bg-dark: #050a30;
@@ -67,3 +69,11 @@ $breakpoints: (
 
 // Spacing
 $spacer: 1rem;
+
+// Radius scale (brand geometry)
+$radius-xs: 6px;
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+$radius-pill: 999px;

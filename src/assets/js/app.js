@@ -41,7 +41,7 @@ initGlider(".testimonial", ".card-slider", {
 // Hedear
 
 // Header Sticky Logic - Kept from original
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".navbar");
   const setNavHeight = () => {
     if (!nav) return;
@@ -49,26 +49,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   setNavHeight();
-  window.addEventListener("resize", setNavHeight);
+  window.addEventListener("resize", setNavHeight, { passive: true });
 
   let isSticky = false;
-  window.addEventListener("scroll", function () {
-    if (nav) {
-      const shouldStick = window.scrollY > 10;
-      if (shouldStick && !isSticky) {
-        nav.classList.add("sticky");
-        gsap.fromTo(
-          nav,
-          { y: -12 },
-          { y: 0, duration: 0.45, ease: "back.out(1.6)" }
-        );
-        isSticky = true;
-      } else if (!shouldStick && isSticky) {
-        nav.classList.remove("sticky");
-        isSticky = false;
-      }
+  window.addEventListener("scroll", () => {
+    if (!nav) return;
+    const shouldStick = window.scrollY > 10;
+    if (shouldStick && !isSticky) {
+      nav.classList.add("sticky");
+      gsap.fromTo(
+        nav,
+        { y: -12 },
+        { y: 0, duration: 0.45, ease: "back.out(1.6)" }
+      );
+      isSticky = true;
+    } else if (!shouldStick && isSticky) {
+      nav.classList.remove("sticky");
+      isSticky = false;
     }
-  });
+  }, { passive: true });
 
   // Mobile Menu Logic
   const mobileToggle = document.querySelector('.navbar__toggle');
@@ -89,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Mobile Submenu Logic
   const menuWithSub = document.querySelectorAll('.mobile-nav-list .has-submenu');
-  menuWithSub.forEach(item => {
-    item.addEventListener('click', function () {
-      const submenu = this.querySelector('.submenu');
+  menuWithSub.forEach((item) => {
+    item.addEventListener('click', () => {
+      const submenu = item.querySelector('.submenu');
       if (submenu) {
         submenu.classList.toggle('open');
       }
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   megaMenuItems.forEach((item) => {
-    const key = item.getAttribute("data-mega-target");
+    const key = item.dataset.megaTarget;
     const link = item.querySelector(".nav-link");
 
     item.addEventListener("mouseenter", () => {
@@ -169,3 +168,101 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // Import and Run GSAP Animations
 import './animations.js';
+
+const initBarbaTransitions = () => {
+  if (!window.barba || !document.body.hasAttribute('data-barba')) return;
+
+  const spinner = document.querySelector('.page-spinner');
+  const showSpinner = () => {
+    if (spinner) {
+      spinner.classList.add('is-active');
+    }
+  };
+  const hideSpinner = () => {
+    if (spinner) {
+      spinner.classList.remove('is-active');
+    }
+  };
+
+  const getNamespaceGroup = (namespace = '') => {
+    if (namespace === 'home') return 'home';
+    if (namespace.startsWith('services-')) return 'services';
+    if (namespace.startsWith('work-')) return 'work';
+    if (namespace.startsWith('process-')) return 'process';
+    if (namespace.startsWith('about-')) return 'about';
+    if (namespace.startsWith('insights-')) return 'insights';
+    if (namespace.startsWith('contact-')) return 'contact';
+    if (namespace.includes('privacy-policy') || namespace.includes('terms-of-use') || namespace.includes('cookie-consent')) {
+      return 'legal';
+    }
+    return 'default';
+  };
+
+  const transitionPresets = {
+    home: { enter: { opacity: 0, scale: 0.98 }, leave: { opacity: 0, scale: 1.01 } },
+    services: { enter: { opacity: 0, y: 20 }, leave: { opacity: 0, y: -20 } },
+    work: { enter: { opacity: 0, scale: 0.97 }, leave: { opacity: 0, scale: 1.02 } },
+    process: { enter: { opacity: 0, y: 24 }, leave: { opacity: 0, y: -16 } },
+    about: { enter: { opacity: 0, x: 20 }, leave: { opacity: 0, x: -20 } },
+    insights: { enter: { opacity: 0, x: -20 }, leave: { opacity: 0, x: 20 } },
+    contact: { enter: { opacity: 0, y: 18 }, leave: { opacity: 0, y: -18 } },
+    legal: { enter: { opacity: 0 }, leave: { opacity: 0 } },
+    default: { enter: { opacity: 0 }, leave: { opacity: 0 } }
+  };
+
+  window.barba.init({
+    transitions: [
+      {
+        name: 'hamro-transition',
+        leave(data) {
+          showSpinner();
+          const nextNamespace = data.next && data.next.namespace ? data.next.namespace : '';
+          const currentNamespace = data.current && data.current.namespace ? data.current.namespace : '';
+          const group = getNamespaceGroup(nextNamespace || currentNamespace);
+          const preset = transitionPresets[group] || transitionPresets.default;
+          return gsap.to(data.current.container, {
+            ...preset.leave,
+            duration: 0.28,
+            ease: 'power2.out'
+          });
+        },
+        enter(data) {
+          window.scrollTo(0, 0);
+          const nextNamespace = data.next && data.next.namespace ? data.next.namespace : '';
+          const group = getNamespaceGroup(nextNamespace);
+          const preset = transitionPresets[group] || transitionPresets.default;
+          return gsap.fromTo(
+            data.next.container,
+            { ...preset.enter },
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              duration: 0.4,
+              ease: 'power2.out',
+              onComplete: hideSpinner
+            }
+          );
+        }
+      }
+    ]
+  });
+
+  window.barba.hooks.afterEnter(() => {
+    if (window.initPageUI) {
+      window.initPageUI();
+    }
+    if (window.initAnimations) {
+      window.initAnimations();
+    }
+  });
+
+  window.barba.hooks.beforeLeave(() => {
+    if (window.cleanupAnimations) {
+      window.cleanupAnimations();
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', initBarbaTransitions);
