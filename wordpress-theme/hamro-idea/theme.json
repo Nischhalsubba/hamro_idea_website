@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1180px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "palette": [
+        { "slug": "navy", "name": "Hamro Navy", "color": "#0a0e3a" },
+        { "slug": "indigo", "name": "Hamro Indigo", "color": "#121984" },
+        { "slug": "magenta", "name": "Magenta Accent", "color": "#ff009a" },
+        { "slug": "gold", "name": "Gold Accent", "color": "#ffbe2c" },
+        { "slug": "soft-lilac", "name": "Soft Lilac", "color": "#f6f4fc" },
+        { "slug": "white", "name": "White", "color": "#fcfcfc" },
+        { "slug": "body", "name": "Body Text", "color": "#4a4a4c" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "Manrope, sans-serif",
+          "name": "Manrope",
+          "slug": "manrope"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "size": "0.875rem", "name": "Small" },
+        { "slug": "normal", "size": "1rem", "name": "Normal" },
+        { "slug": "large", "size": "1.25rem", "name": "Large" },
+        { "slug": "x-large", "size": "clamp(2rem, 4vw, 3.5rem)", "name": "Display" }
+      ]
+    },
+    "spacing": {
+      "spacingScale": {
+        "operator": "*",
+        "increment": 1.5,
+        "steps": 7,
+        "mediumStep": 1.5,
+        "unit": "rem"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#fcfcfc",
+      "text": "#4a4a4c"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--manrope)"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#121984"
+        }
+      }
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "landing",
+      "title": "Landing Page",
+      "postTypes": ["page"]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ]
+}
+

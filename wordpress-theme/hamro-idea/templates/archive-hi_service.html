@@ -1,0 +1,12 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"hi-section","layout":{"type":"constrained"}} -->
+<main class="wp-block-group hi-section">
+  <!-- wp:heading {"level":1} --><h1>Services</h1><!-- /wp:heading -->
+  <!-- wp:paragraph {"className":"hi-lead"} --><p class="hi-lead">Websites, web apps, CMS platforms, SEO, design, and custom software.</p><!-- /wp:paragraph -->
+  <!-- wp:query {"query":{"perPage":12,"postType":"hi_service","order":"asc","orderBy":"date"},"displayLayout":{"type":"flex","columns":3}} -->
+  <div class="wp-block-query"><!-- wp:post-template --><!-- wp:group {"className":"hi-card","layout":{"type":"constrained"}} --><div class="wp-block-group hi-card"><!-- wp:post-title {"isLink":true,"level":2} /--><!-- wp:post-excerpt /--></div><!-- /wp:group --><!-- /wp:post-template --></div>
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
+
