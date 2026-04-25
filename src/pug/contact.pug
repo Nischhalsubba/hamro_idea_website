@@ -1,0 +1,37 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Contact | Start a Website, CMS or Software Project | Hamro Idea'
+    - var pageDescription = 'Contact Hamro Idea to discuss a website, web app, CMS, eCommerce, SEO, branding, or custom software project. Share what you know; no complete brief required.'
+    - var pageCanonical = 'https://hamroidea.com/contact.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Contact
+                    h1 Tell us what you want to build.
+                    p.page-lead Share what you know. You do not need a complete brief.
+                    .page-actions
+                        a.btn.btn--icon-block(href="/services/start-a-new-project.html")
+                            span.text Start a Project
+                        a.btn.btn--ghost(href="/contact/email.html") Email Us
+    section.page-section(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Contact Options
+                p Choose the path that matches your preferred way to start.
+            .signature-grid
+                a.signature-card(href="/services/start-a-new-project.html")
+                    h3 Project Form
+                    p Best for websites, CMS, web apps, custom software, branding, SEO, or support.
+                a.signature-card(href="/contact/email.html")
+                    h3 Email
+                    p Send a short brief, reference links, timeline, and questions.
+                a.signature-card(href="/contact/whatsapp.html")
+                    h3 WhatsApp
+                    p Use for a quick first message during business hours.
+    include organisms/cta
+

@@ -176,6 +176,38 @@
           input.checked = true;
         });
       }
+
+      projectForm.addEventListener('submit', (event) => {
+        const button = projectForm.querySelector('button[type="submit"] .text');
+        let status = projectForm.querySelector('[data-form-status]');
+
+        if (!status) {
+          status = document.createElement('p');
+          status.className = 'form-helper form-status';
+          status.setAttribute('data-form-status', '');
+          projectForm.querySelector('.form-actions')?.appendChild(status);
+        }
+
+        if (!projectForm.checkValidity()) {
+          status.textContent = 'Something went wrong. Please check required fields or email us directly.';
+          return;
+        }
+
+        status.textContent = 'Sending your project details...';
+        if (button) {
+          button.textContent = 'Sending your project details...';
+        }
+
+        if (projectForm.action.includes('your-form-id')) {
+          event.preventDefault();
+          window.setTimeout(() => {
+            status.textContent = 'Thanks — your project details were received. We’ll review the scope and reply with next steps.';
+            if (button) {
+              button.textContent = 'Start a Project';
+            }
+          }, 500);
+        }
+      });
     }
   };
 

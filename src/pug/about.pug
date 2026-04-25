@@ -1,0 +1,19 @@
+extends templates/main
+block variables
+    - var pageTitle = 'About | Nepal-Based Software & Web Development Studio | Hamro Idea'
+    - var pageDescription = 'Hamro Idea is a Nepal-based software, web development, CMS, and digital product studio helping businesses build practical digital systems.'
+    - var pageCanonical = 'https://hamroidea.com/about.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow About
+                    h1 A Nepal-based studio for websites, products, and software systems.
+                    p.page-lead Hamro Idea works with startups, businesses, agencies, and growing teams that need thoughtful planning and practical digital delivery.
+    include organisms/why-choose
+    include organisms/cta
+

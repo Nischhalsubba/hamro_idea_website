@@ -1,7 +1,7 @@
 {
-  "name": "@jr-cologne/create-gulp-starter-kit",
-  "version": "0.11.0-beta",
-  "description": "A simple Gulp 4 Starter Kit for modern web development.",
+  "name": "hamro-idea-website",
+  "version": "1.0.0",
+  "description": "Static marketing website for Hamro Idea, a Nepal-based software and digital product studio.",
   "keywords": [
     "gulp",
     "gulp-starter-kit",
@@ -23,19 +23,14 @@
     "start": "gulp",
     "build": "gulp build"
   },
-  "bin": {
-    "create-gulp-starter-kit": "./bin/install.js"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jr-cologne/gulp-starter-kit.git"
+    "url": "https://github.com/Nischhalsubba/hamro_idea_website.git"
   },
-  "author": "JR Cologne",
+  "author": "Nischhal Raj Subba",
+  "private": true,
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jr-cologne/gulp-starter-kit/issues"
-  },
-  "homepage": "https://github.com/jr-cologne/gulp-starter-kit",
+  "homepage": "https://hamroidea.com/",
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",

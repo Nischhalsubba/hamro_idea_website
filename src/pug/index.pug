@@ -1,12 +1,90 @@
 extends templates/main
+block variables
+    - var pageTitle = 'Hamro Idea | Web Development, Custom Software & Digital Product Studio in Nepal'
+    - var pageDescription = 'Hamro Idea helps startups and businesses in Nepal and beyond design and build high-performing websites, web apps, CMS platforms, and custom software.'
+    - var pageCanonical = 'https://hamroidea.com/'
 
 block content
     include organisms/hero
-    include organisms/solutions
     include organisms/services
-    include organisms/collaboration
     include organisms/featured-work
     include organisms/why-choose
-    include organisms/testimonial
+    section.page-section.home-process(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Process
+                p A practical delivery flow from first idea to launch and improvement.
+            .signature-grid
+                each step, index in ['Discover', 'Design', 'Build', 'Launch', 'Improve']
+                    .signature-card
+                        span.signature-kicker 0#{index + 1}
+                        h3= step
+                        p= ['Clarify goals, users, constraints, and the right scope.', 'Shape the information architecture, UX, and visual system.', 'Develop the website, CMS, web app, or software with QA checkpoints.', 'Prepare content, performance, SEO basics, analytics, and handover.', 'Review results, fix friction, and plan the next useful improvement.'][index]
+    section.page-section.home-fit(data-section-layout="split")
+        .container
+            .page-section__header
+                h2 Client Fit
+                p We work best when the goal is clear ownership, practical execution, and a durable digital system.
+            .signature-grid
+                each fit in ['Startups', 'Local businesses', 'Agencies', 'Growing companies', 'Enterprises']
+                    .signature-card
+                        h3= fit
+                        p Strategy, design, development, and delivery support matched to the team size and stage.
+    section.page-section.home-guide(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Not sure what you need?
+                p Pick the closest starting point. The project form can handle rough ideas.
+            .signature-grid
+                a.signature-card(href="/services/web-development.html?need=new-website")
+                    h3 I need a new website
+                    p Start with web development and a clear content structure.
+                a.signature-card(href="/services/web-development.html?need=redesign")
+                    h3 I need to redesign an old website
+                    p Improve trust, speed, messaging, SEO, and conversion flow.
+                a.signature-card(href="/services/enterprise-software.html?need=custom-software")
+                    h3 I need custom software
+                    p Plan workflows, data, integrations, permissions, and operations.
+                a.signature-card(href="/services/digital-marketing-seo.html?need=seo")
+                    h3 I need better SEO
+                    p Fix technical barriers and improve content visibility.
+                a.signature-card(href="/services/start-a-new-project.html?need=startup-idea")
+                    h3 I have a startup idea
+                    p Scope the right MVP before committing to a full build.
+                a.signature-card(href="/services/start-a-new-project.html?need=support")
+                    h3 I need long-term support
+                    p Get help maintaining, improving, and extending your platform.
+    section.page-section.home-faq(data-section-layout="rail")
+        .container
+            .page-section__header
+                h2 FAQ
+                p Practical answers before you start a project.
+            .page-faqs
+                details.page-faq
+                    summary How long does a website project take?
+                        span.faq-toggle(aria-hidden="true")
+                    .page-faq__body
+                        p Most focused website projects take 4-8 weeks depending on content, integrations, review cycles, and CMS needs.
+                details.page-faq
+                    summary Can you redesign an existing website?
+                        span.faq-toggle(aria-hidden="true")
+                    .page-faq__body
+                        p Yes. We can audit the current site, keep what works, and rebuild the UX, messaging, performance, and SEO foundation.
+                details.page-faq
+                    summary Do you build custom CMS platforms?
+                        span.faq-toggle(aria-hidden="true")
+                    .page-faq__body
+                        p Yes. We build custom CMS workflows and also work with WordPress, Drupal, Shopify, WooCommerce, and headless approaches where they fit.
+                details.page-faq
+                    summary Do you work with international clients?
+                        span.faq-toggle(aria-hidden="true")
+                    .page-faq__body
+                        p Yes. Hamro Idea is Nepal-based and can work remotely with teams outside Nepal using clear milestones and async-friendly communication.
+                details.page-faq
+                    summary Do you provide post-launch support?
+                        span.faq-toggle(aria-hidden="true")
+                    .page-faq__body
+                        p Yes. Support can include fixes, CMS help, SEO improvements, performance monitoring, and feature iteration.
     include organisms/insights
     include organisms/cta
+

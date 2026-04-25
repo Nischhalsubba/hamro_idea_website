@@ -1,6 +1,28 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+.breadcrumbs {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  color: rgba($black, 0.62);
+
+  a {
+    color: $brand-primary;
+    text-decoration: none;
+    font-weight: 700;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+.related-links {
+  background: $color-soft-lilac;
+}
+
 .page-shell {
   background: $color-white;
   color: $color-text-body;

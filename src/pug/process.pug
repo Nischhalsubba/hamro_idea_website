@@ -1,0 +1,29 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Process | Strategy-First Web & Software Delivery | Hamro Idea'
+    - var pageDescription = 'Learn how Hamro Idea discovers, designs, builds, launches, and improves websites, CMS platforms, web apps, and custom software.'
+    - var pageCanonical = 'https://hamroidea.com/process.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Process
+                    h1 A clear path from idea to launched system.
+                    p.page-lead Scope, timeline, ownership, design, development, QA, launch, and handover stay visible from the start.
+    section.page-section(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Delivery Flow
+                p The steps we use across website, CMS, web app, and custom software projects.
+            .signature-grid
+                each step, index in ['Discover', 'Design', 'Build', 'Launch', 'Improve']
+                    .signature-card
+                        span.signature-kicker 0#{index + 1}
+                        h3= step
+                        p= ['Clarify goals, users, scope, budget, risks, and technical needs.', 'Create structure, flows, interface direction, and content priorities.', 'Develop, integrate, review, and QA the production system.', 'Prepare SEO basics, analytics, performance checks, training, and handover.', 'Use support cycles to fix friction and ship useful improvements.'][index]
+    include organisms/cta
+

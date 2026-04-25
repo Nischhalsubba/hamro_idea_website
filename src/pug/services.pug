@@ -1,0 +1,33 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Services | Web Development, CMS, SEO & Custom Software | Hamro Idea'
+    - var pageDescription = 'Explore Hamro Idea services for high-performing websites, web apps, custom CMS platforms, eCommerce, SEO, branding, and custom software.'
+    - var pageCanonical = 'https://hamroidea.com/services.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Services
+                    h1 Websites, web apps, CMS platforms, and custom software.
+                    p.page-lead Hamro Idea plans, designs, and builds digital systems for startups, local businesses, agencies, growing companies, and enterprise teams.
+                    .page-actions
+                        a.btn.btn--icon-block(href="/services/start-a-new-project.html")
+                            span.text Book a Project Call
+                        a.btn.btn--ghost(href="/work.html") View Case Studies
+    include organisms/services
+    section.page-section(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Service Pages
+                p Choose the closest need and continue into the detailed service page.
+            .signature-grid
+                each item in [{t:'Web Development',d:'Fast websites and web apps for conversion, SEO, and scale.',u:'/services/web-development.html'},{t:'Custom CMS',d:'Publishing systems built around your content workflow.',u:'/services/custom-cms.html'},{t:'Custom Software',d:'Internal tools, platforms, and operational systems.',u:'/services/enterprise-software.html'},{t:'SEO & Growth',d:'Technical SEO, performance, and conversion improvements.',u:'/services/digital-marketing-seo.html'},{t:'Brand & Product Design',d:'Identity, product UI, and practical design systems.',u:'/services/branding-identity.html'},{t:'CMS & eCommerce',d:'Shopify, WooCommerce, CMS, and commerce growth support.',u:'/services/ecommerce-growth.html'}]
+                    a.signature-card(href=item.u)
+                        h3= item.t
+                        p= item.d
+    include organisms/cta
+

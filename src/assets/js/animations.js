@@ -60,7 +60,6 @@ const initAnimations = () => {
     gsap.registerPlugin(ScrollTrigger);
     const isHome = document.querySelector(".hero") !== null;
     const isDetailPage = document.querySelector(".page-hero") !== null && !isHome;
-
     // Initial State - Hidden
     gsap.set(".navbar", { y: -20, opacity: 0 });
     gsap.set(".nav-item", { y: -10, opacity: 0 });

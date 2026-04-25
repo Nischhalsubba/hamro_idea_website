@@ -1,20 +1,9 @@
 /**
- * A simple Gulp 4 Starter Kit for modern web development.
+ * Gulp workflow for the Hamro Idea static marketing website.
  *
- * @package @jr-cologne/create-gulp-starter-kit
- * @author JR Cologne <kontakt@jr-cologne.de>
- * @copyright 2020 JR Cologne
- * @license https://github.com/jr-cologne/gulp-starter-kit/blob/master/LICENSE MIT
- * @version v0.11.0-beta
- * @link https://github.com/jr-cologne/gulp-starter-kit GitHub Repository
- * @link https://www.npmjs.com/package/@jr-cologne/create-gulp-starter-kit npm package site
- *
- * ________________________________________________________________________________
- *
- * gulpfile.js
- *
- * The gulp configuration file.
- *
+ * Output currently writes to the repository root so existing relative asset paths
+ * and static hosting behavior remain unchanged. The clear task only removes
+ * generated asset folders; HTML files are overwritten by build tasks, not deleted.
  */
 
 const gulp = require('gulp'),
@@ -44,25 +33,17 @@ const gulp = require('gulp'),
 
   node_dependencies = Object.keys(require('./package.json').dependencies || {});
 
-// CRITICAL: Modified clear task to avoid deleting the entire root directory.
-// Only delete specific generated assets if needed, or disable for now to be safe.
 gulp.task('clear', () => {
   return del([
     './assets/css',
     './assets/js/all.js',
     './assets/js/all.js.map',
-    './assets/images',
-    './*.html' // CAREFUL: This deletes all HTML files in root. Source HTML is in src/.
-    // Since user wants root HTML, we will overwite them. 
-    // Ideally we would list them specifically or just accept overwrite.
-    // The risk is deleting an existing index.html if it's not generated.
-    // But given the task, we assume root HTMLs are build artifacts.
-    // To be safer, we won't delete root HTMLs in 'clear', just overwrite in build.
+    './assets/images'
   ], { dryRun: false }); // dryRun: false to actually delete
 });
 
 gulp.task('html', () => {
-  return gulp.src([src_folder + '**/*.html'], {
+  return gulp.src([src_folder + '**/*.{html,xml,txt}'], {
     base: src_folder,
     since: gulp.lastRun('html')
   })
@@ -169,7 +150,7 @@ gulp.task('dev', gulp.series('html', 'pug', 'sass', 'less', 'stylus', 'js'));
 gulp.task('serve', () => {
   return browserSync.init({
     server: {
-      baseDir: ['dist']
+      baseDir: ['.']
     },
     port: 3000,
     open: false

@@ -1,0 +1,37 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Work | Selected Website, CMS & Software Projects | Hamro Idea'
+    - var pageDescription = 'View selected Hamro Idea project highlights across websites, CMS platforms, software interfaces, and digital product delivery.'
+    - var pageCanonical = 'https://hamroidea.com/work.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Work
+                    h1 Selected work and project highlights.
+                    p.page-lead A practical overview of website, CMS, platform, and product design work without inflated metrics or invented client claims.
+                    .page-actions
+                        a.btn.btn--icon-block(href="/services/start-a-new-project.html")
+                            span.text Discuss Your Project
+    include organisms/featured-work
+    section.page-section(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Explore More
+                p Continue into available work detail pages.
+            .signature-grid
+                a.signature-card(href="/work/case-studies.html")
+                    h3 Case Studies
+                    p Selected project narratives and delivery decisions.
+                a.signature-card(href="/work/client-sites.html")
+                    h3 Client Sites
+                    p Website and web experience examples.
+                a.signature-card(href="/work/project-detail.html")
+                    h3 Project Detail
+                    p A deeper project layout for future case-study content.
+    include organisms/cta
+

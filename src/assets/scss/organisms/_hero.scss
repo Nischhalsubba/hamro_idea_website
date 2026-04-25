@@ -17,8 +17,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(145deg, rgba(0, 0, 0, 0.68) 0%, rgba(12, 18, 64, 0.4) 45%, rgba(18, 25, 132, 0.28) 100%);
-        mix-blend-mode: normal;
+        background: linear-gradient(145deg, rgba(0, 0, 0, 0.68) 0%, rgba(12, 18, 64, 0.4) 45%, rgba(18, 25, 132, 0.28) 100%);        mix-blend-mode: normal;
         z-index: 1;
         pointer-events: none;
     }
@@ -36,8 +35,7 @@
         background:
             radial-gradient(circle at 78% 30%, rgba(118, 134, 255, 0.4) 0%, transparent 48%),
             radial-gradient(circle at 10% 82%, rgba(12, 18, 64, 0.95) 0%, transparent 62%),
-            linear-gradient(140deg, #040726 0%, #0f1668 45%, #18227a 100%);
-        background-size: 200% 200%; // Enlarge for movement
+            linear-gradient(140deg, #040726 0%, #0f1668 45%, #18227a 100%);        background-size: 200% 200%; // Enlarge for movement
         animation: gradientFlow 15s ease infinite alternate;
         opacity: 1;
         pointer-events: none;
@@ -103,8 +101,7 @@
         font-weight: 400; // Regular weight as per design
         font-size: clamp(2.25rem, 4.2vw, 3.5rem);
         line-height: 1.14;
-        margin-bottom: 1.25rem;
-        letter-spacing: -0.015em;
+        margin-bottom: 1.25rem;        letter-spacing: -0.015em;
         color: $color-white;
     }
 
@@ -115,8 +112,7 @@
         line-height: 1.6;
         color: rgba($color-white, 0.82);
         max-width: 650px;
-        margin-bottom: 1.1rem;
-    }
+        margin-bottom: 1.1rem;    }
 
     .hero-desc {
         font-size: 0.98rem;
@@ -175,15 +171,13 @@
         gap: 1rem;
         border-top: 1px solid rgba($color-white, 0.15);
         padding-top: clamp(1rem, 2.5vh, 1.6rem);
-        padding-bottom: clamp(0.5rem, 1.5vh, 1rem);
-        width: 100%;
+        padding-bottom: clamp(0.5rem, 1.5vh, 1rem);        width: 100%;
         flex-shrink: 0;
 
         .footer-label {
             font-size: 0.85rem;
             color: rgba($color-white, 0.7);
-            margin-right: 1.5rem;
-        }
+            margin-right: 1.5rem;        }
 
         .footer-logos {
             display: flex;
@@ -210,8 +204,7 @@
 
                 &__text {
                     white-space: nowrap;
-                }
-            }
+                }            }
         }
     }
 }

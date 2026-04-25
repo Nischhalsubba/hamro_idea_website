@@ -1,0 +1,31 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Solutions | Websites, Software & Digital Systems | Hamro Idea'
+    - var pageDescription = 'Solution paths for startups, local businesses, agencies, growing companies, and enterprises that need websites, CMS platforms, web apps, or custom software.'
+    - var pageCanonical = 'https://hamroidea.com/solutions.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Solutions
+                    h1 Digital systems matched to your stage and business model.
+                    p.page-lead Start with the outcome: a clearer website, a custom platform, better publishing, stronger SEO, or a support partner for ongoing improvements.
+                    .page-actions
+                        a.btn.btn--icon-block(href="/services/start-a-new-project.html")
+                            span.text Start a Project
+    section.page-section(data-section-layout="cards")
+        .container
+            .page-section__header
+                h2 Common Starting Points
+                p Practical paths without forcing every project into the same package.
+            .signature-grid
+                each item in [{t:'Startups',d:'MVP planning, product websites, launch pages, and first CMS builds.'},{t:'Local businesses',d:'Trust-building websites, service pages, local SEO, and lead capture.'},{t:'Agencies',d:'White-label frontend, CMS, web app, and implementation support.'},{t:'Growing companies',d:'Website redesigns, CMS migrations, dashboards, and workflow tools.'},{t:'Enterprises',d:'Custom software, platform modernization, and system handover.'}]
+                    .signature-card
+                        h3= item.t
+                        p= item.d
+    include organisms/cta
+

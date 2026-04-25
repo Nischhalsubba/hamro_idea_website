@@ -1,0 +1,19 @@
+extends templates/main
+block variables
+    - var pageTitle = 'Insights | Website, CMS, SEO & Product Notes | Hamro Idea'
+    - var pageDescription = 'Practical Hamro Idea insights on web development, CMS platforms, SEO, product design, and custom software delivery.'
+    - var pageCanonical = 'https://hamroidea.com/insights.html'
+
+block content
+    section.page-hero.page-hero--split
+        .page-hero__bg
+        .page-hero__noise
+        .container
+            .hero-layout.hero-layout--stack
+                .page-hero__content
+                    span.page-eyebrow Insights
+                    h1 Notes on building better websites and digital systems.
+                    p.page-lead Practical guidance for teams planning a website, CMS, SEO improvement, web app, or software project.
+    include organisms/insights
+    include organisms/cta
+
