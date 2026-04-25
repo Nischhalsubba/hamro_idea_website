@@ -527,6 +527,37 @@ body:has(.page-hero) {
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
+
+  .navbar .mega-menu {
+    background: rgba($color-white, 0.96);
+    border-top-color: rgba($color-blue, 0.12);
+    box-shadow: 0 24px 44px rgba($color-blue, 0.14);
+  }
+
+  .navbar .mega-menu__main .mega-section-title,
+  .navbar .mega-menu__sidebar .mega-section-title {
+    color: rgba($color-text-head, 0.52);
+  }
+
+  .navbar .mega-menu__sidebar {
+    border-left-color: rgba($color-blue, 0.12);
+  }
+
+  .navbar .mega-menu__main .mega-links li a,
+  .navbar .mega-menu__main .service-card__content .service-card__title,
+  .navbar .mega-menu__sidebar .sidebar-title {
+    color: $color-text-head;
+  }
+
+  .navbar .mega-menu__main .service-card__content .service-card__desc,
+  .navbar .mega-menu__sidebar .sidebar-desc {
+    color: rgba($color-text-body, 0.68);
+  }
+
+  .navbar .mega-menu__main .service-card:hover,
+  .navbar .mega-menu__sidebar .sidebar-icon {
+    background: rgba($color-blue, 0.06);
+  }
 }
 
 // Mobile Overlay

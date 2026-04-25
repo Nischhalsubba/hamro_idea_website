@@ -2,10 +2,13 @@
 @use "../common/mixins" as *;
 
 .breadcrumbs {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  margin-top: calc(var(--nav-height, 88px) + 16px);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   font-size: 0.9rem;
   color: rgba($black, 0.62);
+  position: relative;
+  z-index: 5;
 
   a {
     color: $brand-primary;
@@ -636,6 +639,126 @@
   gap: 0.75rem;
 }
 
+// Purposeful checklist treatment for deliverables and preparation sections.
+.page-section:has(.page-list) {
+  background:
+    radial-gradient(circle at 78% 10%, rgba($color-accent-pink, 0.12), transparent 36%),
+    linear-gradient(135deg, #070b2d 0%, #121984 58%, #0a0e3a 100%) !important;
+  color: $color-white;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($color-white, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($color-white, 0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent 72%);
+    pointer-events: none;
+  }
+
+  > .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .page-section__header {
+    margin-bottom: 0;
+    max-width: 420px;
+  }
+
+  .page-section__header h2 {
+    color: $color-white;
+  }
+
+  .page-section__header p {
+    color: rgba($color-white, 0.68);
+  }
+
+  .page-list {
+    counter-reset: delivery-item;
+    background:
+      linear-gradient(135deg, rgba($color-white, 0.08), rgba($color-white, 0.03)),
+      rgba($color-white, 0.04);
+    border: 1px solid rgba($color-white, 0.12);
+    border-radius: $radius-lg;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, $color-accent-pink, $color-highlight-yellow);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      list-style: none;
+      column-count: auto;
+      column-gap: 0;
+    }
+
+    li {
+      counter-increment: delivery-item;
+      margin: 0;
+      color: rgba($color-white, 0.86);
+      line-height: 1.6;
+      position: relative;
+      min-height: 82px;
+      padding: 1rem 1rem 1rem 4.1rem;
+      background: rgba($color-white, 0.06);
+      border: 1px solid rgba($color-white, 0.1);
+      border-radius: $radius-md;
+
+      &::before {
+        content: counter(delivery-item, decimal-leading-zero);
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        color: $color-white;
+        background: rgba($color-blue, 0.85);
+        border: 1px solid rgba($color-white, 0.16);
+        border-radius: $radius-sm;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    > .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-list ul {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
 .page-faq {
   background: transparent;
   border: none;
@@ -1063,6 +1186,10 @@
 body:has(.page-hero) {
   .page-hero {
     padding: calc(var(--nav-height, 88px) + 56px) 0 88px;
+  }
+
+  .breadcrumbs + .page-hero {
+    padding-top: 56px;
   }
 
   .page-section {

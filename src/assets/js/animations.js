@@ -359,32 +359,6 @@ const initAnimations = () => {
     hoverLift(".page-hero__panel", { scale: 1.01, y: -4 });
     hoverLift(".visual-card__tile", { scale: 1.02, y: -3 });
 
-    if (!isDetailPage) {
-        // Ambient float for card-based sections (disabled on detail pages)
-        gsap.utils.toArray(".signature-card, .mosaic-tile, .metric-card, .page-faq").forEach((card, index) => {
-            gsap.to(card, {
-                y: -6,
-                duration: 4 + (index % 3) * 0.6,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut"
-            });
-        });
-    }
-
-    // Anime.js micro-motion (if available)
-    if (window.anime && !prefersReducedMotion) {
-        window.anime({
-            targets: ".signature-kicker, .hero-badge, .section-kicker",
-            translateY: [0, -3],
-            direction: "alternate",
-            loop: true,
-            easing: "easeInOutSine",
-            delay: window.anime.stagger(120),
-            duration: 2400
-        });
-    }
-
     // Three.js ambient canvas (if available)
     if (window.THREE && !prefersReducedMotion) {
         const hero = document.querySelector(".page-hero");
