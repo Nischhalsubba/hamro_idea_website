@@ -56,6 +56,11 @@ npm run build
 
 The current workflow writes production files to the repository root to preserve existing static hosting and asset paths. The `clear` task only removes generated asset folders and bundled files; it does not delete root HTML files.
 
+For Vercel, `npm run build` also prepares a `public/` directory after Gulp finishes. Vercel should use:
+
+- Build Command: `npm run build`
+- Output Directory: `public`
+
 ## Deployment
 
 Deploy the repository root as a static site after running:

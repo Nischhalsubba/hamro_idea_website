@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build && node scripts/prepare-public.js",
+    "build:root": "gulp build"
   },
   "repository": {
     "type": "git",
