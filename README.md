@@ -1,52 +1,101 @@
-# Hamro Idea Website
-
 <!-- interactive-readme-standard:start -->
 
-> [!NOTE]
-> **Branch-specific documentation:** this section is maintained for [`cms-intregration`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration). It is generated from the files present on this branch and preserves the project-authored README below.
+<div align="center">
 
-<details open>
-<summary><strong>Interactive repository guide</strong></summary>
+# hamro_idea_website
 
-## Branch overview
+**Branch-aware technical guide for [`cms-intregration`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration)**
 
-| Item | Value |
+<p><img alt="branch: cms-intregration" src="https://img.shields.io/static/v1?label=&message=branch%3A%20cms-intregration&color=5965F2&style=flat-square"> <img alt="HTML" src="https://img.shields.io/static/v1?label=&message=HTML&color=24292F&style=flat-square"> <img alt="Sass" src="https://img.shields.io/static/v1?label=&message=Sass&color=24292F&style=flat-square"> <img alt="TypeScript" src="https://img.shields.io/static/v1?label=&message=TypeScript&color=24292F&style=flat-square"> <img alt="JavaScript" src="https://img.shields.io/static/v1?label=&message=JavaScript&color=24292F&style=flat-square"> <img alt="CSS" src="https://img.shields.io/static/v1?label=&message=CSS&color=24292F&style=flat-square"> <img alt="license detected" src="https://img.shields.io/static/v1?label=&message=license%20detected&color=2DA44E&style=flat-square"> <img alt="docs: branch-aware" src="https://img.shields.io/static/v1?label=&message=docs%3A%20branch-aware&color=8250DF&style=flat-square"></p>
+
+<p>
+  <a href="https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration"><strong>Browse source</strong></a> ·
+  <a href="https://github.com/Nischhalsubba/hamro_idea_website/issues"><strong>Issues</strong></a> ·
+  <a href="https://github.com/Nischhalsubba/hamro_idea_website/codespaces/new?ref=cms-intregration"><strong>Open in Codespaces</strong></a>
+</p>
+
+</div>
+
+> [!IMPORTANT]
+> This guide is generated from the files actually present on `cms-intregration`. It links to detected source paths, preserves project-authored notes, and avoids claiming components that were not found.
+
+## At a glance
+
+| Item | Detected value |
 |---|---|
-| Repository | [`Nischhalsubba/hamro_idea_website`](https://github.com/Nischhalsubba/hamro_idea_website) |
-| Branch | [`cms-intregration`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration) |
-| Detected stack | HTML, Sass, TypeScript, JavaScript, CSS |
-| Detected manifests | package.json |
-| Documentation policy | Every maintained branch must explain purpose, setup, structure, architecture, flows, testing, delivery, security, and ownership. |
+| Purpose | A simple Gulp 4 Starter Kit for modern web development. |
+| Branch role | Compared with `main` |
+| Stack | HTML, Sass, TypeScript, JavaScript, CSS |
+| Manifests | package.json |
+| Prerequisites | Node.js |
+| Delivery | GitHub Actions |
+| License | LICENSE |
 
-## Repository structure
+## Branch scope
+
+This branch differs from the default branch in the following detected paths:
+
+- [`README.md`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/README.md)
+- [`hamroidea-cms/.env.example`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/.env.example)
+- [`hamroidea-cms/.gitignore`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/.gitignore)
+- [`hamroidea-cms/README.md`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/README.md)
+- [`hamroidea-cms/config/admin.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/admin.ts)
+- [`hamroidea-cms/config/api.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/api.ts)
+- [`hamroidea-cms/config/database.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/database.ts)
+- [`hamroidea-cms/config/middlewares.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/middlewares.ts)
+- [`hamroidea-cms/config/plugins.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/plugins.ts)
+- [`hamroidea-cms/config/server.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/server.ts)
+- [`hamroidea-cms/database/migrations/.gitkeep`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/database/migrations/.gitkeep)
+- [`hamroidea-cms/favicon.png`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/favicon.png)
+
+## Quick start
+
+```bash
+npm install
+npm run start
+npm run build
+```
+
+### Configuration surface
+
+- `hamroidea-cms/.env.example`
+
+> Never commit secrets, private keys, production credentials, customer data, or unredacted infrastructure details.
+
+## Repository map
 
 ```mermaid
 flowchart TD
     ROOT["hamro_idea_website / cms-intregration"]
     ROOT --> P0[".agent/"]
     ROOT --> P1[".github/"]
-    ROOT --> P2[".vscode/"]
-    ROOT --> P3["about/"]
-    ROOT --> P4["assets/"]
-    ROOT --> P5["contact/"]
-    ROOT --> P6["docs/"]
-    ROOT --> P7["hamroidea-cms/"]
-    ROOT --> P8["insights/"]
-    ROOT --> P9["organisms/"]
-    ROOT --> P10["process/"]
-    ROOT --> P11["services/"]
-    ROOT --> P12["skills/"]
-    ROOT --> P13["src/"]
-    ROOT --> P14["templates/"]
-    ROOT --> P15["work/"]
-    ROOT --> P16[".DS_Store"]
-    ROOT --> P17[".editorconfig"]
-    ROOT --> MORE["+ 21 more top-level entries"]
+    ROOT --> P2["about/"]
+    ROOT --> P3["assets/"]
+    ROOT --> P4["contact/"]
+    ROOT --> P5["docs/"]
+    ROOT --> P6["hamroidea-cms/"]
+    ROOT --> P7["insights/"]
+    ROOT --> P8["organisms/"]
+    ROOT --> P9["process/"]
+    ROOT --> P10["services/"]
+    ROOT --> P11["skills/"]
+    ROOT --> P12["src/"]
+    ROOT --> P13["templates/"]
+    ROOT --> P14["work/"]
+    ROOT --> P15[".DS_Store"]
+    ROOT --> P16[".editorconfig"]
+    ROOT --> P17[".gitignore"]
+    ROOT --> MORE["+ 20 more top-level entries"]
 ```
 
-The diagram is generated from the branch's actual top-level files and directories. Use the branch link above for complete source navigation.
+| Responsibility | Detected source paths |
+|---|---|
+| Interface | [`templates`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration/templates), [`src`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration/src) |
+| Application logic | [`services`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration/services) |
+| Documentation | [`docs`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration/docs) |
+| Delivery | [`.github`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration/.github) |
 
-## Website or application structure
+## Website or application map
 
 ```mermaid
 flowchart TD
@@ -55,42 +104,134 @@ flowchart TD
     R0 --> F0["templates/main.html"]
 ```
 
-## Application and responsibility flow
+## Architecture and responsibility flow
 
 ```mermaid
 flowchart LR
-    ACTOR["User / contributor"]
-    ACTOR --> A0["Interface: templates, src"]
+    USER["User / contributor"]
+    USER --> A0["Interface: templates, src"]
     A0 --> A1["Application logic: services"]
     A1 --> A2["Documentation: docs"]
     A2 --> A3["Delivery: .github"]
     A3 --> DELIVERY["Delivery: GitHub Actions"]
 ```
 
-## Change-to-delivery flow
+<details>
+<summary><strong>Data flow and model surface</strong></summary>
 
 ```mermaid
 flowchart LR
-    CHANGE["Change on cms-intregration"]
-    CHECK["Validate: npm run start, npm run build"]
-    REVIEW["Review documentation and architecture impact"]
-    RELEASE["Merge, release, or deploy according to this branch"]
-    CHANGE --> CHECK --> REVIEW --> RELEASE
+    INPUT["User or system input"] --> VALIDATE["Validate and normalize"]
+    VALIDATE --> LOGIC["Application logic"]
+    LOGIC --> STORE["Persistent or local storage"]
+    STORE --> READ["Query / retrieval"]
+    READ --> OUTPUT["UI, API, report, or export"]
 ```
 
-## README requirements for this branch
+Detected data areas: [`skills/strapi-migration/SKILL.md`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/skills/strapi-migration/SKILL.md), [`hamroidea-cms/config/database.ts`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/config/database.ts), [`hamroidea-cms/database/migrations/.gitkeep`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/hamroidea-cms/database/migrations/.gitkeep).
 
-- Explain what this branch contains and how it differs from the default branch.
-- Keep installation, configuration, usage, testing, deployment, security, support, and license information accurate.
-- Document repository, website or application, API, data, authentication, background-job, and deployment flows when they exist.
-- Prefer Mermaid diagrams and expandable `<details>` sections for visual navigation.
-- Link diagrams and modules to real source paths; never invent missing components.
-- Preserve project-specific documentation and update diagrams whenever architecture or major paths change.
-- Treat secrets, private infrastructure, customer data, and credentials as prohibited README content.
+</details>
+
+## Quality, security, and operations
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### Quality
+
+- No conventional test directory was detected automatically.
+
+Detected commands:
+- `npm run start`
+- `npm run build`
+
+</td>
+<td width="33%" valign="top">
+
+### Security
+
+- No dedicated security policy or automated dependency configuration was detected.
+
+Review authentication, authorization, input validation, dependency updates, secret handling, and failure recovery before release.
+
+</td>
+<td width="34%" valign="top">
+
+### Observability
+
+- No dedicated observability integration was detected automatically.
+
+Define useful logs, metrics, traces, alerts, and rollback signals for production-facing branches.
+
+</td>
+</tr>
+</table>
+
+## Delivery flow
+
+```mermaid
+flowchart LR
+    CHANGE["Change on cms-intregration"] --> CHECK["Tests and quality checks"]
+    CHECK --> REVIEW["Review architecture and documentation impact"]
+    REVIEW --> BUILD["Build or package"]
+    BUILD --> DEPLOY["Deploy or release"]
+    DEPLOY --> VERIFY["Verify health and rollback readiness"]
+```
+
+### Automation detected
+
+- [`.github/workflows/npm_publish.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/.github/workflows/npm_publish.yml)
+- [`.github/workflows/tests.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/.github/workflows/tests.yml)
+
+## Contribution flow
+
+```mermaid
+flowchart LR
+    FORK["Create branch"] --> CHANGE["Make focused change"]
+    CHANGE --> TEST["Run relevant checks"]
+    TEST --> DOCS["Update README and diagrams"]
+    DOCS --> PR["Open pull request"]
+    PR --> REVIEW["Review and iterate"]
+    REVIEW --> MERGE["Merge when ready"]
+```
+
+- Keep changes focused and explain architectural consequences.
+- Run the checks relevant to the changed area.
+- Update diagrams whenever routes, modules, data models, authentication, jobs, or delivery paths change.
+- Add screenshots or recordings for visual behavior changes when useful.
+- Use issues for reproducible defects and pull requests for reviewable changes.
+
+## Ownership and support
+
+| Topic | Source |
+|---|---|
+| Repository | [`Nischhalsubba/hamro_idea_website`](https://github.com/Nischhalsubba/hamro_idea_website) |
+| Branch | [`cms-intregration`](https://github.com/Nischhalsubba/hamro_idea_website/tree/cms-intregration) |
+| Ownership | No CODEOWNERS file detected |
+| Contributing | Use the contribution flow above |
+| Support | [Open or review issues](https://github.com/Nischhalsubba/hamro_idea_website/issues) |
+| License | [`LICENSE`](https://github.com/Nischhalsubba/hamro_idea_website/blob/cms-intregration/LICENSE) |
+
+<details>
+<summary><strong>Documentation maintenance checklist</strong></summary>
+
+- [ ] Purpose and branch scope are accurate.
+- [ ] Setup and configuration commands still work.
+- [ ] Repository, application, API, data, authentication, job, and deployment diagrams match the code.
+- [ ] Tests, security controls, observability, and rollback behavior are documented.
+- [ ] Links point to real files on this branch.
+- [ ] No secrets or private operational details are exposed.
 
 </details>
 
 <!-- interactive-readme-standard:end -->
+
+<!-- project-authored-notes:start -->
+<details>
+<summary><strong>Project-authored notes preserved from this branch</strong></summary>
+
+# Hamro Idea Website
 
 A premium, technical marketing website for Hamro Idea - a Nepal-based software and digital delivery studio serving global clients.
 
@@ -321,3 +462,6 @@ This is a static website. Deploy the project root to any static host:
 ## Credits
 
 Designed and conceptualized by Nischhal Raj Subba.
+
+</details>
+<!-- project-authored-notes:end -->
