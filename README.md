@@ -1,5 +1,97 @@
 # Hamro Idea Website
 
+<!-- interactive-readme-standard:start -->
+
+> [!NOTE]
+> **Branch-specific documentation:** this section is maintained for [`develop`](https://github.com/Nischhalsubba/hamro_idea_website/tree/develop). It is generated from the files present on this branch and preserves the project-authored README below.
+
+<details open>
+<summary><strong>Interactive repository guide</strong></summary>
+
+## Branch overview
+
+| Item | Value |
+|---|---|
+| Repository | [`Nischhalsubba/hamro_idea_website`](https://github.com/Nischhalsubba/hamro_idea_website) |
+| Branch | [`develop`](https://github.com/Nischhalsubba/hamro_idea_website/tree/develop) |
+| Detected stack | HTML, Sass, JavaScript, CSS |
+| Detected manifests | package.json |
+| Documentation policy | Every maintained branch must explain purpose, setup, structure, architecture, flows, testing, delivery, security, and ownership. |
+
+## Repository structure
+
+```mermaid
+flowchart TD
+    ROOT["hamro_idea_website / develop"]
+    ROOT --> P0[".agent/"]
+    ROOT --> P1[".github/"]
+    ROOT --> P2[".vscode/"]
+    ROOT --> P3["about/"]
+    ROOT --> P4["assets/"]
+    ROOT --> P5["contact/"]
+    ROOT --> P6["docs/"]
+    ROOT --> P7["hamroidea-cms/"]
+    ROOT --> P8["insights/"]
+    ROOT --> P9["organisms/"]
+    ROOT --> P10["process/"]
+    ROOT --> P11["services/"]
+    ROOT --> P12["src/"]
+    ROOT --> P13["templates/"]
+    ROOT --> P14["work/"]
+    ROOT --> P15[".DS_Store"]
+    ROOT --> P16[".editorconfig"]
+    ROOT --> P17[".gitignore"]
+    ROOT --> MORE["+ 12 more top-level entries"]
+```
+
+The diagram is generated from the branch's actual top-level files and directories. Use the branch link above for complete source navigation.
+
+## Website or application structure
+
+```mermaid
+flowchart TD
+    APP["hamro_idea_website"]
+    APP --> R0["templates"]
+    R0 --> F0["templates/main.html"]
+```
+
+## Application and responsibility flow
+
+```mermaid
+flowchart LR
+    ACTOR["User / contributor"]
+    ACTOR --> A0["Interface: templates, src"]
+    A0 --> A1["Application logic: services"]
+    A1 --> A2["Documentation: docs"]
+    A2 --> A3["Delivery: .github"]
+    A3 --> DELIVERY["Delivery: GitHub Actions"]
+```
+
+## Change-to-delivery flow
+
+```mermaid
+flowchart LR
+    CHANGE["Change on develop"]
+    CHECK["Validate: npm run start, npm run build"]
+    REVIEW["Review documentation and architecture impact"]
+    RELEASE["Merge, release, or deploy according to this branch"]
+    CHANGE --> CHECK --> REVIEW --> RELEASE
+```
+
+## README requirements for this branch
+
+- Explain what this branch contains and how it differs from the default branch.
+- Keep installation, configuration, usage, testing, deployment, security, support, and license information accurate.
+- Document repository, website or application, API, data, authentication, background-job, and deployment flows when they exist.
+- Prefer Mermaid diagrams and expandable `<details>` sections for visual navigation.
+- Link diagrams and modules to real source paths; never invent missing components.
+- Preserve project-specific documentation and update diagrams whenever architecture or major paths change.
+- Treat secrets, private infrastructure, customer data, and credentials as prohibited README content.
+
+</details>
+
+<!-- interactive-readme-standard:end -->
+
 A premium, technical marketing website for Hamro Idea - a Nepal-based software and digital delivery studio serving global clients.
 
 ---
