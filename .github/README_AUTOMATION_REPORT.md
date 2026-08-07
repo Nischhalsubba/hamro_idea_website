@@ -6,8 +6,9 @@ Generator: `aed303eed8a536f2dda075c8be583693325aac37`
 
 | Branch | Result | Detail |
 |---|---|---|
-| `cms-intregration` | updated | Branch-specific README committed |
-| `develop` | updated | Branch-specific README committed |
+| `agent/security-axios-lock` | updated | Branch-specific README committed |
+| `cms-intregration` | unchanged | README already matched the standard |
+| `develop` | unchanged | README already matched the standard |
 | `gh-pages` | unchanged | README already matched the standard |
-| `main` | updated | Branch-specific README committed |
-| `wordpress` | updated | Branch-specific README committed |
+| `main` | unchanged | README already matched the standard |
+| `wordpress` | unchanged | README already matched the standard |
