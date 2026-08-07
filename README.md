@@ -4,27 +4,27 @@
 
 # hamro_idea_website
 
-**Branch-aware technical guide for [`main`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main)**
+**Branch-aware technical guide for [`agent/security-axios-lock`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock)**
 
-<p><img alt="branch: main" src="https://img.shields.io/static/v1?label=&message=branch%3A%20main&color=5965F2&style=flat-square"> <img alt="HTML" src="https://img.shields.io/static/v1?label=&message=HTML&color=24292F&style=flat-square"> <img alt="Sass" src="https://img.shields.io/static/v1?label=&message=Sass&color=24292F&style=flat-square"> <img alt="JavaScript" src="https://img.shields.io/static/v1?label=&message=JavaScript&color=24292F&style=flat-square"> <img alt="CSS" src="https://img.shields.io/static/v1?label=&message=CSS&color=24292F&style=flat-square"> <img alt="license detected" src="https://img.shields.io/static/v1?label=&message=license%20detected&color=2DA44E&style=flat-square"> <img alt="docs: branch-aware" src="https://img.shields.io/static/v1?label=&message=docs%3A%20branch-aware&color=8250DF&style=flat-square"></p>
+<p><img alt="branch: agent/security-axios-lock" src="https://img.shields.io/static/v1?label=&message=branch%3A%20agent%2Fsecurity-axios-lock&color=5965F2&style=flat-square"> <img alt="HTML" src="https://img.shields.io/static/v1?label=&message=HTML&color=24292F&style=flat-square"> <img alt="Sass" src="https://img.shields.io/static/v1?label=&message=Sass&color=24292F&style=flat-square"> <img alt="JavaScript" src="https://img.shields.io/static/v1?label=&message=JavaScript&color=24292F&style=flat-square"> <img alt="CSS" src="https://img.shields.io/static/v1?label=&message=CSS&color=24292F&style=flat-square"> <img alt="license detected" src="https://img.shields.io/static/v1?label=&message=license%20detected&color=2DA44E&style=flat-square"> <img alt="docs: branch-aware" src="https://img.shields.io/static/v1?label=&message=docs%3A%20branch-aware&color=8250DF&style=flat-square"></p>
 
 <p>
-  <a href="https://github.com/Nischhalsubba/hamro_idea_website/tree/main"><strong>Browse source</strong></a> ·
+  <a href="https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock"><strong>Browse source</strong></a> ·
   <a href="https://github.com/Nischhalsubba/hamro_idea_website/issues"><strong>Issues</strong></a> ·
-  <a href="https://github.com/Nischhalsubba/hamro_idea_website/codespaces/new?ref=main"><strong>Open in Codespaces</strong></a>
+  <a href="https://github.com/Nischhalsubba/hamro_idea_website/codespaces/new?ref=agent%2Fsecurity-axios-lock"><strong>Open in Codespaces</strong></a>
 </p>
 
 </div>
 
 > [!IMPORTANT]
-> This guide is generated from the files actually present on `main`. It links to detected source paths, preserves project-authored notes, and avoids claiming components that were not found.
+> This guide is generated from the files actually present on `agent/security-axios-lock`. It links to detected source paths, preserves project-authored notes, and avoids claiming components that were not found.
 
 ## At a glance
 
 | Item | Detected value |
 |---|---|
 | Purpose | Static marketing website for Hamro Idea, a Nepal-based software and digital product studio. |
-| Branch role | Default branch |
+| Branch role | Compared with `main` |
 | Stack | HTML, Sass, JavaScript, CSS |
 | Manifests | package.json |
 | Prerequisites | Node.js |
@@ -33,7 +33,7 @@
 
 ## Branch scope
 
-This is the repository's default branch.
+No branch-specific file differences were detected against the default branch at generation time.
 
 
 
@@ -55,7 +55,7 @@ npm run build
 
 ```mermaid
 flowchart TD
-    ROOT["hamro_idea_website / main"]
+    ROOT["hamro_idea_website / agent/security-axios-lock"]
     ROOT --> P0[".agent/"]
     ROOT --> P1[".github/"]
     ROOT --> P2["about/"]
@@ -79,10 +79,10 @@ flowchart TD
 
 | Responsibility | Detected source paths |
 |---|---|
-| Interface | [`templates`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/templates), [`src`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/src) |
-| Application logic | [`services`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/services) |
-| Documentation | [`docs`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/docs) |
-| Delivery | [`.github`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/.github), [`scripts`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main/scripts) |
+| Interface | [`templates`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/templates), [`src`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/src) |
+| Application logic | [`services`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/services) |
+| Documentation | [`docs`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/docs) |
+| Delivery | [`.github`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/.github), [`scripts`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock/scripts) |
 
 ## Website or application map
 
@@ -147,7 +147,7 @@ Define useful logs, metrics, traces, alerts, and rollback signals for production
 
 ```mermaid
 flowchart LR
-    CHANGE["Change on main"] --> CHECK["Tests and quality checks"]
+    CHANGE["Change on agent/security-axios-lock"] --> CHECK["Tests and quality checks"]
     CHECK --> REVIEW["Review architecture and documentation impact"]
     REVIEW --> BUILD["Build or package"]
     BUILD --> DEPLOY["Deploy or release"]
@@ -156,9 +156,9 @@ flowchart LR
 
 ### Automation detected
 
-- [`.github/workflows/apply-interactive-readme.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/main/.github/workflows/apply-interactive-readme.yml)
-- [`.github/workflows/npm_publish.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/main/.github/workflows/npm_publish.yml)
-- [`.github/workflows/tests.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/main/.github/workflows/tests.yml)
+- [`.github/workflows/apply-interactive-readme.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/agent/security-axios-lock/.github/workflows/apply-interactive-readme.yml)
+- [`.github/workflows/npm_publish.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/agent/security-axios-lock/.github/workflows/npm_publish.yml)
+- [`.github/workflows/tests.yml`](https://github.com/Nischhalsubba/hamro_idea_website/blob/agent/security-axios-lock/.github/workflows/tests.yml)
 
 ## Contribution flow
 
@@ -183,11 +183,11 @@ flowchart LR
 | Topic | Source |
 |---|---|
 | Repository | [`Nischhalsubba/hamro_idea_website`](https://github.com/Nischhalsubba/hamro_idea_website) |
-| Branch | [`main`](https://github.com/Nischhalsubba/hamro_idea_website/tree/main) |
+| Branch | [`agent/security-axios-lock`](https://github.com/Nischhalsubba/hamro_idea_website/tree/agent/security-axios-lock) |
 | Ownership | No CODEOWNERS file detected |
 | Contributing | Use the contribution flow above |
 | Support | [Open or review issues](https://github.com/Nischhalsubba/hamro_idea_website/issues) |
-| License | [`LICENSE`](https://github.com/Nischhalsubba/hamro_idea_website/blob/main/LICENSE) |
+| License | [`LICENSE`](https://github.com/Nischhalsubba/hamro_idea_website/blob/agent/security-axios-lock/LICENSE) |
 
 <details>
 <summary><strong>Documentation maintenance checklist</strong></summary>
