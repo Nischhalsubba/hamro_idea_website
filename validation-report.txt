@@ -1,7 +1,0 @@
-HTML files scanned: 38
-Files with images missing alt: 0
-Files with multiple H1: 0
-
-Missing alt (first 20):
-
-Multiple H1 (first 20):
