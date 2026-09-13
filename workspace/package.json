@@ -59,7 +59,7 @@
     "gsap": "^3.14.2"
   },
   "overrides": {
-    "axios": "0.31.1"
+    "axios": "0.33.0"
   },
   "engines": {
     "node": ">=10"
