@@ -74,3 +74,7 @@ Use a clear brand title and description, semantic headings, descriptive internal
 flowchart LR
     CHANGE["Content / UI change"] --> BUILD["Implement"] --> RESPONSIVE["Responsive review"] --> ACCESS["Accessibility review"] --> SEO["Metadata check"] --> PR["Pull request"]
 ```
+
+## Delivery and review procedure
+
+See [establish reproducible Hamro Idea build and publishing acceptance](./docs/BUILD_AND_PUBLISH_ACCEPTANCE.md) for repository-specific change acceptance, evidence requirements, and rollback procedures.
